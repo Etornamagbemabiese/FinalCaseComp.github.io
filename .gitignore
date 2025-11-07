@@ -45,3 +45,12 @@ build/
 *.temp
 .cache/
 
+# Large media files (too large for GitHub)
+RCGVIDEO.mp4
+*.mp4
+*.mov
+*.avi
+
+# Large PDF files (if needed)
+*.pdf
+
