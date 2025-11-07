@@ -46,8 +46,9 @@ build/
 .cache/
 
 # Large media files (too large for GitHub)
+# RCGVIDEO.mp4 is 515MB - exceeds GitHub's 100MB limit
+# Use Git LFS or host externally
 RCGVIDEO.mp4
-*.mp4
 *.mov
 *.avi
 
