@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Find a Cruise | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html" class="active">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Find Your Perfect Cruise</h1>
+                <p class="page-subtitle">Discover unforgettable voyages across the Caribbean, Mediterranean, Alaska, and beyond</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="cruise-search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-filters">
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label><i class="fas fa-map-marker-alt"></i> Destination</label>
+                            <select class="filter-select">
+                                <option>All Destinations</option>
+                                <option>Caribbean</option>
+                                <option>Mediterranean</option>
+                                <option>Alaska</option>
+                                <option>Northern Europe</option>
+                                <option>Asia</option>
+                                <option>Australia & New Zealand</option>
+                                <option>Bermuda</option>
+                                <option>Bahamas</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label><i class="fas fa-calendar"></i> Month</label>
+                            <select class="filter-select">
+                                <option>Any Month</option>
+                                <option>January 2025</option>
+                                <option>February 2025</option>
+                                <option>March 2025</option>
+                                <option>April 2025</option>
+                                <option>May 2025</option>
+                                <option>June 2025</option>
+                                <option>July 2025</option>
+                                <option>August 2025</option>
+                                <option>September 2025</option>
+                                <option>October 2025</option>
+                                <option>November 2025</option>
+                                <option>December 2025</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label><i class="fas fa-clock"></i> Duration</label>
+                            <select class="filter-select">
+                                <option>Any Duration</option>
+                                <option>3-5 Nights</option>
+                                <option>6-8 Nights</option>
+                                <option>9-12 Nights</option>
+                                <option>13+ Nights</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label><i class="fas fa-users"></i> Guests</label>
+                            <select class="filter-select">
+                                <option>1 Guest</option>
+                                <option>2 Guests</option>
+                                <option>3 Guests</option>
+                                <option>4 Guests</option>
+                                <option>5+ Guests</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label><i class="fas fa-ship"></i> Brand</label>
+                            <select class="filter-select">
+                                <option>All Brands</option>
+                                <option>Royal Caribbean International</option>
+                                <option>Celebrity Cruises</option>
+                                <option>Silversea</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label><i class="fas fa-dollar-sign"></i> Price Range</label>
+                            <select class="filter-select">
+                                <option>Any Price</option>
+                                <option>Under $500</option>
+                                <option>$500 - $1,000</option>
+                                <option>$1,000 - $2,000</option>
+                                <option>$2,000 - $3,500</option>
+                                <option>$3,500+</option>
+                            </select>
+                        </div>
+                        <div class="filter-item filter-item-full">
+                            <button class="cta-button primary search-btn">
+                                <i class="fas fa-search"></i>
+                                <span>Search Cruises</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cruises -->
+    <section class="featured-cruises-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Cruises</h2>
+                <p class="section-subtitle">Handpicked voyages for the ultimate cruise experience</p>
+            </div>
+            <div class="cruises-grid">
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">Best Seller</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-title">7-Night Eastern Caribbean</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Caribbean</span>
+                            <span><i class="fas fa-calendar"></i> Year Round</span>
+                            <span><i class="fas fa-clock"></i> 7 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$899</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">New</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Celebrity Cruises</div>
+                        <h3 class="cruise-title">10-Night Mediterranean</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Mediterranean</span>
+                            <span><i class="fas fa-calendar"></i> May - Oct</span>
+                            <span><i class="fas fa-clock"></i> 10 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$1,499</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">Luxury</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Silversea</div>
+                        <h3 class="cruise-title">14-Night Alaska Expedition</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Alaska</span>
+                            <span><i class="fas fa-calendar"></i> Jun - Aug</span>
+                            <span><i class="fas fa-clock"></i> 14 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$3,999</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">Popular</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-title">5-Night Bahamas</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Bahamas</span>
+                            <span><i class="fas fa-calendar"></i> Year Round</span>
+                            <span><i class="fas fa-clock"></i> 5 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$549</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">Exotic</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Celebrity Cruises</div>
+                        <h3 class="cruise-title">12-Night Asia & Japan</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Asia</span>
+                            <span><i class="fas fa-calendar"></i> Mar - Nov</span>
+                            <span><i class="fas fa-clock"></i> 12 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$2,299</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cruise-card">
+                    <div class="cruise-image">
+                        <div class="cruise-badge">Adventure</div>
+                        <div class="cruise-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-content">
+                        <div class="cruise-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-title">9-Night Northern Europe</h3>
+                        <div class="cruise-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Northern Europe</span>
+                            <span><i class="fas fa-calendar"></i> May - Sep</span>
+                            <span><i class="fas fa-clock"></i> 9 Nights</span>
+                        </div>
+                        <div class="cruise-price">
+                            <span class="price-from">From</span>
+                            <span class="price-amount">$1,799</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                        <button class="cta-button secondary cruise-btn">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

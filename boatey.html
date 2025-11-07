@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Boatey AI | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boatey-overview.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html" class="active">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Boatey Overview Hero Section -->
+    <section class="boatey-overview-hero">
+        <div class="hero-gradient-overlay"></div>
+        <div class="container">
+            <div class="boatey-hero-content-overview">
+                <h1 class="boatey-main-title">Boatey — Your Personal AI Companion at Sea</h1>
+                <p class="boatey-main-subtitle">Intelligent assistance at every wave. From trip planning to onboard support, Boatey is here to make your voyage unforgettable.</p>
+                
+                <!-- Stat Cards -->
+                <div class="boatey-stats-overview">
+                    <div class="stat-card-overview">
+                        <div class="stat-icon-overview">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="stat-content-overview">
+                            <span class="stat-number-overview">10K+</span>
+                            <span class="stat-label-overview">Threads Answered</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-overview">
+                        <div class="stat-icon-overview">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content-overview">
+                            <span class="stat-number-overview">5K+</span>
+                            <span class="stat-label-overview">Cruise Bookings</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-overview">
+                        <div class="stat-icon-overview">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content-overview">
+                            <span class="stat-number-overview">24/7</span>
+                            <span class="stat-label-overview">Real-Time Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="boatey-cta-buttons">
+                    <a href="forum.html" class="cta-button-primary-overview">
+                        <span>Explore Forum</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="chat.html" class="cta-button-secondary-overview" id="meetBoateyBtn">
+                        <span>Meet Boatey AI</span>
+                        <div class="boatey-cta-icon">
+                            <video class="boatey-logo-video-small" autoplay muted loop playsinline>
+                                <source src="Animation.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Can Boatey Do Section -->
+    <section class="boatey-features-overview">
+        <div class="container">
+            <div class="section-header-overview">
+                <h2 class="section-title-overview">What Can Boatey Do?</h2>
+            </div>
+            <div class="features-grid-overview">
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title-overview">Thread Summaries</h3>
+                    <p class="feature-description-overview">Get instant AI-powered summaries of forum discussions to quickly understand key points and insights.</p>
+                </div>
+
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="feature-title-overview">Trip Planning</h3>
+                    <p class="feature-description-overview">Get personalized recommendations for excursions, dining, and activities based on your preferences.</p>
+                </div>
+
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="feature-title-overview">24/7 Support</h3>
+                    <p class="feature-description-overview">Ask me anything about cruises, loyalty programs, or RCG services. I'm always here to help!</p>
+                </div>
+
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="feature-title-overview">Smart Insights</h3>
+                    <p class="feature-description-overview">Discover hidden gems, tips, and tricks from the community to enhance your cruise experience.</p>
+                </div>
+
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="feature-title-overview">Booking Help</h3>
+                    <p class="feature-description-overview">Get assistance with cruise bookings, cabin selection, package deals, and finding the best prices.</p>
+                </div>
+
+                <div class="feature-card-overview">
+                    <div class="feature-icon-overview">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="feature-title-overview">Loyalty Guidance</h3>
+                    <p class="feature-description-overview">Understand your tier benefits, maximize points earning, and learn how to unlock exclusive perks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Navigation to chat page
+        document.addEventListener('DOMContentLoaded', function() {
+            const meetBoateyBtn = document.getElementById('meetBoateyBtn');
+            if (meetBoateyBtn) {
+                meetBoateyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'chat.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

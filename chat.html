@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Chat with Boatey AI | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boatey-chat.css">
+</head>
+<body>
+    <!-- Chat Header Bar -->
+    <header class="chat-header-bar">
+        <div class="chat-header-container">
+            <a href="boatey.html" class="back-to-overview">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Overview</span>
+            </a>
+            <div class="chat-header-center">
+                <div class="boatey-header-icon">
+                    <video class="boatey-logo-video" autoplay muted loop playsinline>
+                        <source src="Animation.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h1 class="chat-header-title">Boatey AI</h1>
+            </div>
+            <div class="chat-header-actions">
+                <button class="header-action-btn" id="minimizeBtn" title="Minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="header-action-btn" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="header-action-btn" id="closeBtn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Chat Area -->
+    <main class="chat-main-container">
+        <div class="chat-messages-area" id="chatMessages">
+            <!-- Welcome Message from Boatey -->
+            <div class="message-bubble bot-message">
+                <div class="message-avatar">
+                    <div class="boatey-avatar-small">
+                        <video class="boatey-avatar-video" autoplay muted loop playsinline>
+                            <source src="Animation.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="message-content-wrapper">
+                    <div class="message-bubble-content">
+                        <p>Hi there! I'm Boatey, your AI companion at sea. How can I assist you today?</p>
+                    </div>
+                    <span class="message-timestamp">Just now</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div class="chat-input-area">
+            <div class="suggestions-dropdown-wrapper">
+                <button class="suggestions-toggle-btn" id="suggestionsToggle" title="Show suggestions">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Suggestions</span>
+                </button>
+                <div class="suggestions-dropdown" id="suggestionsDropdown">
+                    <div class="suggestions-header">
+                        <h3>Quick Suggestions</h3>
+                        <button class="close-suggestions-btn" id="closeSuggestionsBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="suggestions-list" id="suggestionsList">
+                        <button class="suggestion-item" data-suggestion="What are the best Caribbean excursions?">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Best Caribbean Excursions</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="Summarize the latest forum discussions">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Summarize Forum Threads</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="Help me plan a 7-day Mediterranean cruise">
+                            <i class="fas fa-calendar"></i>
+                            <span>Plan My Cruise</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="What are Diamond tier benefits?">
+                            <i class="fas fa-crown"></i>
+                            <span>Loyalty Benefits</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="What ships go to Alaska?">
+                            <i class="fas fa-ship"></i>
+                            <span>Ships to Alaska</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="What are the best deals available?">
+                            <i class="fas fa-tags"></i>
+                            <span>Best Deals</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="Tell me about onboard dining options">
+                            <i class="fas fa-utensils"></i>
+                            <span>Dining Options</span>
+                        </button>
+                        <button class="suggestion-item" data-suggestion="What should I pack for my cruise?">
+                            <i class="fas fa-suitcase"></i>
+                            <span>Packing Tips</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="chatInput" placeholder="Ask Boatey anything…" autocomplete="off" />
+                <button class="send-button" id="sendBtn" title="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="boatey-chat.js"></script>
+</body>
+</html>
+

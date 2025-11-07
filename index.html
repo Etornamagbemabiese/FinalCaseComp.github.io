@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>RCG Connect | Connect. Cruise. Belong.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html" id="forumNavLink">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Forum Preview -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="RCGVIDEO.mp4" type="video/mp4">
+        </video>
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <a href="forum.html" class="hero-tag">
+                    <i class="fas fa-fire"></i>
+                    <span>Check Out Trending Discussions</span>
+                </a>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Connect.</span> Cruise. Belong.
+                </h1>
+                <p class="hero-subtitle">Your AI-powered home at sea — intelligent conversations, personalized insights, and seamless connections.</p>
+                <div class="hero-actions">
+                    <a href="forum.html" class="cta-button primary">
+                        <span>Explore Forum</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="boatey.html" class="cta-button secondary">
+                        <i class="fas fa-robot"></i>
+                        <span>Meet Boatey AI</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item" data-count="32">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Million Members</span>
+            </div>
+            <div class="stat-item" data-count="67">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Ships</span>
+            </div>
+            <div class="stat-item" data-count="3">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Brands</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Preview Section -->
+    <section class="loyalty-preview-section">
+        <div class="container">
+            <div class="loyalty-preview-content">
+                <div class="loyalty-preview-text">
+                    <h2 class="preview-title">Crown & Anchor Society</h2>
+                    <p class="preview-description">Join millions of members earning exclusive rewards with every cruise. Unlock tier benefits, priority access, and unforgettable experiences across all Royal Caribbean Group brands.</p>
+                    <div class="preview-benefits">
+                        <div class="preview-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority boarding & check-in</span>
+                        </div>
+                        <div class="preview-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary specialty dining</span>
+                        </div>
+                        <div class="preview-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive member lounges</span>
+                        </div>
+                        <div class="preview-benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Points never expire</span>
+                        </div>
+                    </div>
+                    <a href="loyalty.html" class="cta-button primary">
+                        <span>Explore Loyalty Program</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="loyalty-preview-visual">
+                    <div class="tier-showcase">
+                        <div class="tier-mini gold-mini">
+                            <i class="fas fa-medal"></i>
+                            <span>Gold</span>
+                        </div>
+                        <div class="tier-mini platinum-mini">
+                            <i class="fas fa-star"></i>
+                            <span>Platinum</span>
+                        </div>
+                        <div class="tier-mini diamond-mini">
+                            <i class="fas fa-gem"></i>
+                            <span>Diamond</span>
+                        </div>
+                        <div class="tier-mini pinnacle-mini">
+                            <i class="fas fa-trophy"></i>
+                            <span>Pinnacle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Concierge Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chatBubble">
+            <i class="fas fa-robot"></i>
+            <div class="pulse-ring"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <i class="fas fa-sparkles"></i>
+                    <h3>AI Concierge</h3>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be added dynamically -->
+            </div>
+            <div class="chat-actions" id="chatActions">
+                <!-- Action buttons will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

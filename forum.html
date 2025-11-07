@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Forum | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html" class="active">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Forum Section -->
+    <section class="forum-section forum-page">
+        <div class="container">
+            <div class="forum-header">
+                <h1 class="page-title">Community Forum</h1>
+                <p class="page-subtitle">Connect with fellow cruisers, share experiences, and discover insights</p>
+            </div>
+            <div class="forum-layout">
+                <!-- Filters Sidebar -->
+                <aside class="forum-filters">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <label>Category</label>
+                        <select class="filter-select">
+                            <option>All Topics</option>
+                            <option>Excursions</option>
+                            <option>Dining</option>
+                            <option>Entertainment</option>
+                            <option>Loyalty Perks</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select class="filter-select">
+                            <option>Most Recent</option>
+                            <option>Most Popular</option>
+                            <option>Most Replies</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Loyalty Tier</label>
+                        <div class="tier-filters">
+                            <label class="tier-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="tier-badge silver">Silver</span>
+                            </label>
+                            <label class="tier-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="tier-badge gold">Gold</span>
+                            </label>
+                            <label class="tier-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="tier-badge platinum">Platinum</span>
+                            </label>
+                            <label class="tier-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="tier-badge diamond">Diamond</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Thread Cards -->
+                <div class="forum-threads">
+                    <div class="thread-card" data-thread="1">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Best Family Excursions for First-Timers</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">Sarah Johnson</span>
+                                        <span class="tier-badge gold">Gold</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: Top recommendations include snorkeling in Cozumel, dolphin encounters, and beach day passes. Most popular for families with kids 8-12 years old.</span>
+                        </div>
+                        <p class="thread-preview">Looking for recommendations for our first family cruise. Kids are 8 and 12. What excursions would you suggest in the Caribbean?</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 24 replies</span>
+                            <span><i class="fas fa-heart"></i> 156 likes</span>
+                            <span class="thread-time">2 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="thread-card" data-thread="2">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Diamond Tier Perks - What's New in 2025?</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=001F54&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">Michael Chen</span>
+                                        <span class="tier-badge diamond">Diamond</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: New 2025 Diamond perks include enhanced lounge access, priority specialty dining reservations, complimentary spa treatments, and exclusive shore excursion discounts. Lounge now offers premium beverages and concierge services.</span>
+                        </div>
+                        <p class="thread-preview">Just reached Diamond tier! Excited to explore all the new benefits. Anyone have insights on the exclusive lounge access?</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 42 replies</span>
+                            <span><i class="fas fa-heart"></i> 289 likes</span>
+                            <span class="thread-time">5 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="thread-card" data-thread="3">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Alaska Cruise Packing Tips</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00AEEF&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">Emma Williams</span>
+                                        <span class="tier-badge platinum">Platinum</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: Essential Alaska packing includes layers (base, mid, outer), waterproof jacket, warm hat/gloves, binoculars for wildlife viewing, comfortable walking shoes, and camera. June weather is mild but variable - prepare for rain and sunshine.</span>
+                        </div>
+                        <p class="thread-preview">First time cruising to Alaska in June. What should I pack? Weather tips and must-have items appreciated!</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 18 replies</span>
+                            <span><i class="fas fa-heart"></i> 98 likes</span>
+                            <span class="thread-time">1 day ago</span>
+                        </div>
+                    </div>
+
+                    <div class="thread-card" data-thread="4">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Specialty Dining Recommendations</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=David+Martinez&background=FF6B6B&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">David Martinez</span>
+                                        <span class="tier-badge silver">Silver</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: Top-rated specialty restaurants include Chops Grille (steakhouse), Giovanni's Table (Italian), and Izumi (sushi). Best value comes from multi-restaurant packages. Consider booking early for better times and discounts.</span>
+                        </div>
+                        <p class="thread-preview">Which specialty restaurants are worth the extra cost? Looking for the best value and experience.</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 31 replies</span>
+                            <span><i class="fas fa-heart"></i> 203 likes</span>
+                            <span class="thread-time">3 days ago</span>
+                        </div>
+                    </div>
+
+                    <div class="thread-card" data-thread="5">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Entertainment Shows Not to Miss</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Lisa+Anderson&background=001F54&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">Lisa Anderson</span>
+                                        <span class="tier-badge gold">Gold</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: Must-see shows include Broadway-style productions, ice skating shows, aqua theater performances, and comedy acts. Reserve seats early via the app. Evening shows typically run twice per night - arrive 15 minutes early for best seats.</span>
+                        </div>
+                        <p class="thread-preview">What are the must-see shows and entertainment on the latest ships? Planning our evening schedule.</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 27 replies</span>
+                            <span><i class="fas fa-heart"></i> 174 likes</span>
+                            <span class="thread-time">4 days ago</span>
+                        </div>
+                    </div>
+
+                    <div class="thread-card" data-thread="6">
+                        <div class="thread-header">
+                            <h3 class="thread-title">Loyalty Points Strategy</h3>
+                            <div class="thread-meta">
+                                <div class="user-info">
+                                    <img src="https://ui-avatars.com/api/?name=Robert+Taylor&background=00AEEF&color=fff&size=64" alt="User">
+                                    <div>
+                                        <span class="username">Robert Taylor</span>
+                                        <span class="tier-badge diamond">Diamond</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-summary-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>Boatey AI Summary: Maximize points by booking longer cruises, using RCG credit cards, booking during double-point promotions, and staying in suites. Redeem strategically for upgrades, onboard credit, or future cruise discounts. Points never expire.</span>
+                        </div>
+                        <p class="thread-preview">Best ways to maximize loyalty points? Share your tips for earning and redeeming points effectively.</p>
+                        <div class="thread-stats">
+                            <span><i class="fas fa-comments"></i> 56 replies</span>
+                            <span><i class="fas fa-heart"></i> 312 likes</span>
+                            <span class="thread-time">1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thread Modal -->
+    <div class="modal-overlay" id="threadModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Thread Title</h2>
+                <div class="modal-meta">
+                    <div class="user-info">
+                        <img id="modalAvatar" src="" alt="User">
+                        <div>
+                            <span class="username" id="modalUsername">Username</span>
+                            <span class="tier-badge" id="modalTier">Tier</span>
+                        </div>
+                    </div>
+                    <span class="thread-time" id="modalTime">Time</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="post-item">
+                    <div class="post-author">
+                        <img id="modalAvatar2" src="" alt="User">
+                        <div>
+                            <span class="username" id="modalUsername2">Username</span>
+                            <span class="tier-badge" id="modalTier2">Tier</span>
+                        </div>
+                    </div>
+                    <p class="post-content" id="modalContent">Post content...</p>
+                    <div class="post-actions">
+                        <button><i class="fas fa-heart"></i> Like</button>
+                        <button><i class="fas fa-reply"></i> Reply</button>
+                    </div>
+                </div>
+                <div class="replies-section">
+                    <h3>Replies (3)</h3>
+                    <div class="reply-item">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=64" alt="User">
+                        <div class="reply-content">
+                            <div class="reply-header">
+                                <span class="username">John Doe</span>
+                                <span class="tier-badge gold">Gold</span>
+                                <span class="reply-time">1 hour ago</span>
+                            </div>
+                            <p>Great question! I'd recommend the snorkeling excursion in Cozumel. Perfect for families with kids that age.</p>
+                        </div>
+                    </div>
+                    <div class="reply-item">
+                        <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=FF6B6B&color=fff&size=64" alt="User">
+                        <div class="reply-content">
+                            <div class="reply-header">
+                                <span class="username">Maria Garcia</span>
+                                <span class="tier-badge platinum">Platinum</span>
+                                <span class="reply-time">2 hours ago</span>
+                            </div>
+                            <p>We loved the dolphin encounter! Our kids still talk about it. Book early though, it fills up fast.</p>
+                        </div>
+                    </div>
+                    <div class="reply-item">
+                        <img src="https://ui-avatars.com/api/?name=James+Wilson&background=001F54&color=fff&size=64" alt="User">
+                        <div class="reply-content">
+                            <div class="reply-header">
+                                <span class="username">James Wilson</span>
+                                <span class="tier-badge diamond">Diamond</span>
+                                <span class="reply-time">3 hours ago</span>
+                            </div>
+                            <p>The beach day pass at Paradise Beach is also fantastic. Great facilities and the kids can play safely.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-reply-box">
+                    <textarea placeholder="Write your reply..."></textarea>
+                    <button class="reply-submit">Post Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Concierge Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chatBubble">
+            <i class="fas fa-robot"></i>
+            <div class="pulse-ring"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <i class="fas fa-sparkles"></i>
+                    <h3>AI Concierge</h3>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be added dynamically -->
+            </div>
+            <div class="chat-actions" id="chatActions">
+                <!-- Action buttons will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script>
+        // IMMEDIATELY close any open modals when forum page loads
+        (function() {
+            // Run immediately, don't wait for anything
+            const modal = document.getElementById('threadModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Also run on load and DOMContentLoaded as backup
+            window.addEventListener('load', function() {
+                const modal = document.getElementById('threadModal');
+                if (modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const modal = document.getElementById('threadModal');
+                if (modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        })();
+    </script>
+    <script src="forum-expand.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Generate additional threads dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for both scripts to load
+            setTimeout(function() {
+                const threadsContainer = document.querySelector('.forum-threads');
+                if (!threadsContainer) {
+                    console.error('Forum threads container not found');
+                    return;
+                }
+
+                // Check if additionalThreads is available
+                if (typeof additionalThreads === 'undefined') {
+                    console.error('additionalThreads is not defined');
+                    return;
+                }
+
+                if (additionalThreads && additionalThreads.length > 0) {
+                    additionalThreads.forEach(thread => {
+                        try {
+                            const threadCard = document.createElement('div');
+                            threadCard.className = 'thread-card';
+                            threadCard.setAttribute('data-thread', thread.id);
+                            
+                            // Escape HTML to prevent XSS
+                            const escapeHtml = (text) => {
+                                const div = document.createElement('div');
+                                div.textContent = text;
+                                return div.innerHTML;
+                            };
+                            
+                            threadCard.innerHTML = `
+                                <div class="thread-header">
+                                    <h3 class="thread-title">${escapeHtml(thread.title)}</h3>
+                                    <div class="thread-meta">
+                                        <div class="user-info">
+                                            <img src="${escapeHtml(thread.avatar)}" alt="User">
+                                            <div>
+                                                <span class="username">${escapeHtml(thread.username)}</span>
+                                                <span class="tier-badge ${escapeHtml(thread.tier)}">${escapeHtml(thread.tier.charAt(0).toUpperCase() + thread.tier.slice(1))}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ai-summary-badge">
+                                    <i class="fas fa-robot"></i>
+                                    <span>${escapeHtml(thread.summary)}</span>
+                                </div>
+                                <p class="thread-preview">${escapeHtml(thread.content)}</p>
+                                <div class="thread-stats">
+                                    <span><i class="fas fa-comments"></i> ${thread.replies} replies</span>
+                                    <span><i class="fas fa-heart"></i> ${thread.likes} likes</span>
+                                    <span class="thread-time">${escapeHtml(thread.time)}</span>
+                                </div>
+                            `;
+                            
+                            threadsContainer.appendChild(threadCard);
+                        } catch (error) {
+                            console.error('Error creating thread card:', error);
+                        }
+                    });
+
+                    // Re-initialize thread modals for new threads
+                    setTimeout(function() {
+                        if (typeof initThreadModals === 'function') {
+                            initThreadModals();
+                        } else {
+                            console.warn('initThreadModals function not found');
+                        }
+                    }, 200);
+                } else {
+                    console.warn('No additional threads to add');
+                }
+            }, 200);
+        });
+    </script>
+</body>
+</html>
+

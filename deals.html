@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Deals & Offers | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html" class="active">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Exclusive Deals & Offers</h1>
+                <p class="page-subtitle">Save on your next cruise adventure with our best promotions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Deal -->
+    <section class="featured-deal-section">
+        <div class="container">
+            <div class="featured-deal-card">
+                <div class="deal-badge">Limited Time</div>
+                <div class="deal-content">
+                    <h2 class="deal-title">Up to 30% Off + Kids Sail Free</h2>
+                    <p class="deal-description">Book your 2025 cruise now and save big! Plus, kids 12 and under sail free on select sailings. Valid on new bookings only.</p>
+                    <div class="deal-details">
+                        <div class="deal-detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Valid through March 31, 2025</span>
+                        </div>
+                        <div class="deal-detail-item">
+                            <i class="fas fa-ship"></i>
+                            <span>All Royal Caribbean Ships</span>
+                        </div>
+                        <div class="deal-detail-item">
+                            <i class="fas fa-tag"></i>
+                            <span>Up to 30% Savings</span>
+                        </div>
+                    </div>
+                    <button class="cta-button primary">
+                        <span>View This Deal</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Grid -->
+    <section class="deals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">All Deals & Promotions</h2>
+                <p class="section-subtitle">Find the perfect offer for your next cruise</p>
+            </div>
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <div class="deal-card-badge">New</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="deal-card-title">Free Specialty Dining</h3>
+                    <p class="deal-card-description">Book a suite and receive complimentary specialty dining for two. Valid on 7+ night cruises.</p>
+                    <div class="deal-card-savings">Save up to $200</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="deal-card">
+                    <div class="deal-card-badge">Popular</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <h3 class="deal-card-title">Second Guest 50% Off</h3>
+                    <p class="deal-card-description">Book a balcony or higher and get 50% off the second guest. Perfect for couples!</p>
+                    <div class="deal-card-savings">Save up to $1,500</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="deal-card">
+                    <div class="deal-card-badge">Exclusive</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="deal-card-title">Crown & Anchor Member Rates</h3>
+                    <p class="deal-card-description">Exclusive savings for loyalty members. The higher your tier, the more you save!</p>
+                    <div class="deal-card-savings">Member Exclusive</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="deal-card">
+                    <div class="deal-card-badge">Hot Deal</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="deal-card-title">Last Minute Deals</h3>
+                    <p class="deal-card-description">Spontaneous traveler? Check out our last-minute deals for cruises departing in the next 90 days.</p>
+                    <div class="deal-card-savings">Up to 40% Off</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="deal-card">
+                    <div class="deal-card-badge">Bundle</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="deal-card-title">Ultimate Package Deal</h3>
+                    <p class="deal-card-description">Get the best value with our Ultimate Package: drinks, WiFi, specialty dining, and gratuities included.</p>
+                    <div class="deal-card-savings">Save $500+</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="deal-card">
+                    <div class="deal-card-badge">Bonus</div>
+                    <div class="deal-card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="deal-card-title">Onboard Credit Bonus</h3>
+                    <p class="deal-card-description">Book now and receive up to $500 in onboard credit to spend on spa, dining, shopping, and more.</p>
+                    <div class="deal-card-savings">Up to $500 OBC</div>
+                    <button class="cta-button secondary">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Never Miss a Deal</h2>
+                    <p class="newsletter-description">Subscribe to our newsletter and be the first to know about exclusive offers, flash sales, and special promotions.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                        <button type="submit" class="cta-button primary">
+                            <span>Subscribe</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

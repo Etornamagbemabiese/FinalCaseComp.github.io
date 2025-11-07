@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Our Ships | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html" class="active">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn disabled" id="needHelpBtn" title="Need Help" disabled>
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Our Fleet</h1>
+                <p class="page-subtitle">Discover 67 innovative ships across three world-class brands</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Filter -->
+    <section class="ships-filter-section">
+        <div class="container">
+            <div class="brand-filter-tabs">
+                <button class="brand-tab active" data-brand="all">All Ships</button>
+                <button class="brand-tab" data-brand="rci">Royal Caribbean</button>
+                <button class="brand-tab" data-brand="celebrity">Celebrity</button>
+                <button class="brand-tab" data-brand="silversea">Silversea</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ships Grid -->
+    <section class="ships-section">
+        <div class="container">
+            <div class="ships-grid">
+                <!-- Royal Caribbean Ships -->
+                <div class="ship-card" data-brand="rci">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Royal Caribbean</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Icon of the Seas</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 7,600 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,198 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                        <p class="ship-description">The world's largest cruise ship featuring Category 6 waterpark, 8 neighborhoods, and revolutionary entertainment.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="rci">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Royal Caribbean</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Wonder of the Seas</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 6,988 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,188 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2022</span>
+                        </div>
+                        <p class="ship-description">Experience the ultimate adventure with the Perfect Storm waterslides, Central Park, and Broadway-style shows.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="rci">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Royal Caribbean</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Symphony of the Seas</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 6,680 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,188 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2018</span>
+                        </div>
+                        <p class="ship-description">Ultimate Abyss slide, robotic bartenders, and the largest ice-skating rink at sea await you.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Celebrity Ships -->
+                <div class="ship-card" data-brand="celebrity">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Celebrity</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Celebrity Ascent</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 3,260 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,073 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <p class="ship-description">The newest Edge Series ship featuring the Magic Carpet, Rooftop Garden, and world-class dining.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="celebrity">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Celebrity</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Celebrity Beyond</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 3,260 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,073 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2022</span>
+                        </div>
+                        <p class="ship-description">Luxury reimagined with the Retreat, 32 restaurants and bars, and stunning design throughout.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="celebrity">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Celebrity</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Celebrity Edge</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 2,918 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 1,004 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2018</span>
+                        </div>
+                        <p class="ship-description">The revolutionary ship that started it all with Infinite Verandas and Eden restaurant.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Silversea Ships -->
+                <div class="ship-card" data-brand="silversea">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Silversea</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Silver Nova</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 728 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 728 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <p class="ship-description">The newest ultra-luxury ship featuring asymmetrical design, all-suite accommodations, and butler service.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="silversea">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Silversea</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Silver Moon</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 596 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 596 ft</span>
+                            <span><i class="fas fa-calendar"></i> 2020</span>
+                        </div>
+                        <p class="ship-description">Intimate luxury with all-inclusive elegance, 8 restaurants, and immersive expedition experiences.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ship-card" data-brand="silversea">
+                    <div class="ship-image">
+                        <div class="ship-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ship-badge">Silversea</div>
+                    </div>
+                    <div class="ship-content">
+                        <h3 class="ship-name">Silver Cloud</h3>
+                        <div class="ship-specs">
+                            <span><i class="fas fa-users"></i> 254 Guests</span>
+                            <span><i class="fas fa-ruler"></i> 514 ft</span>
+                            <span><i class="fas fa-calendar"></i> 1994</span>
+                        </div>
+                        <p class="ship-description">Expedition-ready luxury ship perfect for exploring remote destinations like Antarctica and the Arctic.</p>
+                        <button class="cta-button secondary">
+                            <span>Explore Ship</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Ship filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const brandTabs = document.querySelectorAll('.brand-tab');
+            const shipCards = document.querySelectorAll('.ship-card');
+
+            brandTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    brandTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const selectedBrand = this.getAttribute('data-brand');
+
+                    // Filter ships
+                    shipCards.forEach(card => {
+                        if (selectedBrand === 'all' || card.getAttribute('data-brand') === selectedBrand) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Loyalty Program | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html" class="active">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="needHelpBtn" title="Need Help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loyalty Program Hero -->
+    <section class="loyalty-hero">
+        <div class="container">
+            <div class="loyalty-hero-content">
+                <h1 class="loyalty-title">Crown & Anchor Society</h1>
+                <p class="loyalty-subtitle">Your journey to exclusive rewards and unforgettable experiences</p>
+                <div class="loyalty-stats-grid">
+                    <div class="loyalty-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-value">32M+</div>
+                        <div class="stat-desc">Active Members</div>
+                    </div>
+                    <div class="loyalty-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="stat-value">67</div>
+                        <div class="stat-desc">Ships Across 3 Brands</div>
+                    </div>
+                    <div class="loyalty-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-value">1,000+</div>
+                        <div class="stat-desc">Destinations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Tiers Section -->
+    <section class="loyalty-tiers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Loyalty Tiers & Benefits</h2>
+                <p class="section-subtitle">Earn points with every cruise and unlock exclusive perks</p>
+            </div>
+
+            <div class="tiers-container">
+                <!-- Gold Tier -->
+                <div class="tier-card gold-tier">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Gold</h3>
+                        <p class="tier-requirement">3-29 Cruise Points</p>
+                    </div>
+                    <div class="tier-benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority check-in</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Welcome back gift</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive member rates</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Members-only events</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary wine tasting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platinum Tier -->
+                <div class="tier-card platinum-tier">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Platinum</h3>
+                        <p class="tier-requirement">30-54 Cruise Points</p>
+                    </div>
+                    <div class="tier-benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>All Gold benefits</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority boarding</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary specialty dining (1 night)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Platinum member exclusive lounge</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary internet (1 day)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority tender tickets</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>10% spa discount</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diamond Tier -->
+                <div class="tier-card diamond-tier">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Diamond</h3>
+                        <p class="tier-requirement">55-79 Cruise Points</p>
+                    </div>
+                    <div class="tier-benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>All Platinum benefits</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diamond Lounge access</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary specialty dining (2 nights)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary internet (2 days)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary photo</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority seating at shows</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>20% spa discount</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diamond Plus exclusive events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diamond Plus Tier -->
+                <div class="tier-card diamond-plus-tier">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Diamond Plus</h3>
+                        <p class="tier-requirement">80-174 Cruise Points</p>
+                    </div>
+                    <div class="tier-benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>All Diamond benefits</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diamond Plus Lounge access</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary specialty dining (3 nights)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary internet (3 days)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary laundry service</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority restaurant reservations</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>30% spa discount</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive shore excursion discounts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pinnacle Tier -->
+                <div class="tier-card pinnacle-tier">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Pinnacle Club</h3>
+                        <p class="tier-requirement">175+ Cruise Points</p>
+                    </div>
+                    <div class="tier-benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>All Diamond Plus benefits</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pinnacle Club exclusive lounge</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unlimited specialty dining</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary internet (entire cruise)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary laundry (entire cruise)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>50% spa discount</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complimentary gratuities</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority access to all venues</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized concierge service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Earn Points -->
+    <section class="earn-points-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How to Earn Cruise Points</h2>
+                <p class="section-subtitle">Every cruise brings you closer to the next tier</p>
+            </div>
+
+            <div class="earn-points-grid">
+                <div class="earn-card">
+                    <div class="earn-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Cruise Nights</h3>
+                    <p class="earn-amount">1 point per night</p>
+                    <p class="earn-description">Earn one point for each night you spend on a cruise, regardless of ship or destination.</p>
+                </div>
+
+                <div class="earn-card">
+                    <div class="earn-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3>Suite Stays</h3>
+                    <p class="earn-amount">Double Points</p>
+                    <p class="earn-description">Stay in a suite and earn double points for your entire cruise, accelerating your journey to the next tier.</p>
+                </div>
+
+                <div class="earn-card">
+                    <div class="earn-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>RCG Credit Card</h3>
+                    <p class="earn-amount">Bonus Points</p>
+                    <p class="earn-description">Use the Royal Caribbean Group credit card for purchases and earn bonus points on every transaction.</p>
+                </div>
+
+                <div class="earn-card">
+                    <div class="earn-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Promotional Offers</h3>
+                    <p class="earn-amount">Double Point Events</p>
+                    <p class="earn-description">Take advantage of special promotions that offer double or triple points on select sailings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RCG Brands Section -->
+    <section class="rcg-brands-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Royal Caribbean Group Brands</h2>
+                <p class="section-subtitle">Three distinct brands, one loyalty program</p>
+            </div>
+
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <div class="brand-logo-placeholder">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Royal Caribbean International</h3>
+                    <p class="brand-description">Innovation meets adventure on the world's most innovative cruise ships. From record-breaking attractions to world-class entertainment, create memories that last a lifetime.</p>
+                    <div class="brand-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Innovative Ships</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-theater-masks"></i>
+                            <span>World-Class Entertainment</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>Diverse Dining</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brand-card">
+                    <div class="brand-logo-placeholder">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Celebrity Cruises</h3>
+                    <p class="brand-description">Luxury redefined. Experience sophisticated design, culinary excellence, and personalized service on modern, elegant ships designed for discerning travelers.</p>
+                    <div class="brand-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-spa"></i>
+                            <span>Luxury Spa</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-wine-glass"></i>
+                            <span>Culinary Excellence</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-concierge-bell"></i>
+                            <span>Personalized Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brand-card">
+                    <div class="brand-logo-placeholder">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Silversea Cruises</h3>
+                    <p class="brand-description">Ultra-luxury expedition cruising. Intimate ships, all-inclusive elegance, and immersive experiences in the world's most remote destinations.</p>
+                    <div class="brand-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-compass"></i>
+                            <span>Expedition Cruises</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-infinity"></i>
+                            <span>All-Inclusive</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <span>Intimate Ships</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="loyalty-faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I join the Crown & Anchor Society?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You're automatically enrolled in the Crown & Anchor Society after completing your first cruise with any Royal Caribbean Group brand. No registration required - your membership starts with your first sailing!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do points expire?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, your cruise points never expire. Once earned, they remain in your account permanently, allowing you to progress through tiers at your own pace.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I combine points from different brands?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Points earned on Royal Caribbean International, Celebrity Cruises, and Silversea all count toward your Crown & Anchor Society status. One loyalty program, three amazing brands.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I check my current tier status?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Log in to your account on RCG Connect to view your current tier, points balance, and progress toward the next level. You can also check your status through the mobile app or by contacting guest services.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens when I reach a new tier?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your new tier status is effective immediately on your next cruise. You'll receive a welcome email with details about your new benefits, and your membership card will reflect your updated tier level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
