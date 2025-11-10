@@ -232,8 +232,12 @@ function initMobileMenu() {
             toggleMenu();
         });
 
-        // Close menu when clicking overlay
+        // Close menu when clicking overlay (but not on links)
         overlay.addEventListener('click', function(e) {
+            // Don't close if clicking on a link
+            if (e.target.closest('a')) {
+                return;
+            }
             e.preventDefault();
             e.stopPropagation();
             if (navLinks.classList.contains('active')) {
@@ -247,24 +251,30 @@ function initMobileMenu() {
             link.addEventListener('click', function(e) {
                 // Only close menu on mobile - NEVER prevent navigation
                 if (window.innerWidth <= 768) {
-                    // Allow navigation to happen first
                     const href = this.getAttribute('href');
                     if (href && href !== '#' && !href.startsWith('javascript:')) {
                         // Close menu immediately for better UX
-                        toggleMenu();
-                        // Navigation will proceed normally
+                        // Use setTimeout to ensure navigation happens
+                        setTimeout(() => {
+                            toggleMenu();
+                        }, 50);
+                        // DO NOT prevent default - allow navigation to proceed
                     }
                 }
-            }, false);
+            }, { passive: true, capture: false });
         });
 
-        // Close menu when clicking outside (for desktop)
+        // Close menu when clicking outside (for desktop only)
+        // Don't interfere with mobile navigation
         document.addEventListener('click', function(e) {
+            // Only handle desktop clicks, and don't interfere with link clicks
             if (window.innerWidth > 768) {
-                if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                const isLinkClick = e.target.closest('a') !== null;
+                if (!isLinkClick && !mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
                     navLinks.classList.remove('active');
-                    overlay.classList.remove('active');
+                    if (overlay) overlay.classList.remove('active');
                     document.body.style.overflow = '';
+                    document.documentElement.style.overflow = '';
                     const icon = mobileMenuToggle.querySelector('i');
                     if (icon) {
                         icon.classList.remove('fa-times');
