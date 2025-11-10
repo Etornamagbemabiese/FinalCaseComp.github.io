@@ -85,23 +85,15 @@ const aiConciergeData = {
 // INITIALIZATION
 // ============================================
 
-// Fix Forum link IMMEDIATELY - don't wait for DOMContentLoaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fixForumLink);
-} else {
-    fixForumLink();
-}
-
-// Also fix it after a short delay to catch any late-loading elements
-setTimeout(fixForumLink, 100);
-setTimeout(fixForumLink, 500);
-
 // Initialize all functions when DOM is ready
 function initializeAll() {
-    // Fix Forum link again after everything loads
+    // Initialize mobile menu FIRST before any link modifications
+    initMobileMenu();
+    
+    // Fix Forum link (minimal - just ensure href is correct)
     fixForumLink();
     
-    initMobileMenu();
+    // Initialize other features
     initProfileDropdown();
     initThreadModals();
     initStatsAnimation();
@@ -116,9 +108,6 @@ if (document.readyState === 'loading') {
         initBookingsTabs();
         initSignInOut();
         initNavActions();
-        
-        // Fix Forum link one more time after all initialization
-        setTimeout(fixForumLink, 200);
     });
 } else {
     // DOM is already ready
@@ -126,9 +115,6 @@ if (document.readyState === 'loading') {
     initBookingsTabs();
     initSignInOut();
     initNavActions();
-    
-    // Fix Forum link one more time after all initialization
-    setTimeout(fixForumLink, 200);
 }
 
 // ============================================
@@ -136,51 +122,18 @@ if (document.readyState === 'loading') {
 // ============================================
 
 function fixForumLink() {
-    // Find all Forum links in navigation
+    // Simply ensure forum links have correct href - don't interfere with navigation
     const forumLinks = document.querySelectorAll('nav a[href*="forum.html"], .nav-links a[href*="forum.html"], #forumNavLink');
     
     forumLinks.forEach(link => {
-        if (!link || !link.parentNode) return;
-        
-        // Remove ALL event listeners by completely replacing the link
-        const parent = link.parentNode;
-        const text = link.textContent || 'Forum';
-        const classes = link.className;
-        const id = link.id;
-        
-        // Create completely new link element
-        const newLink = document.createElement('a');
-        newLink.href = 'forum.html';
-        newLink.textContent = text;
-        if (classes) newLink.className = classes;
-        if (id) newLink.id = id;
-        newLink.style.pointerEvents = 'auto';
-        newLink.style.cursor = 'pointer';
-        newLink.style.textDecoration = 'none';
-        
-        // Replace old link
-        parent.replaceChild(newLink, link);
-        
-        // Add navigation handler - but don't interfere with mobile menu
-        newLink.addEventListener('click', function(e) {
-            // On mobile with menu open, let the link work normally
-            if (window.innerWidth <= 768 && this.closest('.nav-links.active')) {
-                // Let mobile menu handler close menu, then navigate normally
-                // Don't prevent default - just ensure navigation happens
-                return true; // Allow default behavior
-            }
-            
-            // Desktop or menu not open - ensure navigation works
-            // Only prevent if we're on forum page (to avoid modal)
-            if (window.location.pathname.includes('forum.html')) {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-                e.preventDefault();
-                window.location.href = 'forum.html';
-                return false;
-            }
-            // Otherwise let it navigate normally
-        }, true); // Capture phase - runs first
+        if (!link) return;
+        // Ensure href is correct
+        if (!link.getAttribute('href') || !link.getAttribute('href').includes('forum.html')) {
+            link.setAttribute('href', 'forum.html');
+        }
+        // Ensure link is clickable
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
     });
 }
 
@@ -192,112 +145,108 @@ function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.getElementById('navLinks');
 
-    if (mobileMenuToggle && navLinks) {
-        // Create overlay element if it doesn't exist
-        let overlay = document.querySelector('.mobile-menu-overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'mobile-menu-overlay';
-            document.body.appendChild(overlay);
-        }
+    if (!mobileMenuToggle || !navLinks) return;
 
-        function toggleMenu() {
-            const isActive = navLinks.classList.contains('active');
-            navLinks.classList.toggle('active');
-            if (overlay) {
-                overlay.classList.toggle('active');
-            }
-            
-            // Prevent body scroll when menu is open
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-                document.documentElement.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
-            }
-            
-            // Toggle icon between hamburger and X
-            const icon = mobileMenuToggle.querySelector('i');
-            if (icon) {
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            }
-        }
-
-        mobileMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Close menu when clicking overlay (but not on links)
-        overlay.addEventListener('click', function(e) {
-            // Don't close if clicking on a link or inside the menu
-            if (e.target.closest('a') || e.target.closest('.nav-links')) {
-                return;
-            }
-            e.preventDefault();
-            e.stopPropagation();
-            if (navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-
-        // Handle link clicks - SIMPLE: just close menu, never prevent navigation
-        // Use event delegation - run in bubble phase to not interfere
-        navLinks.addEventListener('click', function(e) {
-            // Only handle if clicking on a link
-            const link = e.target.closest('a');
-            if (!link) return;
-            
-            // On mobile, close menu but NEVER prevent navigation
-            if (window.innerWidth <= 768) {
-                const href = link.getAttribute('href');
-                if (href && href !== '#' && !href.startsWith('javascript:')) {
-                    // Close menu immediately
-                    toggleMenu();
-                    // DO NOT prevent default - let navigation proceed normally
-                    // DO NOT stop propagation - navigation must work
-                }
-            }
-        }, false); // Bubble phase, after capture phase handlers
-
-        // Close menu when clicking outside (for desktop only)
-        // Don't interfere with mobile navigation at all
-        document.addEventListener('click', function(e) {
-            // Only handle desktop clicks
-            if (window.innerWidth > 768) {
-                // Don't interfere with ANY link clicks
-                if (e.target.closest('a')) {
-                    return;
-                }
-                // Only close if clicking outside menu and toggle
-                if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    if (overlay) overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                    document.documentElement.style.overflow = '';
-                    const icon = mobileMenuToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                }
-            }
-        });
-
-        // Close menu on window resize if switching to desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
+    // Create overlay element if it doesn't exist
+    let overlay = document.querySelector('.mobile-menu-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(overlay);
     }
+
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+        if (overlay) {
+            overlay.classList.toggle('active');
+        }
+        
+        // Prevent body scroll when menu is open
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+        
+        // Toggle icon between hamburger and X
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    }
+
+    // Toggle menu button
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Handle navigation link clicks - ensure they always work
+    navLinks.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+        
+        const href = link.getAttribute('href');
+        if (!href || href === '#' || href.startsWith('javascript:')) {
+            e.preventDefault();
+            return false;
+        }
+        
+        // On mobile, close menu when link is clicked
+        // Use a small delay to ensure navigation starts before menu closes
+        if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+            // Allow navigation to start, then close menu
+            setTimeout(function() {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }, 10);
+        }
+        
+        // NEVER prevent default - always allow browser navigation
+    }, false);
+
+    // Close menu when clicking outside menu
+    document.addEventListener('click', function(e) {
+        // Skip if menu is not active
+        if (!navLinks.classList.contains('active')) {
+            return;
+        }
+        
+        // Don't close if clicking on menu or toggle button
+        if (e.target.closest('.nav-links') || 
+            e.target.closest('#mobileMenuToggle')) {
+            return;
+        }
+        
+        // Close menu when clicking outside
+        if (window.innerWidth <= 768) {
+            // On mobile, check if clicking to the right of menu (overlay area)
+            const menuRect = navLinks.getBoundingClientRect();
+            const clickX = e.clientX || (e.touches && e.touches[0] && e.touches[0].clientX);
+            if (clickX && (clickX > menuRect.right || clickX < menuRect.left)) {
+                toggleMenu();
+            }
+        } else {
+            // Desktop: close if clicking outside
+            toggleMenu();
+        }
+    }, false);
+
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 }
 
 // ============================================
