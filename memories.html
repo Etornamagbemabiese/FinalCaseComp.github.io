@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>My Memories | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="memories.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="boatey.html">Boatey AI</a>
+                <a href="forum.html">Forum</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="memories.html" class="active">Memories</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="needHelpBtn" title="Need Help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Need Help</span>
+                </button>
+                <button class="nav-action-btn" id="favoritesBtn" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manage My Cruise</span>
+                </button>
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Memories Hero Section -->
+    <section class="memories-hero">
+        <div class="memories-hero-background"></div>
+        <div class="container">
+            <div class="memories-hero-content">
+                <div class="ai-badge">
+                    <i class="fas fa-sparkles"></i>
+                    <span>AI-Powered Memories</span>
+                </div>
+                <h1 class="memories-hero-title">Your Year at Sea</h1>
+                <p class="memories-hero-subtitle">Relive your incredible journey through AI-curated memories, achievements, and milestones</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section class="memories-stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card-memories">
+                    <div class="stat-icon-memories">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="stat-content-memories">
+                        <div class="stat-value-memories" data-target="12450">0</div>
+                        <div class="stat-label-memories">Miles Traveled</div>
+                        <div class="stat-change-memories positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2,340 this year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-memories">
+                    <div class="stat-icon-memories">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="stat-content-memories">
+                        <div class="stat-value-memories" data-target="8">0</div>
+                        <div class="stat-label-memories">Cruises Completed</div>
+                        <div class="stat-change-memories positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+3 this year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-memories">
+                    <div class="stat-icon-memories">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="stat-content-memories">
+                        <div class="stat-value-memories" data-target="24">0</div>
+                        <div class="stat-label-memories">Destinations Visited</div>
+                        <div class="stat-change-memories positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+7 this year</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card-memories">
+                    <div class="stat-icon-memories">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content-memories">
+                        <div class="stat-value-memories" data-target="15">0</div>
+                        <div class="stat-label-memories">Achievements Unlocked</div>
+                        <div class="stat-change-memories positive">
+                            <i class="fas fa-star"></i>
+                            <span>Top 5% of cruisers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section -->
+    <section class="ranking-section">
+        <div class="container">
+            <div class="section-header-memories">
+                <div>
+                    <h2 class="section-title-memories">Your Ranking</h2>
+                    <p class="section-subtitle-memories">See how you stack up against fellow cruisers</p>
+                </div>
+                <div class="ranking-badge">
+                    <i class="fas fa-medal"></i>
+                    <span>#1,247</span>
+                    <small>Worldwide</small>
+                </div>
+            </div>
+
+            <div class="ranking-container">
+                <div class="ranking-card">
+                    <div class="ranking-header">
+                        <h3>Global Leaderboard</h3>
+                        <select class="ranking-filter" id="rankingFilter">
+                            <option value="all">All Time</option>
+                            <option value="year" selected>This Year</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <div class="leaderboard">
+                        <div class="leaderboard-item you">
+                            <div class="rank-number">#1,247</div>
+                            <div class="rank-avatar">
+                                <img src="https://ui-avatars.com/api/?name=You&background=00AEEF&color=fff&size=64" alt="You">
+                                <div class="rank-badge-you">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="rank-info">
+                                <div class="rank-name">You</div>
+                                <div class="rank-stats">12,450 miles • 8 cruises</div>
+                            </div>
+                            <div class="rank-score">
+                                <div class="score-value">8,420</div>
+                                <div class="score-label">points</div>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-item">
+                            <div class="rank-number">#1,246</div>
+                            <div class="rank-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=667EEA&color=fff&size=64" alt="Sarah Johnson">
+                            </div>
+                            <div class="rank-info">
+                                <div class="rank-name">Sarah Johnson</div>
+                                <div class="rank-stats">12,680 miles • 9 cruises</div>
+                            </div>
+                            <div class="rank-score">
+                                <div class="score-value">8,650</div>
+                                <div class="score-label">points</div>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-item">
+                            <div class="rank-number">#1,245</div>
+                            <div class="rank-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=FF6B6B&color=fff&size=64" alt="Michael Chen">
+                            </div>
+                            <div class="rank-info">
+                                <div class="rank-name">Michael Chen</div>
+                                <div class="rank-stats">13,200 miles • 7 cruises</div>
+                            </div>
+                            <div class="rank-score">
+                                <div class="score-value">8,920</div>
+                                <div class="score-label">points</div>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-item">
+                            <div class="rank-number">#1,244</div>
+                            <div class="rank-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00D9FF&color=fff&size=64" alt="Emma Williams">
+                            </div>
+                            <div class="rank-info">
+                                <div class="rank-name">Emma Williams</div>
+                                <div class="rank-stats">11,900 miles • 10 cruises</div>
+                            </div>
+                            <div class="rank-score">
+                                <div class="score-value">9,150</div>
+                                <div class="score-label">points</div>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-item">
+                            <div class="rank-number">#1,243</div>
+                            <div class="rank-avatar">
+                                <img src="https://ui-avatars.com/api/?name=David+Brown&background=764BA2&color=fff&size=64" alt="David Brown">
+                            </div>
+                            <div class="rank-info">
+                                <div class="rank-name">David Brown</div>
+                                <div class="rank-stats">14,500 miles • 6 cruises</div>
+                            </div>
+                            <div class="rank-score">
+                                <div class="score-value">9,380</div>
+                                <div class="score-label">points</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements-card">
+                    <div class="achievements-header">
+                        <h3>Recent Achievements</h3>
+                        <span class="achievements-count">15 unlocked</span>
+                    </div>
+                    <div class="achievements-grid">
+                        <div class="achievement-item unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-anchor"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">First Voyage</div>
+                                <div class="achievement-desc">Completed your first cruise</div>
+                            </div>
+                            <div class="achievement-date">Jan 2024</div>
+                        </div>
+
+                        <div class="achievement-item unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">World Traveler</div>
+                                <div class="achievement-desc">Visited 20+ destinations</div>
+                            </div>
+                            <div class="achievement-date">Mar 2024</div>
+                        </div>
+
+                        <div class="achievement-item unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">Mile Master</div>
+                                <div class="achievement-desc">Traveled 10,000+ miles</div>
+                            </div>
+                            <div class="achievement-date">Jun 2024</div>
+                        </div>
+
+                        <div class="achievement-item unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">Platinum Status</div>
+                                <div class="achievement-desc">Reached Platinum tier</div>
+                            </div>
+                            <div class="achievement-date">Aug 2024</div>
+                        </div>
+
+                        <div class="achievement-item locked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">Diamond Elite</div>
+                                <div class="achievement-desc">Reach Diamond tier</div>
+                            </div>
+                            <div class="achievement-progress">65%</div>
+                        </div>
+
+                        <div class="achievement-item locked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <div class="achievement-name">Endless Explorer</div>
+                                <div class="achievement-desc">Complete 15 cruises</div>
+                            </div>
+                            <div class="achievement-progress">53%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Photo Feed Section -->
+    <section class="photo-feed-section">
+        <div class="container">
+            <div class="section-header-memories">
+                <div>
+                    <h2 class="section-title-memories">AI-Curated Photo Memories</h2>
+                    <p class="section-subtitle-memories">Your best moments from this year, intelligently organized</p>
+                </div>
+                <div class="ai-indicator">
+                    <i class="fas fa-brain"></i>
+                    <span>Powered by AI</span>
+                </div>
+            </div>
+
+            <div class="photo-feed-filters">
+                <button class="filter-btn active" data-filter="all">All Memories</button>
+                <button class="filter-btn" data-filter="ships">On Board</button>
+                <button class="filter-btn" data-filter="destinations">Destinations</button>
+                <button class="filter-btn" data-filter="activities">Activities</button>
+                <button class="filter-btn" data-filter="dining">Dining</button>
+            </div>
+
+            <div class="photo-feed-grid" id="photoFeedGrid">
+                <!-- Photo cards will be dynamically generated -->
+            </div>
+
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Load More Memories</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="memories.html">Memories</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="memories.js"></script>
+</body>
+</html>
+
