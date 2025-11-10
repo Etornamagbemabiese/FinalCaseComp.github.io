@@ -234,8 +234,8 @@ function initMobileMenu() {
 
         // Close menu when clicking overlay (but not on links)
         overlay.addEventListener('click', function(e) {
-            // Don't close if clicking on a link
-            if (e.target.closest('a')) {
+            // Don't close if clicking on a link or inside the menu
+            if (e.target.closest('a') || e.target.closest('.nav-links')) {
                 return;
             }
             e.preventDefault();
@@ -245,32 +245,35 @@ function initMobileMenu() {
             }
         });
 
-        // Close menu when clicking on a link (only on mobile)
-        const navLinksItems = navLinks.querySelectorAll('a');
-        navLinksItems.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Only close menu on mobile - NEVER prevent navigation
-                if (window.innerWidth <= 768) {
-                    const href = this.getAttribute('href');
-                    if (href && href !== '#' && !href.startsWith('javascript:')) {
-                        // Close menu immediately for better UX
-                        // Use setTimeout to ensure navigation happens
-                        setTimeout(() => {
-                            toggleMenu();
-                        }, 50);
-                        // DO NOT prevent default - allow navigation to proceed
-                    }
+        // Handle link clicks - SIMPLE: just close menu, never prevent navigation
+        // Use event delegation to avoid interfering with navigation
+        navLinks.addEventListener('click', function(e) {
+            // Only handle if clicking on a link
+            const link = e.target.closest('a');
+            if (!link) return;
+            
+            // On mobile, close menu but NEVER prevent navigation
+            if (window.innerWidth <= 768) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && !href.startsWith('javascript:')) {
+                    // Close menu immediately but don't prevent navigation
+                    toggleMenu();
+                    // Navigation will proceed normally
                 }
-            }, { passive: true, capture: false });
-        });
+            }
+        }, false);
 
         // Close menu when clicking outside (for desktop only)
-        // Don't interfere with mobile navigation
+        // Don't interfere with mobile navigation at all
         document.addEventListener('click', function(e) {
-            // Only handle desktop clicks, and don't interfere with link clicks
+            // Only handle desktop clicks
             if (window.innerWidth > 768) {
-                const isLinkClick = e.target.closest('a') !== null;
-                if (!isLinkClick && !mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                // Don't interfere with ANY link clicks
+                if (e.target.closest('a')) {
+                    return;
+                }
+                // Only close if clicking outside menu and toggle
+                if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
                     navLinks.classList.remove('active');
                     if (overlay) overlay.classList.remove('active');
                     document.body.style.overflow = '';

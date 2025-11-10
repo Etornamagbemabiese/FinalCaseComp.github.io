@@ -3366,7 +3366,7 @@ body {
         gap: 0;
         padding: clamp(4rem, 10vw, 5rem) clamp(1.5rem, 4vw, 2rem) 2rem;
         transition: left 0.3s ease, visibility 0.3s ease;
-        z-index: 1001;
+        z-index: 1002 !important; /* Above overlay */
         box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -3377,13 +3377,7 @@ body {
     .nav-links.active {
         left: 0;
         visibility: visible;
-        pointer-events: auto;
-    }
-
-    /* Ensure links are always clickable when menu is active */
-    .nav-links.active a {
         pointer-events: auto !important;
-        z-index: 1003;
     }
 
     .nav-links a {
@@ -3399,9 +3393,18 @@ body {
         transition: background-color 0.2s ease;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
         cursor: pointer;
-        pointer-events: auto !important; /* Ensure links are clickable */
+        pointer-events: auto !important; /* Ensure links are always clickable */
         position: relative;
-        z-index: 1002; /* Above overlay */
+        z-index: 1003 !important; /* Above overlay and menu */
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* Ensure links are always clickable when menu is active */
+    .nav-links.active a {
+        pointer-events: auto !important;
+        z-index: 1003 !important;
+        position: relative;
     }
 
     .nav-links a:active {
@@ -6890,7 +6893,7 @@ html {
         height: 100vh;
         height: 100dvh; /* Dynamic viewport height */
         background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
+        z-index: 1001; /* Behind menu, above everything else */
         opacity: 0;
         transition: opacity 0.3s ease, visibility 0.3s ease;
         -webkit-tap-highlight-color: transparent;
