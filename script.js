@@ -935,25 +935,6 @@ function hideUserProfile() {
 // ============================================
 
 function initNavActions() {
-    // Need Help Button
-    const needHelpBtn = document.getElementById('needHelpBtn');
-    if (needHelpBtn) {
-        needHelpBtn.addEventListener('click', function() {
-            showHelpModal();
-        });
-    }
-
-    // Favorites Button
-    const favoritesBtn = document.getElementById('favoritesBtn');
-    if (favoritesBtn) {
-        // Load favorites count from localStorage
-        updateFavoritesCount();
-        
-        favoritesBtn.addEventListener('click', function() {
-            showFavoritesModal();
-        });
-    }
-
     // Manage My Cruise Button
     const manageCruiseBtn = document.getElementById('manageCruiseBtn');
     if (manageCruiseBtn) {
@@ -995,7 +976,7 @@ function showHelpModal() {
                     <div class="help-links">
                         <a href="loyalty.html#faq" class="help-link">Loyalty Program FAQ</a>
                         <a href="forum.html" class="help-link">Community Forum</a>
-                        <a href="boatey.html" class="help-link">Ask Boatey AI</a>
+                        <a href="boatey.html" class="help-link">Ask AI Agent</a>
                     </div>
                 </div>
                 <div class="help-section">

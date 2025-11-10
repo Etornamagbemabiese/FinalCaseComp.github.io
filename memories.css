@@ -42,9 +42,10 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .ai-badge {
@@ -69,7 +70,7 @@
 }
 
 .memories-hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     color: var(--navy);
     margin-bottom: 1rem;
@@ -78,13 +79,20 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 0.8s ease-out;
+    line-height: 1.2;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .memories-hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--gray-darker);
     line-height: 1.6;
     animation: fadeInUp 1s ease-out;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Stats Section */
@@ -670,8 +678,7 @@
     }
 
     .memories-hero-subtitle {
-        font-size: 0.95rem;
-        padding: 0 1rem;
+        font-size: 1rem;
     }
 
     .memories-hero-content {
