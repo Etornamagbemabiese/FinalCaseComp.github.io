@@ -96,7 +96,8 @@ if (document.readyState === 'loading') {
 setTimeout(fixForumLink, 100);
 setTimeout(fixForumLink, 500);
 
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize all functions when DOM is ready
+function initializeAll() {
     // Fix Forum link again after everything loads
     fixForumLink();
     
@@ -107,6 +108,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initChatWidget();
     initParallax();
     initScrollAnimations();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeAll);
+} else {
+    // DOM is already ready
+    initializeAll();
+}
     initBookingsTabs();
     initSignInOut();
     initNavActions();
