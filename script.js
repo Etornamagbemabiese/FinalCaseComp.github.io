@@ -213,8 +213,15 @@ function initMobileMenu() {
         });
 
         // Close menu when clicking overlay
-        overlay.addEventListener('click', function() {
+        overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             toggleMenu();
+        });
+
+        // Prevent menu from closing when clicking inside it
+        navLinks.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
 
         // Close menu when clicking on a link (only on mobile)

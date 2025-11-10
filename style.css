@@ -27,11 +27,19 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--navy);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     background: var(--gray-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -428,11 +436,12 @@ body {
     left: 50%;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     transform: translate(-50%, -50%);
     z-index: 0;
     object-fit: cover;
+    max-width: 100%;
 }
 
 .hero-background {
@@ -1050,6 +1059,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .bookings-section .container {
@@ -3192,16 +3203,27 @@ body {
 }
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        position: relative;
+    }
+
     .nav-container {
         padding: 0 1rem;
         position: relative;
+        max-width: 100%;
+        width: 100%;
     }
 
     .mobile-menu-toggle {
         display: flex;
         order: 2;
         margin-left: auto;
-        margin-right: 1rem;
+        margin-right: 0;
+        z-index: 1002;
+        position: relative;
     }
 
     .nav-links {
@@ -3209,19 +3231,20 @@ body {
         top: 0;
         left: -100%;
         width: 280px;
+        max-width: 85vw;
         height: 100vh;
         background: linear-gradient(to bottom, rgba(0, 0, 40, 0.95), rgba(0, 0, 40, 0.9));
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         gap: 0;
         padding: 5rem 2rem 2rem;
         transition: left 0.3s ease;
-        z-index: 999;
+        z-index: 1001;
         box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1001;
     }
 
     .nav-links.active {
@@ -3284,12 +3307,34 @@ body {
     .hero {
         min-height: auto;
         padding: 100px 0 60px;
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        max-width: 100vw;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         gap: 3rem;
         padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-title {
@@ -6595,11 +6640,14 @@ html {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        max-width: 100%;
     }
 
     .hero-actions .cta-button {
         width: 100%;
+        max-width: 100%;
         justify-content: center;
+        box-sizing: border-box;
     }
 
     /* Card improvements */
@@ -6690,10 +6738,13 @@ html {
         left: 0;
         right: 0;
         bottom: 0;
+        width: 100vw;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.5);
         z-index: 1000;
         opacity: 0;
         transition: opacity 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .mobile-menu-overlay.active {
@@ -6796,8 +6847,26 @@ html {
 
     /* Prevent horizontal scroll */
     html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        position: relative;
+    }
+
+    /* Ensure all containers don't overflow */
+    .container, section, .hero, .hero-content, .hero-text, .hero-actions {
+        max-width: 100vw;
         overflow-x: hidden;
-        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Fix any elements that might cause horizontal scroll */
+    img, video, iframe, table {
+        max-width: 100%;
+    }
+
+    video {
+        height: auto;
     }
 
     /* Image responsiveness */
