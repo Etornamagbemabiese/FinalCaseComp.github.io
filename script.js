@@ -105,7 +105,7 @@ function initializeAll() {
     initProfileDropdown();
     initThreadModals();
     initStatsAnimation();
-    initChatWidget();
+    // initChatWidget(); // Disabled - AI chat widget removed
     initParallax();
     initScrollAnimations();
 }

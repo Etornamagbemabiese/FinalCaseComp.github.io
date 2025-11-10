@@ -1647,6 +1647,7 @@ body {
    ============================================ */
 
 .chat-widget {
+    display: none !important; /* AI chat widget removed */
     position: fixed;
     bottom: 2rem;
     right: 2rem;
