@@ -161,26 +161,25 @@ function fixForumLink() {
         // Replace old link
         parent.replaceChild(newLink, link);
         
-        // Add ONLY navigation handler - highest priority
-        // But allow mobile menu to handle it on mobile devices
+        // Add navigation handler - but don't interfere with mobile menu
         newLink.addEventListener('click', function(e) {
-            // On mobile, if menu is open, let mobile menu handler deal with it first
+            // On mobile with menu open, let the link work normally
             if (window.innerWidth <= 768 && this.closest('.nav-links.active')) {
-                // Don't prevent default - let mobile menu handler close menu first
-                // Then navigation will proceed
-                setTimeout(() => {
-                    window.location.href = 'forum.html';
-                }, 100);
-                return;
+                // Let mobile menu handler close menu, then navigate normally
+                // Don't prevent default - just ensure navigation happens
+                return true; // Allow default behavior
             }
             
-            // Desktop or menu not open - force navigation
-            console.log('Forum link clicked - forcing navigation');
-            e.stopImmediatePropagation();
-            e.stopPropagation();
-            e.preventDefault();
-            window.location.href = 'forum.html';
-            return false;
+            // Desktop or menu not open - ensure navigation works
+            // Only prevent if we're on forum page (to avoid modal)
+            if (window.location.pathname.includes('forum.html')) {
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                e.preventDefault();
+                window.location.href = 'forum.html';
+                return false;
+            }
+            // Otherwise let it navigate normally
         }, true); // Capture phase - runs first
     });
 }
@@ -250,7 +249,7 @@ function initMobileMenu() {
         });
 
         // Handle link clicks - SIMPLE: just close menu, never prevent navigation
-        // Use event delegation with capture phase to run BEFORE other handlers
+        // Use event delegation - run in bubble phase to not interfere
         navLinks.addEventListener('click', function(e) {
             // Only handle if clicking on a link
             const link = e.target.closest('a');
@@ -262,11 +261,11 @@ function initMobileMenu() {
                 if (href && href !== '#' && !href.startsWith('javascript:')) {
                     // Close menu immediately
                     toggleMenu();
-                    // DO NOT prevent default - let navigation proceed
-                    // DO NOT stop propagation - let other handlers run if needed
+                    // DO NOT prevent default - let navigation proceed normally
+                    // DO NOT stop propagation - navigation must work
                 }
             }
-        }, { capture: true, passive: true }); // Capture phase, passive listener
+        }, false); // Bubble phase, after capture phase handlers
 
         // Close menu when clicking outside (for desktop only)
         // Don't interfere with mobile navigation at all
