@@ -111,16 +111,25 @@ function initializeAll() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAll);
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeAll();
+        initBookingsTabs();
+        initSignInOut();
+        initNavActions();
+        
+        // Fix Forum link one more time after all initialization
+        setTimeout(fixForumLink, 200);
+    });
 } else {
     // DOM is already ready
     initializeAll();
-}
     initBookingsTabs();
     initSignInOut();
     initNavActions();
     
     // Fix Forum link one more time after all initialization
+    setTimeout(fixForumLink, 200);
+}
     setTimeout(fixForumLink, 200);
 });
 
