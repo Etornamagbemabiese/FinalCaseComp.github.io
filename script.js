@@ -130,8 +130,6 @@ if (document.readyState === 'loading') {
     // Fix Forum link one more time after all initialization
     setTimeout(fixForumLink, 200);
 }
-    setTimeout(fixForumLink, 200);
-});
 
 // ============================================
 // FORUM LINK FIX - Run first to ensure it works
