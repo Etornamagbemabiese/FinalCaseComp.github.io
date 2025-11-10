@@ -185,13 +185,17 @@ function initMobileMenu() {
         function toggleMenu() {
             const isActive = navLinks.classList.contains('active');
             navLinks.classList.toggle('active');
-            overlay.classList.toggle('active');
+            if (overlay) {
+                overlay.classList.toggle('active');
+            }
             
             // Prevent body scroll when menu is open
             if (navLinks.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
             }
             
             // Toggle icon between hamburger and X
@@ -216,28 +220,24 @@ function initMobileMenu() {
         overlay.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Prevent menu from closing when clicking inside it
-        navLinks.addEventListener('click', function(e) {
-            e.stopPropagation();
+            if (navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
         });
 
         // Close menu when clicking on a link (only on mobile)
         const navLinksItems = navLinks.querySelectorAll('a');
         navLinksItems.forEach(link => {
-            // Skip Forum link - it's handled separately
-            if (link.href && link.href.includes('forum.html')) {
-                return;
-            }
-            
             link.addEventListener('click', function(e) {
                 // Only close menu on mobile - NEVER prevent navigation
                 if (window.innerWidth <= 768) {
-                    setTimeout(() => {
+                    // Allow navigation to happen first
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#' && !href.startsWith('javascript:')) {
+                        // Close menu immediately for better UX
                         toggleMenu();
-                    }, 100);
+                        // Navigation will proceed normally
+                    }
                 }
             }, false);
         });
