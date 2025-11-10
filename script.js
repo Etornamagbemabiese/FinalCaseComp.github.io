@@ -355,14 +355,10 @@ function initThreadModals() {
         card.parentNode.replaceChild(newCard, card);
         
         newCard.addEventListener('click', function(e) {
-            // Don't interfere with ANY links
+            // ALWAYS let links work - don't interfere with ANY links
             const clickedLink = e.target.closest('a');
             if (clickedLink) {
-                // If it's a Forum link, let it navigate
-                if (clickedLink.href && clickedLink.href.includes('forum.html')) {
-                    return;
-                }
-                // Otherwise, let the link work normally
+                // Let ALL links navigate normally
                 return;
             }
             
@@ -371,6 +367,7 @@ function initThreadModals() {
                 return;
             }
             
+            // Only open modal if clicking on the card itself, not a link
             const threadId = this.getAttribute('data-thread');
             if (threadId) {
                 e.preventDefault();
