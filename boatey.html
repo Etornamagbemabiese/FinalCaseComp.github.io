@@ -619,6 +619,8 @@
             height: 700px;
             overflow: hidden;
             margin-top: 80px;
+            display: flex;
+            align-items: center;
         }
 
         .voyage-hero-video {
@@ -650,6 +652,7 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .ai-badge-hero {
@@ -1350,12 +1353,50 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .voyage-hero {
-                height: 600px;
+                height: auto;
+                min-height: 600px;
+                padding: 2rem 0;
+            }
+
+            .voyage-hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .voyage-hero-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+                margin-bottom: 1rem;
+            }
+
+            .voyage-hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+                margin-bottom: 2rem;
             }
 
             .voyage-hero-stats {
-                flex-direction: column;
-                gap: 1rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                justify-content: center;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .voyage-stat-item {
+                flex: 0 0 auto;
+                min-width: 100px;
+                text-align: center;
+            }
+
+            .voyage-stat-value {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+                white-space: nowrap;
+            }
+
+            .voyage-stat-label {
+                font-size: clamp(0.75rem, 2vw, 0.85rem);
+                white-space: nowrap;
+                overflow: visible;
+                text-overflow: clip;
             }
 
             .voyage-stat-divider {
@@ -1364,54 +1405,167 @@
 
             .voyage-hero-cta {
                 flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                padding: 0 1rem;
             }
 
             .voyage-cta-primary,
             .voyage-cta-secondary {
                 width: 100%;
+                max-width: 100%;
                 justify-content: center;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                min-height: 50px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(0, 174, 239, 0.2);
             }
 
             .capabilities-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .demo-content {
+            .capability-card {
                 padding: 2rem 1.5rem;
             }
 
+            .demo-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .demo-title {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .demo-subtitle {
+                font-size: clamp(0.9rem, 2.5vw, 1rem);
+            }
+
+            .demo-chat-container {
+                margin-top: 1.5rem;
+            }
+
             .demo-chat-messages {
-                height: 300px;
+                height: 250px;
+                padding: 1rem;
+            }
+
+            .demo-message-content {
+                max-width: 85%;
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
             }
 
             .demo-quick-questions {
                 flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
             }
 
             .quick-question-btn {
                 width: 100%;
                 justify-content: center;
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .demo-chat-input-container {
+                padding: 0.75rem 1rem;
+            }
+
+            .demo-chat-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 0.75rem 1rem;
+            }
+
+            .demo-send-btn {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                flex-shrink: 0;
             }
 
             .use-cases-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .use-case-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .features-comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .voyage-cta-section {
+                padding: 3rem 1rem;
             }
 
             .voyage-cta-card {
                 padding: 2.5rem 1.5rem;
             }
 
+            .voyage-cta-card h2 {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .voyage-cta-card p {
+                font-size: clamp(1rem, 2.5vw, 1.1rem);
+            }
+
             .cta-buttons-group {
                 flex-direction: column;
+                gap: 1rem;
+                width: 100%;
             }
 
             .cta-btn-large {
                 width: 100%;
+                max-width: 100%;
                 justify-content: center;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                min-height: 50px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(0, 174, 239, 0.2);
+            }
+
+            .cta-icon-large {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Additional mobile optimizations for very small screens */
+        @media (max-width: 400px) {
+            .voyage-hero-stats {
+                gap: 1rem;
+            }
+
+            .voyage-stat-item {
+                min-width: 80px;
+            }
+
+            .voyage-stat-value {
+                font-size: 1.25rem;
+            }
+
+            .voyage-stat-label {
+                font-size: 0.7rem;
             }
         }
     </style>
