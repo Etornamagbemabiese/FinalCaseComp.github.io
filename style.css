@@ -85,6 +85,9 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     height: 100%;
+    max-width: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .logo-link {
@@ -104,6 +107,7 @@ body {
 .logo-image {
     height: 45px;
     width: auto;
+    max-width: 200px;
     object-fit: contain;
     display: block;
     transition: transform 0.2s ease;
@@ -172,6 +176,16 @@ body {
 @media (min-width: 769px) {
     .mobile-menu-header {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .mobile-menu-logo,
+    .mobile-menu-logo img {
+        display: none !important;
+        visibility: hidden !important;
     }
 }
 
@@ -3472,6 +3486,8 @@ body {
     .mobile-menu-logo img {
         height: 36px;
         width: auto;
+        max-width: 150px;
+        object-fit: contain;
         filter: brightness(0) invert(1);
     }
 
