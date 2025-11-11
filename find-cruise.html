@@ -6,7 +6,7 @@
     <title>Find a Cruise | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html">AI Agent</a>
-                <a href="forum.html">Forum</a>
-                <a href="memories.html">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html">SailBack</a>
                 <a href="loyalty.html">Loyalty</a>
                 <a href="find-cruise.html" class="active">Find a Cruise</a>
                 <a href="deals.html">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -82,277 +91,596 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="page-hero">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
+    <!-- Hero Section with Video -->
+    <section class="cruise-hero">
+        <video class="cruise-hero-video" autoplay muted loop playsinline>
+            <source src="RCGV2.mp4" type="video/mp4">
+        </video>
+        <div class="cruise-hero-overlay"></div>
         <div class="container">
-            <div class="page-hero-content">
-                <h1 class="page-title">Find Your Perfect Cruise</h1>
-                <p class="page-subtitle">Discover unforgettable voyages across the Caribbean, Mediterranean, Alaska, and beyond</p>
+            <div class="cruise-hero-content">
+                <h1 class="cruise-hero-title">Find Your Perfect Cruise</h1>
+                <p class="cruise-hero-subtitle">Discover unforgettable voyages across 1,000+ destinations worldwide</p>
+                
+                <!-- Quick Search Bar -->
+                <div class="cruise-quick-search">
+                    <div class="quick-search-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select class="quick-search-select">
+                            <option>Where do you want to go?</option>
+                            <option>Caribbean</option>
+                            <option>Mediterranean</option>
+                            <option>Alaska</option>
+                            <option>Northern Europe</option>
+                            <option>Asia</option>
+                            <option>Australia & New Zealand</option>
+                            <option>Bermuda</option>
+                            <option>Bahamas</option>
+                        </select>
+                    </div>
+                    <div class="quick-search-item">
+                        <i class="fas fa-calendar"></i>
+                        <select class="quick-search-select">
+                            <option>When?</option>
+                            <option>Anytime</option>
+                            <option>Next 30 Days</option>
+                            <option>Next 3 Months</option>
+                            <option>Next 6 Months</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                        </select>
+                    </div>
+                    <div class="quick-search-item">
+                        <i class="fas fa-clock"></i>
+                        <select class="quick-search-select">
+                            <option>Duration</option>
+                            <option>Any Duration</option>
+                            <option>3-5 Nights</option>
+                            <option>6-8 Nights</option>
+                            <option>9-12 Nights</option>
+                            <option>13+ Nights</option>
+                        </select>
+                    </div>
+                    <button class="quick-search-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Search Cruises</span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Search Section -->
-    <section class="cruise-search-section">
+    <!-- Quick Filters -->
+    <section class="quick-filters-section">
         <div class="container">
-            <div class="search-container">
-                <div class="search-filters">
-                    <div class="filter-row">
-                        <div class="filter-item">
-                            <label><i class="fas fa-map-marker-alt"></i> Destination</label>
-                            <select class="filter-select">
-                                <option>All Destinations</option>
-                                <option>Caribbean</option>
-                                <option>Mediterranean</option>
-                                <option>Alaska</option>
-                                <option>Northern Europe</option>
-                                <option>Asia</option>
-                                <option>Australia & New Zealand</option>
-                                <option>Bermuda</option>
-                                <option>Bahamas</option>
-                            </select>
-                        </div>
-                        <div class="filter-item">
-                            <label><i class="fas fa-calendar"></i> Month</label>
-                            <select class="filter-select">
-                                <option>Any Month</option>
-                                <option>January 2025</option>
-                                <option>February 2025</option>
-                                <option>March 2025</option>
-                                <option>April 2025</option>
-                                <option>May 2025</option>
-                                <option>June 2025</option>
-                                <option>July 2025</option>
-                                <option>August 2025</option>
-                                <option>September 2025</option>
-                                <option>October 2025</option>
-                                <option>November 2025</option>
-                                <option>December 2025</option>
-                            </select>
-                        </div>
-                        <div class="filter-item">
-                            <label><i class="fas fa-clock"></i> Duration</label>
-                            <select class="filter-select">
-                                <option>Any Duration</option>
-                                <option>3-5 Nights</option>
-                                <option>6-8 Nights</option>
-                                <option>9-12 Nights</option>
-                                <option>13+ Nights</option>
-                            </select>
-                        </div>
-                        <div class="filter-item">
-                            <label><i class="fas fa-users"></i> Guests</label>
-                            <select class="filter-select">
-                                <option>1 Guest</option>
-                                <option>2 Guests</option>
-                                <option>3 Guests</option>
-                                <option>4 Guests</option>
-                                <option>5+ Guests</option>
-                            </select>
+            <div class="quick-filters">
+                <button class="filter-chip active" data-filter="all">
+                    <i class="fas fa-globe"></i>
+                    <span>All Cruises</span>
+                </button>
+                <button class="filter-chip" data-filter="featured">
+                    <i class="fas fa-star"></i>
+                    <span>Featured</span>
+                </button>
+                <button class="filter-chip" data-filter="new">
+                    <i class="fas fa-sparkles"></i>
+                    <span>New Ships</span>
+                </button>
+                <button class="filter-chip" data-filter="deals">
+                    <i class="fas fa-tag"></i>
+                    <span>Special Offers</span>
+                </button>
+                <button class="filter-chip" data-filter="luxury">
+                    <i class="fas fa-crown"></i>
+                    <span>Luxury</span>
+                </button>
+                <button class="filter-chip" data-filter="family">
+                    <i class="fas fa-users"></i>
+                    <span>Family Friendly</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Search Panel -->
+    <section class="advanced-search-section">
+        <div class="container">
+            <div class="advanced-search-toggle">
+                <button class="toggle-advanced-search" id="toggleAdvancedSearch">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Advanced Filters</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="advanced-search-panel" id="advancedSearchPanel" style="display: none;">
+                <div class="advanced-search-grid">
+                    <div class="advanced-filter-group">
+                        <label><i class="fas fa-ship"></i> Cruise Line</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Royal Caribbean International</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Celebrity Cruises</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Silversea</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="filter-row">
-                        <div class="filter-item">
-                            <label><i class="fas fa-ship"></i> Brand</label>
-                            <select class="filter-select">
-                                <option>All Brands</option>
-                                <option>Royal Caribbean International</option>
-                                <option>Celebrity Cruises</option>
-                                <option>Silversea</option>
-                            </select>
+                    <div class="advanced-filter-group">
+                        <label><i class="fas fa-dollar-sign"></i> Price Range</label>
+                        <div class="price-range">
+                            <input type="range" min="0" max="10000" value="0" class="price-slider" id="priceMin">
+                            <input type="range" min="0" max="10000" value="10000" class="price-slider" id="priceMax">
+                            <div class="price-display">
+                                <span>$<span id="priceMinValue">0</span></span>
+                                <span>$<span id="priceMaxValue">10,000</span></span>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label><i class="fas fa-dollar-sign"></i> Price Range</label>
-                            <select class="filter-select">
-                                <option>Any Price</option>
-                                <option>Under $500</option>
-                                <option>$500 - $1,000</option>
-                                <option>$1,000 - $2,000</option>
-                                <option>$2,000 - $3,500</option>
-                                <option>$3,500+</option>
-                            </select>
+                    </div>
+                    <div class="advanced-filter-group">
+                        <label><i class="fas fa-bed"></i> Cabin Type</label>
+                        <select class="filter-select">
+                            <option>Any Cabin</option>
+                            <option>Interior</option>
+                            <option>Ocean View</option>
+                            <option>Balcony</option>
+                            <option>Suite</option>
+                        </select>
+                    </div>
+                    <div class="advanced-filter-group">
+                        <label><i class="fas fa-users"></i> Number of Guests</label>
+                        <select class="filter-select">
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4 Guests</option>
+                            <option>5+ Guests</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="advanced-search-actions">
+                    <button class="btn-secondary" id="resetFilters">Reset Filters</button>
+                    <button class="btn-primary" id="applyFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sort and View Options -->
+    <section class="cruise-results-header">
+        <div class="container">
+            <div class="results-header-content">
+                <div class="results-count">
+                    <h2>Available Cruises</h2>
+                    <p><span id="cruiseCount">24</span> cruises found</p>
+                </div>
+                <div class="results-controls">
+                    <div class="sort-options">
+                        <label>Sort by:</label>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="duration">Duration</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cruise Results Grid -->
+    <section class="cruise-results-section">
+        <div class="container">
+            <div class="cruises-grid" id="cruisesGrid">
+                <!-- Cruise Card 1 -->
+                <div class="cruise-card-modern" data-category="featured">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge best-seller">Best Seller</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
                         </div>
-                        <div class="filter-item filter-item-full">
-                            <button class="cta-button primary search-btn">
-                                <i class="fas fa-search"></i>
-                                <span>Search Cruises</span>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-card-title">7-Night Eastern Caribbean</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Miami → St. Maarten → St. Thomas → CocoCay → Miami</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Year Round</span>
+                            <span><i class="fas fa-clock"></i> 7 Nights</span>
+                            <span><i class="fas fa-ship"></i> Icon of the Seas</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span class="feature-tag"><i class="fas fa-utensils"></i> Dining</span>
+                            <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Pool</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$899</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 2 -->
+                <div class="cruise-card-modern" data-category="new">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge new">New</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Celebrity Cruises</div>
+                        <h3 class="cruise-card-title">10-Night Mediterranean</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Barcelona → Rome → Santorini → Mykonos → Athens → Barcelona</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> May - Oct</span>
+                            <span><i class="fas fa-clock"></i> 10 Nights</span>
+                            <span><i class="fas fa-ship"></i> Celebrity Ascent</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-spa"></i> Spa</span>
+                            <span class="feature-tag"><i class="fas fa-wine-glass"></i> Premium</span>
+                            <span class="feature-tag"><i class="fas fa-star"></i> Luxury</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$1,499</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 3 -->
+                <div class="cruise-card-modern" data-category="luxury">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge luxury">Luxury</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Silversea</div>
+                        <h3 class="cruise-card-title">14-Night Alaska Expedition</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Vancouver → Glacier Bay → Sitka → Juneau → Ketchikan → Vancouver</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Jun - Aug</span>
+                            <span><i class="fas fa-clock"></i> 14 Nights</span>
+                            <span><i class="fas fa-ship"></i> Silver Nova</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-infinity"></i> All-Inclusive</span>
+                            <span class="feature-tag"><i class="fas fa-concierge-bell"></i> Butler</span>
+                            <span class="feature-tag"><i class="fas fa-gem"></i> Ultra-Luxury</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$3,999</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 4 -->
+                <div class="cruise-card-modern" data-category="featured">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge popular">Popular</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-card-title">5-Night Bahamas</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Miami → Nassau → CocoCay → Miami</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Year Round</span>
+                            <span><i class="fas fa-clock"></i> 5 Nights</span>
+                            <span><i class="fas fa-ship"></i> Wonder of the Seas</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-umbrella-beach"></i> Beach</span>
+                            <span class="feature-tag"><i class="fas fa-child"></i> Family</span>
+                            <span class="feature-tag"><i class="fas fa-water-slide"></i> Waterpark</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$549</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 5 -->
+                <div class="cruise-card-modern" data-category="deals">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge deal">Special Offer</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Celebrity Cruises</div>
+                        <h3 class="cruise-card-title">12-Night Asia & Japan</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Tokyo → Osaka → Shanghai → Hong Kong → Singapore</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Mar - Nov</span>
+                            <span><i class="fas fa-clock"></i> 12 Nights</span>
+                            <span><i class="fas fa-ship"></i> Celebrity Beyond</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-yen-sign"></i> Cultural</span>
+                            <span class="feature-tag"><i class="fas fa-utensils"></i> Cuisine</span>
+                            <span class="feature-tag"><i class="fas fa-mountain"></i> Scenic</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$2,299</span>
+                                <span class="price-period">per person</span>
+                                <span class="price-save">Save up to 30%</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 6 -->
+                <div class="cruise-card-modern" data-category="featured">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge adventure">Adventure</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-card-title">9-Night Northern Europe</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Copenhagen → Stockholm → Helsinki → St. Petersburg → Tallinn → Copenhagen</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> May - Sep</span>
+                            <span><i class="fas fa-clock"></i> 9 Nights</span>
+                            <span><i class="fas fa-ship"></i> Symphony of the Seas</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-landmark"></i> History</span>
+                            <span class="feature-tag"><i class="fas fa-paint-brush"></i> Culture</span>
+                            <span class="feature-tag"><i class="fas fa-camera"></i> Photography</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$1,799</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 7 -->
+                <div class="cruise-card-modern" data-category="family">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge family">Family Fun</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Royal Caribbean International</div>
+                        <h3 class="cruise-card-title">8-Night Western Caribbean</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Fort Lauderdale → Cozumel → Roatan → Costa Maya → CocoCay → Fort Lauderdale</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Year Round</span>
+                            <span><i class="fas fa-clock"></i> 8 Nights</span>
+                            <span><i class="fas fa-ship"></i> Harmony of the Seas</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-child"></i> Kids Club</span>
+                            <span class="feature-tag"><i class="fas fa-theater-masks"></i> Shows</span>
+                            <span class="feature-tag"><i class="fas fa-gamepad"></i> Activities</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$1,099</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cruise Card 8 -->
+                <div class="cruise-card-modern" data-category="luxury">
+                    <div class="cruise-card-image">
+                        <div class="cruise-card-badge luxury">Luxury</div>
+                        <div class="cruise-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="cruise-image-placeholder">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                    </div>
+                    <div class="cruise-card-body">
+                        <div class="cruise-card-brand">Silversea</div>
+                        <h3 class="cruise-card-title">10-Night Mediterranean</h3>
+                        <div class="cruise-card-itinerary">
+                            <span><i class="fas fa-map-marker-alt"></i> Barcelona → Monte Carlo → Florence → Rome → Amalfi → Barcelona</span>
+                        </div>
+                        <div class="cruise-card-details">
+                            <span><i class="fas fa-calendar"></i> Apr - Oct</span>
+                            <span><i class="fas fa-clock"></i> 10 Nights</span>
+                            <span><i class="fas fa-ship"></i> Silver Moon</span>
+                        </div>
+                        <div class="cruise-card-features">
+                            <span class="feature-tag"><i class="fas fa-infinity"></i> All-Inclusive</span>
+                            <span class="feature-tag"><i class="fas fa-concierge-bell"></i> Butler</span>
+                            <span class="feature-tag"><i class="fas fa-wine-glass"></i> Premium</span>
+                        </div>
+                        <div class="cruise-card-footer">
+                            <div class="cruise-card-price">
+                                <span class="price-label">From</span>
+                                <span class="price-amount">$4,499</span>
+                                <span class="price-period">per person</span>
+                            </div>
+                            <button class="cruise-card-btn">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreCruises">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Load More Cruises</span>
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- Featured Cruises -->
-    <section class="featured-cruises-section">
+    <!-- Destination Highlights -->
+    <section class="destination-highlights-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Cruises</h2>
-                <p class="section-subtitle">Handpicked voyages for the ultimate cruise experience</p>
+                <h2 class="section-title">Popular Destinations</h2>
+                <p class="section-subtitle">Explore the world's most beautiful cruise destinations</p>
             </div>
-            <div class="cruises-grid">
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">Best Seller</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <div class="destination-placeholder" style="background: linear-gradient(135deg, #00AEEF, #0066FF);">
+                            <i class="fas fa-umbrella-beach"></i>
                         </div>
                     </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Royal Caribbean International</div>
-                        <h3 class="cruise-title">7-Night Eastern Caribbean</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Caribbean</span>
-                            <span><i class="fas fa-calendar"></i> Year Round</span>
-                            <span><i class="fas fa-clock"></i> 7 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$899</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="destination-content">
+                        <h3>Caribbean</h3>
+                        <p>Turquoise waters, pristine beaches, and vibrant cultures</p>
+                        <a href="#" class="destination-link">Explore <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">New</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <div class="destination-placeholder" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                            <i class="fas fa-monument"></i>
                         </div>
                     </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Celebrity Cruises</div>
-                        <h3 class="cruise-title">10-Night Mediterranean</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Mediterranean</span>
-                            <span><i class="fas fa-calendar"></i> May - Oct</span>
-                            <span><i class="fas fa-clock"></i> 10 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$1,499</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="destination-content">
+                        <h3>Mediterranean</h3>
+                        <p>Historic cities, stunning coastlines, and world-class cuisine</p>
+                        <a href="#" class="destination-link">Explore <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">Luxury</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <div class="destination-placeholder" style="background: linear-gradient(135deg, #00D9FF, #00AEEF);">
+                            <i class="fas fa-mountain"></i>
                         </div>
                     </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Silversea</div>
-                        <h3 class="cruise-title">14-Night Alaska Expedition</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Alaska</span>
-                            <span><i class="fas fa-calendar"></i> Jun - Aug</span>
-                            <span><i class="fas fa-clock"></i> 14 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$3,999</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="destination-content">
+                        <h3>Alaska</h3>
+                        <p>Majestic glaciers, wildlife, and breathtaking wilderness</p>
+                        <a href="#" class="destination-link">Explore <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">Popular</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <div class="destination-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFD700);">
+                            <i class="fas fa-torii-gate"></i>
                         </div>
                     </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Royal Caribbean International</div>
-                        <h3 class="cruise-title">5-Night Bahamas</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Bahamas</span>
-                            <span><i class="fas fa-calendar"></i> Year Round</span>
-                            <span><i class="fas fa-clock"></i> 5 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$549</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">Exotic</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
-                        </div>
-                    </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Celebrity Cruises</div>
-                        <h3 class="cruise-title">12-Night Asia & Japan</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Asia</span>
-                            <span><i class="fas fa-calendar"></i> Mar - Nov</span>
-                            <span><i class="fas fa-clock"></i> 12 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$2,299</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="cruise-card">
-                    <div class="cruise-image">
-                        <div class="cruise-badge">Adventure</div>
-                        <div class="cruise-placeholder">
-                            <i class="fas fa-ship"></i>
-                        </div>
-                    </div>
-                    <div class="cruise-content">
-                        <div class="cruise-brand">Royal Caribbean International</div>
-                        <h3 class="cruise-title">9-Night Northern Europe</h3>
-                        <div class="cruise-details">
-                            <span><i class="fas fa-map-marker-alt"></i> Northern Europe</span>
-                            <span><i class="fas fa-calendar"></i> May - Sep</span>
-                            <span><i class="fas fa-clock"></i> 9 Nights</span>
-                        </div>
-                        <div class="cruise-price">
-                            <span class="price-from">From</span>
-                            <span class="price-amount">$1,799</span>
-                            <span class="price-per">per person</span>
-                        </div>
-                        <button class="cta-button secondary cruise-btn">
-                            <span>View Details</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="destination-content">
+                        <h3>Asia</h3>
+                        <p>Ancient traditions, modern cities, and exotic landscapes</p>
+                        <a href="#" class="destination-link">Explore <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -371,7 +699,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
@@ -390,6 +718,933 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Advanced Search Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleAdvancedSearch');
+            const panel = document.getElementById('advancedSearchPanel');
+            const icon = toggleBtn.querySelector('.fa-chevron-down');
+            
+            if (toggleBtn && panel) {
+                toggleBtn.addEventListener('click', function() {
+                    const isHidden = panel.style.display === 'none';
+                    panel.style.display = isHidden ? 'block' : 'none';
+                    icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            }
+
+            // Price Range Sliders
+            const priceMin = document.getElementById('priceMin');
+            const priceMax = document.getElementById('priceMax');
+            const priceMinValue = document.getElementById('priceMinValue');
+            const priceMaxValue = document.getElementById('priceMaxValue');
+
+            if (priceMin && priceMax && priceMinValue && priceMaxValue) {
+                priceMin.addEventListener('input', function() {
+                    priceMinValue.textContent = this.value;
+                    if (parseInt(this.value) > parseInt(priceMax.value)) {
+                        priceMax.value = this.value;
+                        priceMaxValue.textContent = this.value;
+                    }
+                });
+
+                priceMax.addEventListener('input', function() {
+                    priceMaxValue.textContent = this.value;
+                    if (parseInt(this.value) < parseInt(priceMin.value)) {
+                        priceMin.value = this.value;
+                        priceMinValue.textContent = this.value;
+                    }
+                });
+            }
+
+            // Filter Chips
+            const filterChips = document.querySelectorAll('.filter-chip');
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    filterChips.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    filterCruises(filter);
+                });
+            });
+
+            // View Toggle
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const cruisesGrid = document.getElementById('cruisesGrid');
+            
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const view = this.getAttribute('data-view');
+                    cruisesGrid.className = view === 'list' ? 'cruises-list' : 'cruises-grid';
+                });
+            });
+
+            // Favorite Toggle
+            const favoriteButtons = document.querySelectorAll('.cruise-card-favorite');
+            favoriteButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.style.color = '#FF6B6B';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.style.color = '';
+                    }
+                });
+            });
+
+            // Sort Functionality
+            const sortSelect = document.getElementById('sortSelect');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    sortCruises(this.value);
+                });
+            }
+
+            function filterCruises(filter) {
+                const cards = document.querySelectorAll('.cruise-card-modern');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                updateCruiseCount();
+            }
+
+            function sortCruises(sortBy) {
+                const grid = document.getElementById('cruisesGrid');
+                const cards = Array.from(grid.querySelectorAll('.cruise-card-modern'));
+                
+                cards.sort((a, b) => {
+                    const priceA = parseInt(a.querySelector('.price-amount').textContent.replace('$', '').replace(',', ''));
+                    const priceB = parseInt(b.querySelector('.price-amount').textContent.replace('$', '').replace(',', ''));
+                    
+                    switch(sortBy) {
+                        case 'price-low':
+                            return priceA - priceB;
+                        case 'price-high':
+                            return priceB - priceA;
+                        default:
+                            return 0;
+                    }
+                });
+                
+                cards.forEach(card => grid.appendChild(card));
+            }
+
+            function updateCruiseCount() {
+                const visibleCards = document.querySelectorAll('.cruise-card-modern[style*="block"], .cruise-card-modern:not([style*="none"])');
+                const count = Array.from(visibleCards).filter(card => 
+                    card.style.display !== 'none' || !card.style.display
+                ).length;
+                const countElement = document.getElementById('cruiseCount');
+                if (countElement) {
+                    countElement.textContent = count;
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* Cruise Hero Section */
+        .cruise-hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .cruise-hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .cruise-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.6) 0%, rgba(10, 14, 39, 0.8) 100%);
+            z-index: 2;
+        }
+
+        .cruise-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cruise-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cruise-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+        }
+
+        /* Quick Search Bar */
+        .cruise-quick-search {
+            display: flex;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .quick-search-item {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .quick-search-item:focus-within {
+            border-color: var(--aqua);
+            background: white;
+        }
+
+        .quick-search-item i {
+            color: var(--aqua);
+            font-size: 1.2rem;
+        }
+
+        .quick-search-select {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: var(--navy);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .quick-search-btn {
+            padding: 0.75rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .quick-search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Quick Filters */
+        .quick-filters-section {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .quick-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-chip:hover {
+            background: var(--aqua-light);
+            border-color: var(--aqua);
+        }
+
+        .filter-chip.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .filter-chip i {
+            font-size: 0.9rem;
+        }
+
+        /* Advanced Search */
+        .advanced-search-section {
+            padding: 2rem 0;
+            background: var(--gray-light);
+        }
+
+        .advanced-search-toggle {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .toggle-advanced-search {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-advanced-search:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        .toggle-advanced-search .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .advanced-search-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .advanced-search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .advanced-filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .advanced-filter-group label i {
+            color: var(--aqua);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--aqua);
+        }
+
+        .price-range {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .price-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--gray);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--aqua);
+            cursor: pointer;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .advanced-search-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Results Header */
+        .cruise-results-header {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .results-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .results-count p {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .results-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .sort-options {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sort-options label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--gray);
+            border-radius: 8px;
+            background: white;
+            color: var(--navy);
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .view-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem 0.75rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            background: var(--aqua-light);
+        }
+
+        .view-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        /* Modern Cruise Cards */
+        .cruise-results-section {
+            padding: 3rem 0;
+            background: var(--gray-light);
+        }
+
+        .cruises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .cruises-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cruises-list .cruise-card-modern {
+            display: flex;
+            flex-direction: row;
+            max-width: 100%;
+        }
+
+        .cruises-list .cruise-card-image {
+            width: 300px;
+            min-width: 300px;
+            height: auto;
+        }
+
+        .cruise-card-modern {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cruise-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .cruise-card-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .cruise-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cruise-card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+            z-index: 2;
+        }
+
+        .cruise-card-badge.best-seller {
+            background: var(--coral);
+        }
+
+        .cruise-card-badge.new {
+            background: var(--aqua);
+        }
+
+        .cruise-card-badge.luxury {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .cruise-card-badge.popular {
+            background: var(--gradient-primary);
+        }
+
+        .cruise-card-badge.deal {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .cruise-card-badge.adventure {
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+        }
+
+        .cruise-card-badge.family {
+            background: linear-gradient(135deg, #00D9FF, #00AEEF);
+        }
+
+        .cruise-card-favorite {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .cruise-card-favorite:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .cruise-card-favorite i {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+        }
+
+        .cruise-card-body {
+            padding: 1.5rem;
+        }
+
+        .cruise-card-brand {
+            font-size: 0.8rem;
+            color: var(--aqua);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .cruise-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .cruise-card-itinerary {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .cruise-card-itinerary i {
+            color: var(--aqua);
+            margin-right: 0.5rem;
+        }
+
+        .cruise-card-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .cruise-card-details span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cruise-card-details i {
+            color: var(--aqua);
+        }
+
+        .cruise-card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            padding: 0.4rem 0.75rem;
+            background: var(--gray-light);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .feature-tag i {
+            font-size: 0.7rem;
+            color: var(--aqua);
+        }
+
+        .cruise-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .cruise-card-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+        }
+
+        .price-save {
+            font-size: 0.75rem;
+            color: var(--coral);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .cruise-card-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cruise-card-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Load More */
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-btn {
+            padding: 1rem 2.5rem;
+            background: white;
+            border: 2px solid var(--aqua);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--aqua);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: var(--aqua);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Destination Highlights */
+        .destination-highlights-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .destination-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .destination-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .destination-content {
+            padding: 1.5rem;
+        }
+
+        .destination-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .destination-content p {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--aqua);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .destination-link:hover {
+            gap: 1rem;
+            color: var(--navy);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cruise-hero {
+                height: 500px;
+            }
+
+            .cruise-quick-search {
+                flex-direction: column;
+            }
+
+            .quick-search-item {
+                width: 100%;
+            }
+
+            .quick-search-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cruises-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cruises-list .cruise-card-modern {
+                flex-direction: column;
+            }
+
+            .cruises-list .cruise-card-image {
+                width: 100%;
+                min-width: 100%;
+            }
+        }
+    </style>
 </body>
 </html>
-

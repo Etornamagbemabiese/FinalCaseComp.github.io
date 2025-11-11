@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>AI Agent | RCG Connect</title>
+    <title>Voyage Companion | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boatey-overview.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -24,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html" class="active">AI Agent</a>
-                <a href="forum.html">Forum</a>
-                <a href="memories.html">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html" class="active">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html">SailBack</a>
                 <a href="loyalty.html">Loyalty</a>
                 <a href="find-cruise.html">Find a Cruise</a>
                 <a href="deals.html">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -83,117 +91,376 @@
         </div>
     </nav>
 
-    <!-- Boatey Overview Hero Section -->
-    <section class="boatey-overview-hero">
-        <div class="hero-gradient-overlay"></div>
+    <!-- Hero Section with Video -->
+    <section class="voyage-hero">
+        <video class="voyage-hero-video" autoplay muted loop playsinline>
+            <source src="RCGV2.mp4" type="video/mp4">
+        </video>
+        <div class="voyage-hero-overlay"></div>
         <div class="container">
-            <div class="boatey-hero-content-overview">
-                <h1 class="boatey-main-title">Boatey — Your Personal AI Companion at Sea</h1>
-                <p class="boatey-main-subtitle">Intelligent assistance at every wave. From trip planning to onboard support, Boatey is here to make your voyage unforgettable.</p>
+            <div class="voyage-hero-content">
+                <div class="ai-badge-hero">
+                    <i class="fas fa-robot"></i>
+                    <span>AI-Powered Assistant</span>
+                </div>
+                <h1 class="voyage-hero-title">Voyage Companion</h1>
+                <p class="voyage-hero-subtitle">Your Personal AI Companion at Sea — Intelligent assistance for every moment of your cruise journey</p>
                 
-                <!-- Stat Cards -->
-                <div class="boatey-stats-overview">
-                    <div class="stat-card-overview">
-                        <div class="stat-icon-overview">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="stat-content-overview">
-                            <span class="stat-number-overview">10K+</span>
-                            <span class="stat-label-overview">Threads Answered</span>
-                        </div>
+                <!-- Quick Stats -->
+                <div class="voyage-hero-stats">
+                    <div class="voyage-stat-item">
+                        <div class="voyage-stat-value">10K+</div>
+                        <div class="voyage-stat-label">Questions Answered</div>
                     </div>
-                    <div class="stat-card-overview">
-                        <div class="stat-icon-overview">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="stat-content-overview">
-                            <span class="stat-number-overview">5K+</span>
-                            <span class="stat-label-overview">Cruise Bookings</span>
-                        </div>
+                    <div class="voyage-stat-divider"></div>
+                    <div class="voyage-stat-item">
+                        <div class="voyage-stat-value">24/7</div>
+                        <div class="voyage-stat-label">Always Available</div>
                     </div>
-                    <div class="stat-card-overview">
-                        <div class="stat-icon-overview">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="stat-content-overview">
-                            <span class="stat-number-overview">24/7</span>
-                            <span class="stat-label-overview">Real-Time Support</span>
-                        </div>
+                    <div class="voyage-stat-divider"></div>
+                    <div class="voyage-stat-item">
+                        <div class="voyage-stat-value">5K+</div>
+                        <div class="voyage-stat-label">Trip Plans Created</div>
                     </div>
                 </div>
 
                 <!-- CTA Buttons -->
-                <div class="boatey-cta-buttons">
-                    <a href="forum.html" class="cta-button-primary-overview">
-                        <span>Explore Forum</span>
-                        <i class="fas fa-arrow-right"></i>
+                <div class="voyage-hero-cta">
+                    <a href="chat.html" class="voyage-cta-primary">
+                        <i class="fas fa-comments"></i>
+                        <span>Start Chatting</span>
                     </a>
-                    <a href="chat.html" class="cta-button-secondary-overview" id="meetBoateyBtn">
-                        <span>Chat with Your Agent</span>
-                        <div class="boatey-cta-icon">
-                            <video class="boatey-logo-video-small" autoplay muted loop playsinline>
-                                <source src="Animation.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <a href="forum.html" class="voyage-cta-secondary">
+                        <i class="fas fa-users"></i>
+                        <span>Explore The Deck</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Can Boatey Do Section -->
-    <section class="boatey-features-overview">
+    <!-- AI Capabilities Showcase -->
+    <section class="ai-capabilities-section">
         <div class="container">
-            <div class="section-header-overview">
-                <h2 class="section-title-overview">What Can Boatey Do?</h2>
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">What Can Voyage Companion Do?</h2>
+                <p class="section-subtitle-modern">Powered by advanced AI to help you every step of your cruise journey</p>
             </div>
-            <div class="features-grid-overview">
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
-                        <i class="fas fa-file-alt"></i>
+
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3 class="feature-title-overview">Thread Summaries</h3>
-                    <p class="feature-description-overview">Get instant AI-powered summaries of forum discussions to quickly understand key points and insights.</p>
+                    <h3 class="capability-title">Thread Summaries</h3>
+                    <p class="capability-description">Get instant AI-powered summaries of forum discussions. Quickly understand key points and insights without reading through entire threads.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"Summarize the discussion about Alaska packing tips" → Get instant key points and recommendations</p>
+                    </div>
                 </div>
 
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
+                <div class="capability-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="capability-icon">
                         <i class="fas fa-compass"></i>
                     </div>
-                    <h3 class="feature-title-overview">Trip Planning</h3>
-                    <p class="feature-description-overview">Get personalized recommendations for excursions, dining, and activities based on your preferences.</p>
+                    <h3 class="capability-title">Trip Planning</h3>
+                    <p class="capability-description">Get personalized recommendations for excursions, dining, and activities. Plan your perfect cruise based on your preferences and interests.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"Plan a 7-day Caribbean cruise for a family with kids" → Get customized itinerary suggestions</p>
+                    </div>
                 </div>
 
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
+                <div class="capability-card">
+                    <div class="capability-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
-                    <h3 class="feature-title-overview">24/7 Support</h3>
-                    <p class="feature-description-overview">Ask me anything about cruises, loyalty programs, or RCG services. I'm always here to help!</p>
+                    <h3 class="capability-title">24/7 Support</h3>
+                    <p class="capability-description">Ask anything about cruises, loyalty programs, or RCG services. Get instant answers to your questions anytime, anywhere.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"What are Diamond tier benefits?" → Get detailed information about all perks and privileges</p>
+                    </div>
                 </div>
 
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
+                <div class="capability-card">
+                    <div class="capability-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="feature-title-overview">Smart Insights</h3>
-                    <p class="feature-description-overview">Discover hidden gems, tips, and tricks from the community to enhance your cruise experience.</p>
+                    <h3 class="capability-title">Smart Insights</h3>
+                    <p class="capability-description">Discover hidden gems, tips, and tricks from the community. Learn from thousands of cruisers' experiences.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"Best restaurants on Wonder of the Seas" → Get recommendations based on reviews and ratings</p>
+                    </div>
                 </div>
 
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
+                <div class="capability-card">
+                    <div class="capability-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3 class="feature-title-overview">Booking Help</h3>
-                    <p class="feature-description-overview">Get assistance with cruise bookings, cabin selection, package deals, and finding the best prices.</p>
+                    <h3 class="capability-title">Booking Assistance</h3>
+                    <p class="capability-description">Get help with cruise bookings, cabin selection, package deals, and finding the best prices. Make informed decisions.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"What's the best cabin for a family of 4?" → Get recommendations based on your needs</p>
+                    </div>
                 </div>
 
-                <div class="feature-card-overview">
-                    <div class="feature-icon-overview">
+                <div class="capability-card">
+                    <div class="capability-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3 class="feature-title-overview">Loyalty Guidance</h3>
-                    <p class="feature-description-overview">Understand your tier benefits, maximize points earning, and learn how to unlock exclusive perks.</p>
+                    <h3 class="capability-title">Loyalty Guidance</h3>
+                    <p class="capability-description">Understand your tier benefits, maximize points earning, and learn how to unlock exclusive perks. Get the most from your loyalty status.</p>
+                    <div class="capability-example">
+                        <div class="example-badge">Example</div>
+                        <p>"How do I reach Diamond tier faster?" → Get strategies to maximize your points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="ai-demo-section">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <h2 class="demo-title">Try Voyage Companion</h2>
+                    <p class="demo-subtitle">See how AI can help you plan your perfect cruise</p>
+                    
+                    <!-- Demo Chat Interface -->
+                    <div class="demo-chat-container">
+                        <div class="demo-chat-header">
+                            <div class="demo-chat-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="demo-chat-info">
+                                <h3>Voyage Companion</h3>
+                                <span class="demo-status">Online</span>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-chat-messages" id="demoChatMessages">
+                            <div class="demo-message bot-message">
+                                <div class="demo-message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="demo-message-content">
+                                    <p>Ahoy! I'm Voyage Companion, your AI assistant. I can help you with trip planning, answer questions, summarize forum discussions, and more. What would you like to know?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-quick-questions">
+                            <button class="quick-question-btn" data-question="What are the best excursions in the Caribbean?">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Best Caribbean Excursions</span>
+                            </button>
+                            <button class="quick-question-btn" data-question="Plan a 7-day cruise for my family">
+                                <i class="fas fa-calendar"></i>
+                                <span>Plan My Cruise</span>
+                            </button>
+                            <button class="quick-question-btn" data-question="What are Diamond tier benefits?">
+                                <i class="fas fa-crown"></i>
+                                <span>Diamond Benefits</span>
+                            </button>
+                        </div>
+                        
+                        <div class="demo-chat-input-container">
+                            <input type="text" class="demo-chat-input" id="demoChatInput" placeholder="Ask me anything about cruising...">
+                            <button class="demo-send-btn" id="demoSendBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">How Voyage Companion Helps You</h2>
+                <p class="section-subtitle-modern">Real examples of how AI makes your cruise planning easier</p>
+            </div>
+
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Research Made Easy</h3>
+                    <p>Instead of browsing dozens of forum threads, ask Voyage Companion to summarize discussions and get instant insights.</p>
+                    <div class="use-case-example">
+                        <strong>Before:</strong> 30 minutes reading threads
+                        <br>
+                        <strong>After:</strong> 30 seconds getting a summary
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Personalized Planning</h3>
+                    <p>Get customized trip recommendations based on your preferences, budget, and travel style. No more generic advice.</p>
+                    <div class="use-case-example">
+                        <strong>Before:</strong> Generic travel guides
+                        <br>
+                        <strong>After:</strong> Personalized recommendations
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Instant Answers</h3>
+                    <p>Get immediate answers to your questions 24/7. No waiting for responses or searching through FAQs.</p>
+                    <div class="use-case-example">
+                        <strong>Before:</strong> Waiting for email responses
+                        <br>
+                        <strong>After:</strong> Instant AI-powered answers
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison -->
+    <section class="features-comparison-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Why Choose Voyage Companion?</h2>
+                <p class="section-subtitle-modern">AI-powered assistance that understands your needs</p>
+            </div>
+
+            <div class="features-comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Intelligence</h3>
+                    <p>Advanced AI technology trained on thousands of cruise experiences and community knowledge.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Get instant responses and summaries. No waiting, no delays—just quick, accurate information.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Always Accurate</h3>
+                    <p>Powered by verified information from RCG and community insights. Trustworthy answers you can rely on.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized</h3>
+                    <p>Understands your preferences and provides tailored recommendations just for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">What Cruisers Say</h2>
+                <p class="section-subtitle-modern">See how Voyage Companion has helped others</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Voyage Companion helped me plan the perfect family cruise. The AI understood exactly what we needed and gave us amazing recommendations!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=40" alt="Sarah Johnson">
+                        <div>
+                            <div class="author-name">Sarah Johnson</div>
+                            <div class="author-tier">Gold Member</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The thread summaries are a game-changer! I can quickly understand what's being discussed without reading through hundreds of comments."</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=001F54&color=fff&size=40" alt="Michael Chen">
+                        <div>
+                            <div class="author-name">Michael Chen</div>
+                            <div class="author-tier">Diamond Member</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"24/7 support is incredible. I had a question at 2 AM and got an instant answer. This is the future of customer service!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00AEEF&color=fff&size=40" alt="Emma Williams">
+                        <div>
+                            <div class="author-name">Emma Williams</div>
+                            <div class="author-tier">Platinum Member</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="voyage-cta-section">
+        <div class="container">
+            <div class="voyage-cta-card">
+                <div class="cta-icon-large">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2>Ready to Experience Voyage Companion?</h2>
+                <p>Start chatting with your AI assistant and discover how it can transform your cruise planning experience.</p>
+                <div class="cta-buttons-group">
+                    <a href="chat.html" class="cta-btn-large primary">
+                        <i class="fas fa-comments"></i>
+                        <span>Start Chatting Now</span>
+                    </a>
+                    <a href="forum.html" class="cta-btn-large secondary">
+                        <i class="fas fa-users"></i>
+                        <span>Explore The Deck</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -211,7 +478,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
@@ -240,16 +507,912 @@
 
     <script src="script.js"></script>
     <script>
-        // Navigation to chat page
+        // Demo Chat Functionality
+        const demoResponses = {
+            'caribbean': "The Caribbean offers amazing excursions! Popular options include:\n\n• Snorkeling and diving at coral reefs\n• Beach breaks at pristine islands\n• Zip-lining through tropical forests\n• Catamaran sailing tours\n• Historical tours of colonial cities\n• Dolphin encounters\n\nWhich Caribbean destination interests you most?",
+            'plan': "I'd love to help you plan your cruise! Here's what I can assist with:\n\n• Destination recommendations\n• Best time to travel\n• Excursion suggestions\n• Dining reservations\n• Onboard activities\n• Cabin selection\n\nWhat type of cruise experience are you looking for?",
+            'diamond': "Diamond tier benefits include:\n\n• Diamond Lounge access with complimentary beverages\n• Complimentary specialty dining (2 nights)\n• Complimentary internet (2 days)\n• Priority seating at shows\n• 20% spa discount\n• Complimentary photo\n• Priority tender tickets\n\nYou're currently Platinum - only 13 points away from Diamond!",
+            'default': "That's a great question! I can help you with:\n\n• Trip planning and recommendations\n• Forum thread summaries\n• Loyalty program information\n• Cruise booking assistance\n• Destination insights\n• 24/7 support\n\nWhat would you like to know more about?"
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
-            const meetBoateyBtn = document.getElementById('meetBoateyBtn');
-            if (meetBoateyBtn) {
-                meetBoateyBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'chat.html';
-                });
+            const demoChatInput = document.getElementById('demoChatInput');
+            const demoSendBtn = document.getElementById('demoSendBtn');
+            const demoChatMessages = document.getElementById('demoChatMessages');
+            const quickQuestionBtns = document.querySelectorAll('.quick-question-btn');
+
+            function addDemoMessage(text, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `demo-message ${isUser ? 'user-message' : 'bot-message'}`;
+                
+                if (!isUser) {
+                    messageDiv.innerHTML = `
+                        <div class="demo-message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="demo-message-content">
+                            <p>${text.replace(/\n/g, '<br>')}</p>
+                        </div>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="demo-message-content">
+                            <p>${text}</p>
+                        </div>
+                    `;
+                }
+                
+                demoChatMessages.appendChild(messageDiv);
+                demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
             }
+
+            function getDemoResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                if (lowerMessage.includes('caribbean') || lowerMessage.includes('excursion')) {
+                    return demoResponses.caribbean;
+                } else if (lowerMessage.includes('plan') || lowerMessage.includes('trip') || lowerMessage.includes('cruise')) {
+                    return demoResponses.plan;
+                } else if (lowerMessage.includes('diamond') || lowerMessage.includes('tier') || lowerMessage.includes('loyalty')) {
+                    return demoResponses.diamond;
+                } else {
+                    return demoResponses.default;
+                }
+            }
+
+            function sendDemoMessage() {
+                const message = demoChatInput.value.trim();
+                if (!message) return;
+                
+                addDemoMessage(message, true);
+                demoChatInput.value = '';
+                
+                // Show typing indicator
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'demo-message bot-message typing';
+                typingDiv.innerHTML = `
+                    <div class="demo-message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="demo-message-content">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                `;
+                demoChatMessages.appendChild(typingDiv);
+                demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    typingDiv.remove();
+                    const response = getDemoResponse(message);
+                    addDemoMessage(response, false);
+                }, 1500);
+            }
+
+            demoSendBtn?.addEventListener('click', sendDemoMessage);
+            
+            demoChatInput?.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendDemoMessage();
+                }
+            });
+
+            quickQuestionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    demoChatInput.value = question;
+                    sendDemoMessage();
+                });
+            });
         });
     </script>
+
+    <style>
+        /* Voyage Hero Section */
+        .voyage-hero {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .voyage-hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .voyage-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.7) 0%, rgba(10, 14, 39, 0.9) 100%);
+            z-index: 2;
+        }
+
+        .voyage-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ai-badge-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(102, 126, 234, 0.2);
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            border-radius: 30px;
+            color: #667EEA;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .voyage-hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .voyage-hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .voyage-hero-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .voyage-stat-item {
+            text-align: center;
+        }
+
+        .voyage-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .voyage-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .voyage-stat-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .voyage-hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .voyage-cta-primary,
+        .voyage-cta-secondary {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .voyage-cta-primary {
+            background: white;
+            color: #001F54;
+        }
+
+        .voyage-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .voyage-cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .voyage-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* AI Capabilities Section */
+        .ai-capabilities-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 2px solid var(--gray-light);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+            border-color: var(--aqua);
+        }
+
+        .capability-card.featured {
+            border-color: var(--aqua);
+            border-width: 3px;
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .capability-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .capability-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .capability-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .capability-example {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .example-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--aqua);
+            color: white;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-example p {
+            font-size: 0.9rem;
+            color: var(--navy);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Demo Section */
+        .ai-demo-section {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .demo-content {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .demo-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .demo-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .demo-chat-container {
+            border: 2px solid var(--gray);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .demo-chat-header {
+            background: var(--gradient-primary);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+
+        .demo-chat-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .demo-chat-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-status {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .demo-chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .demo-message {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .demo-message.user-message {
+            flex-direction: row-reverse;
+        }
+
+        .demo-message-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .demo-message-content {
+            max-width: 70%;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .demo-message.user-message .demo-message-content {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .demo-message-content p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-dark);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        .demo-quick-questions {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-top: 2px solid var(--gray-light);
+            flex-wrap: wrap;
+        }
+
+        .quick-question-btn {
+            padding: 0.75rem 1.25rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-question-btn:hover {
+            background: var(--aqua-light);
+            border-color: var(--aqua);
+        }
+
+        .demo-chat-input-container {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .demo-chat-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray);
+            border-radius: 25px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .demo-chat-input:focus {
+            border-color: var(--aqua);
+        }
+
+        .demo-send-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .demo-send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Use Cases Section */
+        .use-cases-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .use-case-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card p {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-example {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--navy);
+            line-height: 1.8;
+        }
+
+        /* Features Comparison Section */
+        .features-comparison-section {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+
+        .features-comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .comparison-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card p {
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--navy);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .author-tier {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        /* CTA Section */
+        .voyage-cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #001F54 0%, #00AEEF 100%);
+        }
+
+        .voyage-cta-card {
+            background: white;
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-icon-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .voyage-cta-card h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .voyage-cta-card p {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-large {
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-large.primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .cta-btn-large.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 174, 239, 0.4);
+        }
+
+        .cta-btn-large.secondary {
+            background: white;
+            color: var(--navy);
+            border: 2px solid var(--gray);
+        }
+
+        .cta-btn-large.secondary:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .voyage-hero {
+                height: 600px;
+            }
+
+            .voyage-hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .voyage-stat-divider {
+                display: none;
+            }
+
+            .voyage-hero-cta {
+                flex-direction: column;
+            }
+
+            .voyage-cta-primary,
+            .voyage-cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .demo-chat-messages {
+                height: 300px;
+            }
+
+            .demo-quick-questions {
+                flex-direction: column;
+            }
+
+            .quick-question-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .voyage-cta-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-buttons-group {
+                flex-direction: column;
+            }
+
+            .cta-btn-large {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </body>
 </html>

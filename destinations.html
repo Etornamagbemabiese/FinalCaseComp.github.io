@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Destinations | RCG Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="RCGLOGO.png" alt="Royal Caribbean Group" class="logo-image">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html">SailBack</a>
+                <a href="loyalty.html">Loyalty</a>
+                <a href="find-cruise.html">Find a Cruise</a>
+                <a href="deals.html">Deals</a>
+                <a href="ships.html">Ships</a>
+                <a href="destinations.html" class="active">Destinations</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn sign-in-btn" id="signInBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="profile-avatar" id="profileToggle">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                    <span class="profile-badge">Platinum</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=128" alt="User Avatar">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="tier-badge platinum">Platinum Member</p>
+                        </div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">
+                            <span>230 pts to Diamond Tier</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <div class="mini-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Top Contributor</span>
+                        </div>
+                        <div class="mini-badge">
+                            <i class="fas fa-anchor"></i>
+                            <span>Cruise Enthusiast</span>
+                        </div>
+                    </div>
+                    <button class="sign-out-btn" id="signOutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video -->
+    <section class="destinations-hero">
+        <video class="destinations-hero-video" autoplay muted loop playsinline>
+            <source src="RCGV2.mp4" type="video/mp4">
+        </video>
+        <div class="destinations-hero-overlay"></div>
+        <div class="container">
+            <div class="destinations-hero-content">
+                <h1 class="destinations-hero-title">Discover Amazing Destinations</h1>
+                <p class="destinations-hero-subtitle">Explore 1,000+ breathtaking ports of call across the globe</p>
+                
+                <!-- Quick Search -->
+                <div class="destinations-quick-search">
+                    <div class="destinations-search-item">
+                        <i class="fas fa-globe"></i>
+                        <select class="destinations-search-select">
+                            <option>All Regions</option>
+                            <option>Caribbean</option>
+                            <option>Mediterranean</option>
+                            <option>Alaska</option>
+                            <option>Northern Europe</option>
+                            <option>Asia</option>
+                            <option>Australia & New Zealand</option>
+                            <option>South America</option>
+                            <option>Middle East</option>
+                        </select>
+                    </div>
+                    <button class="destinations-search-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Explore Destinations</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Region Filter Tabs -->
+    <section class="destinations-filter-section">
+        <div class="container">
+            <div class="destinations-filter-tabs">
+                <button class="destination-filter-tab active" data-region="all">
+                    <i class="fas fa-globe"></i>
+                    <span>All Destinations</span>
+                </button>
+                <button class="destination-filter-tab" data-region="caribbean">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Caribbean</span>
+                </button>
+                <button class="destination-filter-tab" data-region="mediterranean">
+                    <i class="fas fa-monument"></i>
+                    <span>Mediterranean</span>
+                </button>
+                <button class="destination-filter-tab" data-region="alaska">
+                    <i class="fas fa-mountain"></i>
+                    <span>Alaska</span>
+                </button>
+                <button class="destination-filter-tab" data-region="europe">
+                    <i class="fas fa-landmark"></i>
+                    <span>Northern Europe</span>
+                </button>
+                <button class="destination-filter-tab" data-region="asia">
+                    <i class="fas fa-torii-gate"></i>
+                    <span>Asia</span>
+                </button>
+                <button class="destination-filter-tab" data-region="pacific">
+                    <i class="fas fa-water"></i>
+                    <span>Pacific</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="featured-destinations-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Featured Destinations</h2>
+                <p class="section-subtitle-modern">Discover the world's most beautiful cruise destinations</p>
+            </div>
+
+            <div class="destinations-grid-modern" id="destinationsGrid">
+                <!-- Caribbean Destinations -->
+                <div class="destination-card-modern" data-region="caribbean">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Popular</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #00AEEF, #00D9FF);">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Caribbean</div>
+                        <h3 class="destination-card-title">Eastern Caribbean</h3>
+                        <p class="destination-card-description">Turquoise waters, pristine beaches, and vibrant island cultures. Experience paradise in the Eastern Caribbean.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-umbrella-beach"></i> Beaches</span>
+                            <span class="highlight-tag"><i class="fas fa-swimmer"></i> Water Sports</span>
+                            <span class="highlight-tag"><i class="fas fa-cocktail"></i> Island Culture</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> St. Maarten, St. Thomas, Puerto Rico</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> Year Round</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card-modern" data-region="caribbean">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Best Seller</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #00D9FF, #00AEEF);">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Caribbean</div>
+                        <h3 class="destination-card-title">Western Caribbean</h3>
+                        <p class="destination-card-description">Explore ancient Mayan ruins, lush rainforests, and stunning coral reefs in the Western Caribbean.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-mountain"></i> Mayan Ruins</span>
+                            <span class="highlight-tag"><i class="fas fa-fish"></i> Snorkeling</span>
+                            <span class="highlight-tag"><i class="fas fa-tree"></i> Rainforests</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Cozumel, Roatan, Belize, Grand Cayman</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> Year Round</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card-modern" data-region="caribbean">
+                    <div class="destination-card-image">
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #0066FF, #00AEEF);">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Caribbean</div>
+                        <h3 class="destination-card-title">Bahamas</h3>
+                        <p class="destination-card-description">Pristine beaches, crystal-clear waters, and exclusive private islands. Perfect for a quick getaway!</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-island-tropical"></i> Private Islands</span>
+                            <span class="highlight-tag"><i class="fas fa-water"></i> Crystal Clear Waters</span>
+                            <span class="highlight-tag"><i class="fas fa-sun"></i> Perfect Weather</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Nassau, CocoCay, Perfect Day</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> Year Round</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mediterranean Destinations -->
+                <div class="destination-card-modern" data-region="mediterranean">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Cultural</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                            <i class="fas fa-monument"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Mediterranean</div>
+                        <h3 class="destination-card-title">Western Mediterranean</h3>
+                        <p class="destination-card-description">Historic cities, stunning coastlines, and world-class cuisine. Discover the beauty of the Mediterranean.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-landmark"></i> Historic Sites</span>
+                            <span class="highlight-tag"><i class="fas fa-utensils"></i> World-Class Cuisine</span>
+                            <span class="highlight-tag"><i class="fas fa-camera"></i> Stunning Views</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Barcelona, Rome, Florence, Monte Carlo</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> May - Oct</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card-modern" data-region="mediterranean">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Scenic</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #764BA2, #667EEA);">
+                            <i class="fas fa-monument"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Mediterranean</div>
+                        <h3 class="destination-card-title">Greek Isles</h3>
+                        <p class="destination-card-description">Ancient history, stunning sunsets, and beautiful islands. Experience the magic of the Greek Isles.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-history"></i> Ancient History</span>
+                            <span class="highlight-tag"><i class="fas fa-sunset"></i> Stunning Sunsets</span>
+                            <span class="highlight-tag"><i class="fas fa-island-tropical"></i> Beautiful Islands</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Santorini, Mykonos, Athens, Rhodes</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> May - Oct</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alaska Destinations -->
+                <div class="destination-card-modern" data-region="alaska">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Adventure</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #00D9FF, #00AEEF);">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Alaska</div>
+                        <h3 class="destination-card-title">Inside Passage</h3>
+                        <p class="destination-card-description">Majestic glaciers, incredible wildlife, and breathtaking wilderness. Experience the last frontier.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-snowflake"></i> Glaciers</span>
+                            <span class="highlight-tag"><i class="fas fa-binoculars"></i> Wildlife</span>
+                            <span class="highlight-tag"><i class="fas fa-mountain"></i> Wilderness</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Juneau, Skagway, Ketchikan, Glacier Bay</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> May - Sep</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Northern Europe Destinations -->
+                <div class="destination-card-modern" data-region="europe">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Historic</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #001F54, #00AEEF);">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Northern Europe</div>
+                        <h3 class="destination-card-title">Scandinavia & Baltic</h3>
+                        <p class="destination-card-description">Rich history, stunning architecture, and vibrant cultures. Discover the beauty of Northern Europe.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-castle"></i> Castles</span>
+                            <span class="highlight-tag"><i class="fas fa-paint-brush"></i> Culture</span>
+                            <span class="highlight-tag"><i class="fas fa-camera"></i> Photography</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Copenhagen, Stockholm, St. Petersburg, Helsinki</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> May - Sep</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asia Destinations -->
+                <div class="destination-card-modern" data-region="asia">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Exotic</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFD700);">
+                            <i class="fas fa-torii-gate"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Asia</div>
+                        <h3 class="destination-card-title">Japan & Asia</h3>
+                        <p class="destination-card-description">Ancient traditions, modern cities, and exotic landscapes. Experience the wonders of Asia.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-temple"></i> Temples</span>
+                            <span class="highlight-tag"><i class="fas fa-city"></i> Modern Cities</span>
+                            <span class="highlight-tag"><i class="fas fa-utensils"></i> Unique Cuisine</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Tokyo, Shanghai, Hong Kong, Singapore</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> Mar - Nov</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pacific Destinations -->
+                <div class="destination-card-modern" data-region="pacific">
+                    <div class="destination-card-image">
+                        <div class="destination-popular-badge">Paradise</div>
+                        <div class="destination-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="destination-image-placeholder" style="background: linear-gradient(135deg, #00D9FF, #667EEA);">
+                            <i class="fas fa-water"></i>
+                        </div>
+                    </div>
+                    <div class="destination-card-body">
+                        <div class="destination-region">Pacific</div>
+                        <h3 class="destination-card-title">Australia & New Zealand</h3>
+                        <p class="destination-card-description">Stunning landscapes, vibrant cities, and unique wildlife. Explore the beauty of the Pacific.</p>
+                        <div class="destination-highlights">
+                            <span class="highlight-tag"><i class="fas fa-koala"></i> Wildlife</span>
+                            <span class="highlight-tag"><i class="fas fa-mountain"></i> Landscapes</span>
+                            <span class="highlight-tag"><i class="fas fa-wine-glass"></i> Wine Regions</span>
+                        </div>
+                        <div class="destination-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Sydney, Melbourne, Auckland, Bay of Islands</span>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="destination-info">
+                                <span><i class="fas fa-calendar"></i> Oct - Apr</span>
+                                <span><i class="fas fa-ship"></i> Multiple Ships</span>
+                            </div>
+                            <button class="destination-card-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destination Highlights Section -->
+    <section class="destination-highlights-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Why Cruise to These Destinations?</h2>
+                <p class="section-subtitle-modern">Unforgettable experiences await at every port of call</p>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Unpack Once</h3>
+                    <p>Visit multiple destinations without the hassle of packing and unpacking. Your floating resort takes you there!</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Curated Experiences</h3>
+                    <p>Expertly planned shore excursions and local experiences designed to showcase the best of each destination.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Local Cuisine</h3>
+                    <p>Taste authentic local flavors with curated dining experiences and culinary tours at each port.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photo Opportunities</h3>
+                    <p>Capture breathtaking moments at iconic landmarks and hidden gems only accessible by sea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Royal Caribbean Group</h3>
+                    <p>Connecting millions of travelers to unforgettable cruise experiences across the globe.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
+                        <li><a href="loyalty.html">Loyalty</a></li>
+                        <li><a href="find-cruise.html">Find a Cruise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Brands</h4>
+                    <ul>
+                        <li><a href="#">Royal Caribbean International</a></li>
+                        <li><a href="#">Celebrity Cruises</a></li>
+                        <li><a href="#">Silversea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">About RCG</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-tagline">© 2025 Royal Caribbean Group — Demo Experience.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Destination Filter Tabs
+            const filterTabs = document.querySelectorAll('.destination-filter-tab');
+            const destinationCards = document.querySelectorAll('.destination-card-modern');
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const selectedRegion = this.getAttribute('data-region');
+                    
+                    destinationCards.forEach(card => {
+                        if (selectedRegion === 'all' || card.getAttribute('data-region') === selectedRegion) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Favorite Toggle
+            const favoriteButtons = document.querySelectorAll('.destination-favorite');
+            favoriteButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.style.color = '#FF6B6B';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.style.color = '';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Destinations Hero Section */
+        .destinations-hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .destinations-hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .destinations-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.6) 0%, rgba(10, 14, 39, 0.85) 100%);
+            z-index: 2;
+        }
+
+        .destinations-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .destinations-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .destinations-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+        }
+
+        .destinations-quick-search {
+            display: flex;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .destinations-search-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .destinations-search-item:focus-within {
+            border-color: var(--aqua);
+            background: white;
+        }
+
+        .destinations-search-item i {
+            color: var(--aqua);
+            font-size: 1.2rem;
+        }
+
+        .destinations-search-select {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: var(--navy);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .destinations-search-btn {
+            padding: 0.75rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .destinations-search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Destination Filter Section */
+        .destinations-filter-section {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .destinations-filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .destination-filter-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .destination-filter-tab:hover {
+            background: var(--aqua-light);
+            border-color: var(--aqua);
+        }
+
+        .destination-filter-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .destination-filter-tab i {
+            font-size: 0.9rem;
+        }
+
+        /* Featured Destinations Section */
+        .featured-destinations-section {
+            padding: 3rem 0;
+            background: var(--gray-light);
+        }
+
+        .destinations-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .destination-card-modern {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destination-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .destination-card-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .destination-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .destination-popular-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 2;
+        }
+
+        .destination-favorite {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .destination-favorite:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .destination-favorite i {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+        }
+
+        .destination-card-body {
+            padding: 1.5rem;
+        }
+
+        .destination-region {
+            font-size: 0.8rem;
+            color: var(--aqua);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .destination-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .destination-card-description {
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .destination-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-tag {
+            padding: 0.4rem 0.75rem;
+            background: var(--gray-light);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .highlight-tag i {
+            font-size: 0.7rem;
+            color: var(--aqua);
+        }
+
+        .destination-details {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .destination-details i {
+            color: var(--aqua);
+        }
+
+        .destination-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 2px solid var(--gray-light);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .destination-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .destination-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .destination-info i {
+            color: var(--aqua);
+        }
+
+        .destination-card-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .destination-card-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Destination Highlights Section */
+        .destination-highlights-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card p {
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .destinations-hero {
+                height: 500px;
+            }
+
+            .destinations-quick-search {
+                flex-direction: column;
+            }
+
+            .destinations-search-item {
+                width: 100%;
+            }
+
+            .destinations-search-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .destinations-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .destination-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .destination-card-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>
+

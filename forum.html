@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Forum | RCG Connect</title>
+    <title>The Deck | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html">AI Agent</a>
-                <a href="forum.html" class="active">Forum</a>
-                <a href="memories.html">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html" class="active">The Deck</a>
+                <a href="memories.html">SailBack</a>
                 <a href="loyalty.html">Loyalty</a>
                 <a href="find-cruise.html">Find a Cruise</a>
                 <a href="deals.html">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -82,289 +91,542 @@
         </div>
     </nav>
 
-    <!-- Forum Section -->
-    <section class="forum-section forum-page">
+    <!-- Forum Header -->
+    <section class="forum-header-modern">
         <div class="container">
-            <div class="forum-header">
-                <h1 class="page-title">Community Forum</h1>
-                <p class="page-subtitle">Connect with fellow cruisers, share experiences, and discover insights</p>
+            <div class="forum-header-content">
+                <div class="forum-header-left">
+                    <h1 class="forum-main-title">The Deck</h1>
+                    <p class="forum-subtitle">AI-Powered Community Forum</p>
             </div>
-            <div class="forum-layout">
-                <!-- Filters Sidebar -->
-                <aside class="forum-filters">
-                    <h3>Filters</h3>
-                    <div class="filter-group">
-                        <label>Category</label>
-                        <select class="filter-select">
-                            <option>All Topics</option>
-                            <option>Excursions</option>
-                            <option>Dining</option>
-                            <option>Entertainment</option>
-                            <option>Loyalty Perks</option>
-                        </select>
+                <button class="create-post-btn" id="createPostBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Post</span>
+                </button>
                     </div>
-                    <div class="filter-group">
-                        <label>Sort By</label>
-                        <select class="filter-select">
-                            <option>Most Recent</option>
-                            <option>Most Popular</option>
-                            <option>Most Replies</option>
-                        </select>
                     </div>
-                    <div class="filter-group">
-                        <label>Loyalty Tier</label>
-                        <div class="tier-filters">
-                            <label class="tier-checkbox">
-                                <input type="checkbox" checked>
-                                <span class="tier-badge silver">Silver</span>
-                            </label>
-                            <label class="tier-checkbox">
-                                <input type="checkbox" checked>
-                                <span class="tier-badge gold">Gold</span>
-                            </label>
-                            <label class="tier-checkbox">
-                                <input type="checkbox" checked>
-                                <span class="tier-badge platinum">Platinum</span>
-                            </label>
-                            <label class="tier-checkbox">
-                                <input type="checkbox" checked>
-                                <span class="tier-badge diamond">Diamond</span>
-                            </label>
+    </section>
+
+    <!-- Forum Main Layout -->
+    <section class="forum-main-section">
+        <div class="container">
+            <div class="forum-layout-modern">
+                <!-- Sidebar -->
+                <aside class="forum-sidebar">
+                    <!-- Quick Filters -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Sort By</h3>
+                        <div class="sort-buttons">
+                            <button class="sort-btn active" data-sort="hot">
+                                <i class="fas fa-fire"></i>
+                                <span>Hot</span>
+                            </button>
+                            <button class="sort-btn" data-sort="new">
+                                <i class="fas fa-clock"></i>
+                                <span>New</span>
+                            </button>
+                            <button class="sort-btn" data-sort="top">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>Top</span>
+                            </button>
+                            <button class="sort-btn" data-sort="trending">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Trending</span>
+                            </button>
                         </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <div class="category-list">
+                            <button class="category-item active" data-category="all">
+                                <i class="fas fa-th-large"></i>
+                                <span>All Topics</span>
+                                <span class="category-count">1,247</span>
+                            </button>
+                            <button class="category-item" data-category="excursions">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Excursions</span>
+                                <span class="category-count">342</span>
+                            </button>
+                            <button class="category-item" data-category="dining">
+                                <i class="fas fa-utensils"></i>
+                                <span>Dining</span>
+                                <span class="category-count">289</span>
+                            </button>
+                            <button class="category-item" data-category="entertainment">
+                                <i class="fas fa-theater-masks"></i>
+                                <span>Entertainment</span>
+                                <span class="category-count">198</span>
+                            </button>
+                            <button class="category-item" data-category="loyalty">
+                                <i class="fas fa-crown"></i>
+                                <span>Loyalty Perks</span>
+                                <span class="category-count">156</span>
+                            </button>
+                            <button class="category-item" data-category="ships">
+                                <i class="fas fa-ship"></i>
+                                <span>Ships</span>
+                                <span class="category-count">134</span>
+                            </button>
+                            <button class="category-item" data-category="destinations">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Destinations</span>
+                                <span class="category-count">128</span>
+                            </button>
+                                    </div>
+                                </div>
+
+                    <!-- AI Suggestions -->
+                    <div class="sidebar-widget ai-suggestions-widget">
+                        <div class="ai-badge-header">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Suggestions</span>
+                            </div>
+                        <div class="ai-suggestions-list">
+                            <div class="ai-suggestion-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Trending: Alaska packing tips</span>
+                        </div>
+                            <div class="ai-suggestion-item">
+                                <i class="fas fa-star"></i>
+                                <span>Popular: Diamond tier benefits</span>
+                        </div>
+                            <div class="ai-suggestion-item">
+                                <i class="fas fa-fire"></i>
+                                <span>Hot: New ship features</span>
+                        </div>
+                    </div>
                     </div>
                 </aside>
 
-                <!-- Thread Cards -->
-                <div class="forum-threads">
-                    <div class="thread-card" data-thread="1">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Best Family Excursions for First-Timers</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">Sarah Johnson</span>
-                                        <span class="tier-badge gold">Gold</span>
+                <!-- Main Content -->
+                <main class="forum-content">
+                    <!-- Search Bar -->
+                    <div class="forum-search-bar">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search The Deck..." class="forum-search-input" id="forumSearch">
+                            <button class="ai-search-btn" title="AI Search">
+                                <i class="fas fa-robot"></i>
+                            </button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="ai-summary-badge">
-                            <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: Top recommendations include snorkeling in Cozumel, dolphin encounters, and beach day passes. Most popular for families with kids 8-12 years old.</span>
-                        </div>
-                        <p class="thread-preview">Looking for recommendations for our first family cruise. Kids are 8 and 12. What excursions would you suggest in the Caribbean?</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 24 replies</span>
-                            <span><i class="fas fa-heart"></i> 156 likes</span>
-                            <span class="thread-time">2 hours ago</span>
-                        </div>
-                    </div>
 
-                    <div class="thread-card" data-thread="2">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Diamond Tier Perks - What's New in 2025?</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=001F54&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">Michael Chen</span>
-                                        <span class="tier-badge diamond">Diamond</span>
-                                    </div>
-                                </div>
+                    <!-- Posts List -->
+                    <div class="posts-container" id="postsContainer">
+                        <!-- Post 1 -->
+                        <article class="post-card" data-post-id="1">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <div class="vote-score">247</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
                             </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-umbrella-beach"></i>
+                                        <span>Excursions</span>
                         </div>
-                        <div class="ai-summary-badge">
+                                    <span class="post-time">2h ago</span>
+                                </div>
+                                <h2 class="post-title">Best Family Excursions for First-Timers in the Caribbean?</h2>
+                                <div class="post-body">
+                                    <p>Looking for recommendations for our first family cruise. Kids are 8 and 12. What excursions would you suggest in the Caribbean? We're particularly interested in activities that are safe and fun for the whole family.</p>
+                                </div>
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
                             <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: New 2025 Diamond perks include enhanced lounge access, priority specialty dining reservations, complimentary spa treatments, and exclusive shore excursion discounts. Lounge now offers premium beverages and concierge services.</span>
+                                        <span>Voyage Companion AI Summary</span>
                         </div>
-                        <p class="thread-preview">Just reached Diamond tier! Excited to explore all the new benefits. Anyone have insights on the exclusive lounge access?</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 42 replies</span>
-                            <span><i class="fas fa-heart"></i> 289 likes</span>
-                            <span class="thread-time">5 hours ago</span>
+                                    <p class="ai-summary-text">Top recommendations include snorkeling in Cozumel, dolphin encounters, and beach day passes. Most popular for families with kids 8-12 years old. Average cost: $75-150 per person.</p>
                         </div>
-                    </div>
 
-                    <div class="thread-card" data-thread="3">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Alaska Cruise Packing Tips</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00AEEF&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">Emma Williams</span>
-                                        <span class="tier-badge platinum">Platinum</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ai-summary-badge">
-                            <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: Essential Alaska packing includes layers (base, mid, outer), waterproof jacket, warm hat/gloves, binoculars for wildlife viewing, comfortable walking shoes, and camera. June weather is mild but variable - prepare for rain and sunshine.</span>
-                        </div>
-                        <p class="thread-preview">First time cruising to Alaska in June. What should I pack? Weather tips and must-have items appreciated!</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 18 replies</span>
-                            <span><i class="fas fa-heart"></i> 98 likes</span>
-                            <span class="thread-time">1 day ago</span>
-                        </div>
+                                <div class="post-footer">
+                                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=40" alt="Sarah Johnson">
+                                        <div class="author-info">
+                                            <span class="author-name">Sarah Johnson</span>
+                                            <span class="author-tier gold">Gold Member</span>
                     </div>
-
-                    <div class="thread-card" data-thread="4">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Specialty Dining Recommendations</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=David+Martinez&background=FF6B6B&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">David Martinez</span>
-                                        <span class="tier-badge silver">Silver</span>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>24</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-card" data-post-id="2">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote active" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <div class="vote-score">389</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                                    </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-crown"></i>
+                                        <span>Loyalty Perks</span>
+                                </div>
+                                    <span class="post-time">5h ago</span>
+                            </div>
+                                <h2 class="post-title">Diamond Tier Perks - What's New in 2025?</h2>
+                                <div class="post-body">
+                                    <p>Just reached Diamond tier! Excited to explore all the new benefits. Anyone have insights on the exclusive lounge access and priority reservations? What should I prioritize first?</p>
                         </div>
-                        <div class="ai-summary-badge">
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
                             <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: Top-rated specialty restaurants include Chops Grille (steakhouse), Giovanni's Table (Italian), and Izumi (sushi). Best value comes from multi-restaurant packages. Consider booking early for better times and discounts.</span>
+                                        <span>Voyage Companion AI Summary</span>
                         </div>
-                        <p class="thread-preview">Which specialty restaurants are worth the extra cost? Looking for the best value and experience.</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 31 replies</span>
-                            <span><i class="fas fa-heart"></i> 203 likes</span>
-                            <span class="thread-time">3 days ago</span>
+                                    <p class="ai-summary-text">New 2025 Diamond perks include enhanced lounge access, priority specialty dining reservations, complimentary spa treatments, and exclusive shore excursion discounts. Lounge now offers premium beverages and concierge services.</p>
                         </div>
+
+                                <div class="post-footer">
+                                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=001F54&color=fff&size=40" alt="Michael Chen">
+                                        <div class="author-info">
+                                            <span class="author-name">Michael Chen</span>
+                                            <span class="author-tier diamond">Diamond Member</span>
                     </div>
-
-                    <div class="thread-card" data-thread="5">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Entertainment Shows Not to Miss</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=Lisa+Anderson&background=001F54&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">Lisa Anderson</span>
-                                        <span class="tier-badge gold">Gold</span>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>42</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-card" data-post-id="3">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <div class="vote-score">156</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                                    </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Destinations</span>
+                                </div>
+                                    <span class="post-time">1d ago</span>
+                            </div>
+                                <h2 class="post-title">Alaska Cruise Packing Tips - First Timer</h2>
+                                <div class="post-body">
+                                    <p>First time cruising to Alaska in June. What should I pack? Weather tips and must-have items appreciated! Should I bring formal wear or is it more casual?</p>
                         </div>
-                        <div class="ai-summary-badge">
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
                             <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: Must-see shows include Broadway-style productions, ice skating shows, aqua theater performances, and comedy acts. Reserve seats early via the app. Evening shows typically run twice per night - arrive 15 minutes early for best seats.</span>
+                                        <span>Voyage Companion AI Summary</span>
                         </div>
-                        <p class="thread-preview">What are the must-see shows and entertainment on the latest ships? Planning our evening schedule.</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 27 replies</span>
-                            <span><i class="fas fa-heart"></i> 174 likes</span>
-                            <span class="thread-time">4 days ago</span>
+                                    <p class="ai-summary-text">Essential Alaska packing includes layers (base, mid, outer), waterproof jacket, warm hat/gloves, binoculars for wildlife viewing, comfortable walking shoes, and camera. June weather is mild but variable - prepare for rain and sunshine.</p>
                         </div>
+
+                                <div class="post-footer">
+                                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00AEEF&color=fff&size=40" alt="Emma Williams">
+                                        <div class="author-info">
+                                            <span class="author-name">Emma Williams</span>
+                                            <span class="author-tier platinum">Platinum Member</span>
                     </div>
-
-                    <div class="thread-card" data-thread="6">
-                        <div class="thread-header">
-                            <h3 class="thread-title">Loyalty Points Strategy</h3>
-                            <div class="thread-meta">
-                                <div class="user-info">
-                                    <img src="https://ui-avatars.com/api/?name=Robert+Taylor&background=00AEEF&color=fff&size=64" alt="User">
-                                    <div>
-                                        <span class="username">Robert Taylor</span>
-                                        <span class="tier-badge diamond">Diamond</span>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>18</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </article>
+
+                        <!-- Post 4 -->
+                        <article class="post-card" data-post-id="4">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <div class="vote-score">203</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                                    </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-utensils"></i>
+                                        <span>Dining</span>
+                                </div>
+                                    <span class="post-time">3d ago</span>
+                            </div>
+                                <h2 class="post-title">Which Specialty Restaurants Are Worth the Extra Cost?</h2>
+                                <div class="post-body">
+                                    <p>Looking for the best value and experience. Is it worth upgrading to specialty dining? Which restaurants do you recommend and why?</p>
                         </div>
-                        <div class="ai-summary-badge">
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
                             <i class="fas fa-robot"></i>
-                            <span>Boatey AI Summary: Maximize points by booking longer cruises, using RCG credit cards, booking during double-point promotions, and staying in suites. Redeem strategically for upgrades, onboard credit, or future cruise discounts. Points never expire.</span>
+                                        <span>Voyage Companion AI Summary</span>
                         </div>
-                        <p class="thread-preview">Best ways to maximize loyalty points? Share your tips for earning and redeeming points effectively.</p>
-                        <div class="thread-stats">
-                            <span><i class="fas fa-comments"></i> 56 replies</span>
-                            <span><i class="fas fa-heart"></i> 312 likes</span>
-                            <span class="thread-time">1 week ago</span>
+                                    <p class="ai-summary-text">Top-rated specialty restaurants include Chops Grille (steakhouse), Giovanni's Table (Italian), and Izumi (sushi). Best value comes from multi-restaurant packages. Consider booking early for better times and discounts.</p>
                         </div>
+
+                                <div class="post-footer">
+                                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=David+Martinez&background=FF6B6B&color=fff&size=40" alt="David Martinez">
+                                        <div class="author-info">
+                                            <span class="author-name">David Martinez</span>
+                                            <span class="author-tier silver">Silver Member</span>
+                    </div>
+                                    </div>
+                                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>31</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 5 -->
+                        <article class="post-card" data-post-id="5">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <div class="vote-score">174</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                                    </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-theater-masks"></i>
+                                        <span>Entertainment</span>
+                                </div>
+                                    <span class="post-time">4d ago</span>
+                            </div>
+                                <h2 class="post-title">Entertainment Shows Not to Miss on the Latest Ships</h2>
+                                <div class="post-body">
+                                    <p>What are the must-see shows and entertainment on the latest ships? Planning our evening schedule and don't want to miss anything amazing!</p>
+                        </div>
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
+                            <i class="fas fa-robot"></i>
+                                        <span>Voyage Companion AI Summary</span>
+                        </div>
+                                    <p class="ai-summary-text">Must-see shows include Broadway-style productions, ice skating shows, aqua theater performances, and comedy acts. Reserve seats early via the app. Evening shows typically run twice per night - arrive 15 minutes early for best seats.</p>
+                        </div>
+
+                                <div class="post-footer">
+                                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=Lisa+Anderson&background=001F54&color=fff&size=40" alt="Lisa Anderson">
+                                        <div class="author-info">
+                                            <span class="author-name">Lisa Anderson</span>
+                                            <span class="author-tier gold">Gold Member</span>
                     </div>
                 </div>
+                                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>27</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
             </div>
         </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 6 -->
+                        <article class="post-card" data-post-id="6">
+                            <div class="post-voting">
+                                <button class="vote-btn upvote" aria-label="Upvote">
+                                    <i class="fas fa-arrow-up"></i>
+            </button>
+                                <div class="vote-score">312</div>
+                                <button class="vote-btn downvote" aria-label="Downvote">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                        </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-header">
+                                    <div class="post-category">
+                                        <i class="fas fa-crown"></i>
+                                        <span>Loyalty Perks</span>
+                    </div>
+                                    <span class="post-time">1w ago</span>
+                </div>
+                                <h2 class="post-title">Loyalty Points Strategy - Best Ways to Maximize Points</h2>
+                                <div class="post-body">
+                                    <p>Share your tips for earning and redeeming points effectively. What strategies work best for reaching the next tier faster?</p>
+            </div>
+                                
+                                <!-- AI Summary -->
+                                <div class="ai-summary-card">
+                                    <div class="ai-summary-header">
+                                        <i class="fas fa-robot"></i>
+                                        <span>Voyage Companion AI Summary</span>
+                                    </div>
+                                    <p class="ai-summary-text">Maximize points by booking longer cruises, using RCG credit cards, booking during double-point promotions, and staying in suites. Redeem strategically for upgrades, onboard credit, or future cruise discounts. Points never expire.</p>
+                                </div>
+
+                                <div class="post-footer">
+                    <div class="post-author">
+                                        <img src="https://ui-avatars.com/api/?name=Robert+Taylor&background=00AEEF&color=fff&size=40" alt="Robert Taylor">
+                                        <div class="author-info">
+                                            <span class="author-name">Robert Taylor</span>
+                                            <span class="author-tier diamond">Diamond Member</span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-comment"></i>
+                                            <span>56</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="fas fa-share"></i>
+                                            <span>Share</span>
+                                        </button>
+                                        <button class="post-action-btn">
+                                            <i class="far fa-bookmark"></i>
+                                        </button>
+                    </div>
+                </div>
+                            </div>
+                        </article>
+                        </div>
+
+                    <!-- Load More -->
+                    <div class="load-more-container">
+                        <button class="load-more-btn" id="loadMorePosts">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Load More Posts</span>
+                        </button>
+                    </div>
+                </main>
+                            </div>
+                        </div>
     </section>
 
-    <!-- Thread Modal -->
-    <div class="modal-overlay" id="threadModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">
+    <!-- Post Modal (for viewing full post and comments) -->
+    <div class="post-modal-overlay" id="postModal">
+        <div class="post-modal-container">
+            <button class="post-modal-close" id="closePostModal">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="modal-header">
-                <h2 id="modalTitle">Thread Title</h2>
-                <div class="modal-meta">
-                    <div class="user-info">
-                        <img id="modalAvatar" src="" alt="User">
-                        <div>
-                            <span class="username" id="modalUsername">Username</span>
-                            <span class="tier-badge" id="modalTier">Tier</span>
-                        </div>
+            <div class="post-modal-content" id="postModalContent">
+                <!-- Content will be dynamically loaded -->
                     </div>
-                    <span class="thread-time" id="modalTime">Time</span>
+                            </div>
+                        </div>
+
+    <!-- Create Post Modal -->
+    <div class="create-post-modal" id="createPostModal">
+        <div class="create-post-modal-content">
+            <div class="create-post-header">
+                <h2>Create New Post</h2>
+                <button class="close-create-modal" id="closeCreateModal">
+                    <i class="fas fa-times"></i>
+                </button>
+                    </div>
+            <form class="create-post-form" id="createPostForm">
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-select" required>
+                        <option value="">Select a category</option>
+                        <option value="excursions">Excursions</option>
+                        <option value="dining">Dining</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="loyalty">Loyalty Perks</option>
+                        <option value="ships">Ships</option>
+                        <option value="destinations">Destinations</option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-input" placeholder="Enter your question or topic..." required>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea class="form-textarea" rows="6" placeholder="Share your thoughts, ask questions, or start a discussion..." required></textarea>
             </div>
-            <div class="modal-body">
-                <div class="post-item">
-                    <div class="post-author">
-                        <img id="modalAvatar2" src="" alt="User">
-                        <div>
-                            <span class="username" id="modalUsername2">Username</span>
-                            <span class="tier-badge" id="modalTier2">Tier</span>
-                        </div>
-                    </div>
-                    <p class="post-content" id="modalContent">Post content...</p>
-                    <div class="post-actions">
-                        <button><i class="fas fa-heart"></i> Like</button>
-                        <button><i class="fas fa-reply"></i> Reply</button>
-                    </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelPost">Cancel</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Post</span>
+                    </button>
                 </div>
-                <div class="replies-section">
-                    <h3>Replies (3)</h3>
-                    <div class="reply-item">
-                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=64" alt="User">
-                        <div class="reply-content">
-                            <div class="reply-header">
-                                <span class="username">John Doe</span>
-                                <span class="tier-badge gold">Gold</span>
-                                <span class="reply-time">1 hour ago</span>
-                            </div>
-                            <p>Great question! I'd recommend the snorkeling excursion in Cozumel. Perfect for families with kids that age.</p>
-                        </div>
-                    </div>
-                    <div class="reply-item">
-                        <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=FF6B6B&color=fff&size=64" alt="User">
-                        <div class="reply-content">
-                            <div class="reply-header">
-                                <span class="username">Maria Garcia</span>
-                                <span class="tier-badge platinum">Platinum</span>
-                                <span class="reply-time">2 hours ago</span>
-                            </div>
-                            <p>We loved the dolphin encounter! Our kids still talk about it. Book early though, it fills up fast.</p>
-                        </div>
-                    </div>
-                    <div class="reply-item">
-                        <img src="https://ui-avatars.com/api/?name=James+Wilson&background=001F54&color=fff&size=64" alt="User">
-                        <div class="reply-content">
-                            <div class="reply-header">
-                                <span class="username">James Wilson</span>
-                                <span class="tier-badge diamond">Diamond</span>
-                                <span class="reply-time">3 hours ago</span>
-                            </div>
-                            <p>The beach day pass at Paradise Beach is also fantastic. Great facilities and the kids can play safely.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-reply-box">
-                    <textarea placeholder="Write your reply..."></textarea>
-                    <button class="reply-submit">Post Reply</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -380,7 +642,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
@@ -407,112 +669,2032 @@
         </div>
     </footer>
 
-    <script>
-        // IMMEDIATELY close any open modals when forum page loads
-        (function() {
-            // Run immediately, don't wait for anything
-            const modal = document.getElementById('threadModal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-            
-            // Also run on load and DOMContentLoaded as backup
-            window.addEventListener('load', function() {
-                const modal = document.getElementById('threadModal');
-                if (modal && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                const modal = document.getElementById('threadModal');
-                if (modal && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        })();
-    </script>
-    <script src="forum-expand.js"></script>
     <script src="script.js"></script>
     <script>
-        // Generate additional threads dynamically
+        // Forum Data Storage
+        const forumData = {
+            posts: [
+                {
+                    id: 1,
+                    title: "Best Family Excursions for First-Timers in the Caribbean?",
+                    content: "Looking for recommendations for our first family cruise. Kids are 8 and 12. What excursions would you suggest in the Caribbean? We're particularly interested in activities that are safe and fun for the whole family.",
+                    category: "excursions",
+                    author: {
+                        name: "Sarah Johnson",
+                        avatar: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=40",
+                        tier: "gold"
+                    },
+                    votes: 247,
+                    comments: 24,
+                    time: "2h ago",
+                    aiSummary: "Top recommendations include snorkeling in Cozumel, dolphin encounters, and beach day passes. Most popular for families with kids 8-12 years old. Average cost: $75-150 per person.",
+                    commentsData: [
+                        {
+                            id: 1,
+                            author: { name: "John Doe", avatar: "https://ui-avatars.com/api/?name=John+Doe&background=00AEEF&color=fff&size=40", tier: "gold" },
+                            content: "Great question! I'd recommend the snorkeling excursion in Cozumel. Perfect for families with kids that age. The water is calm and the guides are excellent with children.",
+                            time: "1h ago",
+                            votes: 12,
+                            replies: [
+                                {
+                                    id: 11,
+                                    author: { name: "Sarah Johnson", avatar: "https://ui-avatars.com/api/?name=Sarah+Johnson&background=FF6B6B&color=fff&size=40", tier: "gold" },
+                                    content: "Thanks for the recommendation! Do you know if they provide equipment for kids?",
+                                    time: "45m ago",
+                                    votes: 3
+                                }
+                            ]
+                        },
+                        {
+                            id: 2,
+                            author: { name: "Maria Garcia", avatar: "https://ui-avatars.com/api/?name=Maria+Garcia&background=FF6B6B&color=fff&size=40", tier: "platinum" },
+                            content: "We loved the dolphin encounter! Our kids still talk about it. Book early though, it fills up fast. Also, the beach day pass at Paradise Beach is fantastic.",
+                            time: "2h ago",
+                            votes: 18,
+                            replies: []
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "Diamond Tier Perks - What's New in 2025?",
+                    content: "Just reached Diamond tier! Excited to explore all the new benefits. Anyone have insights on the exclusive lounge access and priority reservations? What should I prioritize first?",
+                    category: "loyalty",
+                    author: {
+                        name: "Michael Chen",
+                        avatar: "https://ui-avatars.com/api/?name=Michael+Chen&background=001F54&color=fff&size=40",
+                        tier: "diamond"
+                    },
+                    votes: 389,
+                    comments: 42,
+                    time: "5h ago",
+                    aiSummary: "New 2025 Diamond perks include enhanced lounge access, priority specialty dining reservations, complimentary spa treatments, and exclusive shore excursion discounts. Lounge now offers premium beverages and concierge services.",
+                    commentsData: [
+                        {
+                            id: 3,
+                            author: { name: "Robert Taylor", avatar: "https://ui-avatars.com/api/?name=Robert+Taylor&background=00AEEF&color=fff&size=40", tier: "diamond" },
+                            content: "Congratulations! The Diamond Lounge is amazing - make sure to visit during happy hour. The concierge can help with restaurant reservations and show bookings.",
+                            time: "4h ago",
+                            votes: 25,
+                            replies: []
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    title: "Alaska Cruise Packing Tips - First Timer",
+                    content: "First time cruising to Alaska in June. What should I pack? Weather tips and must-have items appreciated! Should I bring formal wear or is it more casual?",
+                    category: "destinations",
+                    author: {
+                        name: "Emma Williams",
+                        avatar: "https://ui-avatars.com/api/?name=Emma+Williams&background=00AEEF&color=fff&size=40",
+                        tier: "platinum"
+                    },
+                    votes: 156,
+                    comments: 18,
+                    time: "1d ago",
+                    aiSummary: "Essential Alaska packing includes layers (base, mid, outer), waterproof jacket, warm hat/gloves, binoculars for wildlife viewing, comfortable walking shoes, and camera. June weather is mild but variable - prepare for rain and sunshine.",
+                    commentsData: []
+                },
+                {
+                    id: 4,
+                    title: "Which Specialty Restaurants Are Worth the Extra Cost?",
+                    content: "Looking for the best value and experience. Is it worth upgrading to specialty dining? Which restaurants do you recommend and why?",
+                    category: "dining",
+                    author: {
+                        name: "David Martinez",
+                        avatar: "https://ui-avatars.com/api/?name=David+Martinez&background=FF6B6B&color=fff&size=40",
+                        tier: "silver"
+                    },
+                    votes: 203,
+                    comments: 31,
+                    time: "3d ago",
+                    aiSummary: "Top-rated specialty restaurants include Chops Grille (steakhouse), Giovanni's Table (Italian), and Izumi (sushi). Best value comes from multi-restaurant packages. Consider booking early for better times and discounts.",
+                    commentsData: []
+                },
+                {
+                    id: 5,
+                    title: "Entertainment Shows Not to Miss on the Latest Ships",
+                    content: "What are the must-see shows and entertainment on the latest ships? Planning our evening schedule and don't want to miss anything amazing!",
+                    category: "entertainment",
+                    author: {
+                        name: "Lisa Anderson",
+                        avatar: "https://ui-avatars.com/api/?name=Lisa+Anderson&background=001F54&color=fff&size=40",
+                        tier: "gold"
+                    },
+                    votes: 174,
+                    comments: 27,
+                    time: "4d ago",
+                    aiSummary: "Must-see shows include Broadway-style productions, ice skating shows, aqua theater performances, and comedy acts. Reserve seats early via the app. Evening shows typically run twice per night - arrive 15 minutes early for best seats.",
+                    commentsData: []
+                },
+                {
+                    id: 6,
+                    title: "Loyalty Points Strategy - Best Ways to Maximize Points",
+                    content: "Share your tips for earning and redeeming points effectively. What strategies work best for reaching the next tier faster?",
+                    category: "loyalty",
+                    author: {
+                        name: "Robert Taylor",
+                        avatar: "https://ui-avatars.com/api/?name=Robert+Taylor&background=00AEEF&color=fff&size=40",
+                        tier: "diamond"
+                    },
+                    votes: 312,
+                    comments: 56,
+                    time: "1w ago",
+                    aiSummary: "Maximize points by booking longer cruises, using RCG credit cards, booking during double-point promotions, and staying in suites. Redeem strategically for upgrades, onboard credit, or future cruise discounts. Points never expire.",
+                    commentsData: []
+                }
+            ],
+            currentSort: 'hot',
+            currentCategory: 'all',
+            userVotes: {},
+            userBookmarks: new Set()
+        };
+
+        // Initialize Forum
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait for both scripts to load
-            setTimeout(function() {
-                const threadsContainer = document.querySelector('.forum-threads');
-                if (!threadsContainer) {
-                    console.error('Forum threads container not found');
-                    return;
-                }
-
-                // Check if additionalThreads is available
-                if (typeof additionalThreads === 'undefined') {
-                    console.error('additionalThreads is not defined');
-                    return;
-                }
-
-                if (additionalThreads && additionalThreads.length > 0) {
-                    additionalThreads.forEach(thread => {
-                        try {
-                            const threadCard = document.createElement('div');
-                            threadCard.className = 'thread-card';
-                            threadCard.setAttribute('data-thread', thread.id);
-                            
-                            // Escape HTML to prevent XSS
-                            const escapeHtml = (text) => {
-                                const div = document.createElement('div');
-                                div.textContent = text;
-                                return div.innerHTML;
-                            };
-                            
-                            threadCard.innerHTML = `
-                                <div class="thread-header">
-                                    <h3 class="thread-title">${escapeHtml(thread.title)}</h3>
-                                    <div class="thread-meta">
-                                        <div class="user-info">
-                                            <img src="${escapeHtml(thread.avatar)}" alt="User">
-                                            <div>
-                                                <span class="username">${escapeHtml(thread.username)}</span>
-                                                <span class="tier-badge ${escapeHtml(thread.tier)}">${escapeHtml(thread.tier.charAt(0).toUpperCase() + thread.tier.slice(1))}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ai-summary-badge">
-                                    <i class="fas fa-robot"></i>
-                                    <span>${escapeHtml(thread.summary)}</span>
-                                </div>
-                                <p class="thread-preview">${escapeHtml(thread.content)}</p>
-                                <div class="thread-stats">
-                                    <span><i class="fas fa-comments"></i> ${thread.replies} replies</span>
-                                    <span><i class="fas fa-heart"></i> ${thread.likes} likes</span>
-                                    <span class="thread-time">${escapeHtml(thread.time)}</span>
-                                </div>
-                            `;
-                            
-                            threadsContainer.appendChild(threadCard);
-                        } catch (error) {
-                            console.error('Error creating thread card:', error);
-                        }
-                    });
-
-                    // Re-initialize thread modals for new threads
-                    setTimeout(function() {
-                        if (typeof initThreadModals === 'function') {
-                            initThreadModals();
-                        } else {
-                            console.warn('initThreadModals function not found');
-                        }
-                    }, 200);
-                } else {
-                    console.warn('No additional threads to add');
-                }
-            }, 200);
+            initializeForum();
         });
+
+        function initializeForum() {
+            syncPostDataWithHTML();
+            setupVoting();
+            setupSorting();
+            setupFiltering();
+            setupPostModal();
+            setupCreatePost();
+            setupSearch();
+            setupBookmarks();
+            setupLoadMore();
+            setupKeyboardShortcuts();
+            loadUserPreferences();
+        }
+        
+        function setupKeyboardShortcuts() {
+            // ESC key to close modals
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const postModal = document.getElementById('postModal');
+                    const createModal = document.getElementById('createPostModal');
+                    
+                    if (postModal && postModal.style.display === 'flex') {
+                        postModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                    } else if (createModal && createModal.style.display === 'flex') {
+                        createModal.style.display = 'none';
+                        document.getElementById('createPostForm')?.reset();
+                    }
+                }
+            });
+        }
+
+        function syncPostDataWithHTML() {
+            // Sync vote scores and comment counts from data to HTML
+            forumData.posts.forEach(post => {
+                const postCard = document.querySelector(`.post-card[data-post-id="${post.id}"]`);
+                if (postCard) {
+                    const voteScore = postCard.querySelector('.vote-score');
+                    const commentBtn = postCard.querySelector('.post-action-btn');
+                    const commentCount = commentBtn?.querySelector('.fa-comment')?.nextElementSibling;
+                    
+                    if (voteScore) {
+                        voteScore.textContent = post.votes;
+                    }
+                    if (commentCount && commentCount.tagName === 'SPAN') {
+                        commentCount.textContent = post.comments;
+                    }
+                }
+            });
+        }
+
+        // Voting System
+        function setupVoting() {
+            document.querySelectorAll('.vote-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    handleVote(this);
+                });
+            });
+        }
+
+        function handleVote(btn) {
+            const postCard = btn.closest('.post-card');
+            if (!postCard) return;
+            
+            const postId = parseInt(postCard.getAttribute('data-post-id'));
+            const scoreElement = postCard.querySelector('.vote-score');
+            const upvoteBtn = postCard.querySelector('.upvote');
+            const downvoteBtn = postCard.querySelector('.downvote');
+            
+            if (!scoreElement || !upvoteBtn || !downvoteBtn) return;
+            
+            let currentVote = forumData.userVotes[postId] || 0;
+            let score = parseInt(scoreElement.textContent) || 0;
+            const isUpvote = btn.classList.contains('upvote');
+            
+            if (isUpvote) {
+                if (currentVote === 1) {
+                    // Remove upvote
+                    score -= 1;
+                    currentVote = 0;
+                    upvoteBtn.classList.remove('active');
+                } else {
+                    // Add upvote
+                    if (currentVote === -1) score += 2; // Remove downvote and add upvote
+                    else score += 1;
+                    currentVote = 1;
+                    upvoteBtn.classList.add('active');
+                    downvoteBtn.classList.remove('active');
+                }
+            } else {
+                if (currentVote === -1) {
+                    // Remove downvote
+                    score += 1;
+                    currentVote = 0;
+                    downvoteBtn.classList.remove('active');
+                } else {
+                    // Add downvote
+                    if (currentVote === 1) score -= 2; // Remove upvote and add downvote
+                    else score -= 1;
+                    currentVote = -1;
+                    downvoteBtn.classList.add('active');
+                    upvoteBtn.classList.remove('active');
+                }
+            }
+            
+            forumData.userVotes[postId] = currentVote;
+            scoreElement.textContent = score;
+            saveUserPreferences();
+            
+            // Update post data
+            const post = forumData.posts.find(p => p.id === postId);
+            if (post) post.votes = score;
+        }
+
+        // Sorting System
+        function setupSorting() {
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const sortType = this.getAttribute('data-sort');
+                    forumData.currentSort = sortType;
+                    sortPosts();
+                    saveUserPreferences();
+                });
+            });
+        }
+
+        function sortPosts() {
+            const container = document.getElementById('postsContainer');
+            if (!container) return;
+            
+            const posts = Array.from(container.querySelectorAll('.post-card'));
+            
+            posts.sort((a, b) => {
+                const aId = parseInt(a.getAttribute('data-post-id'));
+                const bId = parseInt(b.getAttribute('data-post-id'));
+                const postA = forumData.posts.find(p => p.id === aId);
+                const postB = forumData.posts.find(p => p.id === bId);
+                
+                if (!postA || !postB) return 0;
+                
+                switch(forumData.currentSort) {
+                    case 'new':
+                        // Simple time-based sorting (newer posts first)
+                        const timeA = getHoursAgo(postA.time);
+                        const timeB = getHoursAgo(postB.time);
+                        return timeA - timeB;
+                    case 'top':
+                        return postB.votes - postA.votes;
+                    case 'trending':
+                        return (postB.votes + postB.comments * 2) - (postA.votes + postA.comments * 2);
+                    case 'hot':
+                    default:
+                        // Hot algorithm: votes weighted by recency
+                        const hotScoreA = postA.votes / (1 + getHoursAgo(postA.time));
+                        const hotScoreB = postB.votes / (1 + getHoursAgo(postB.time));
+                        return hotScoreB - hotScoreA;
+                }
+            });
+            
+            posts.forEach(post => container.appendChild(post));
+        }
+
+        function getHoursAgo(timeStr) {
+            if (timeStr.includes('h')) return parseInt(timeStr);
+            if (timeStr.includes('d')) return parseInt(timeStr) * 24;
+            if (timeStr.includes('w')) return parseInt(timeStr) * 24 * 7;
+            return 24;
+        }
+
+        // Filtering System
+        function setupFiltering() {
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.getAttribute('data-category');
+                    forumData.currentCategory = category;
+                    filterPosts();
+                    saveUserPreferences();
+                });
+            });
+        }
+
+        function filterPosts() {
+            const posts = document.querySelectorAll('.post-card');
+            posts.forEach(post => {
+                if (forumData.currentCategory === 'all') {
+                    post.style.display = 'flex';
+                } else {
+                    const postId = parseInt(post.getAttribute('data-post-id'));
+                    const postData = forumData.posts.find(p => p.id === postId);
+                    if (postData && postData.category === forumData.currentCategory) {
+                        post.style.display = 'flex';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Post Modal System
+        function setupPostModal() {
+            const postModal = document.getElementById('postModal');
+            const closeModal = document.getElementById('closePostModal');
+            
+            document.querySelectorAll('.post-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't open modal if clicking on interactive elements
+                    if (e.target.closest('.post-voting') || 
+                        e.target.closest('.post-actions') ||
+                        e.target.closest('button') ||
+                        e.target.closest('a')) {
+                        return;
+                    }
+                    const postId = parseInt(this.getAttribute('data-post-id'));
+                    openPostModal(postId);
+                });
+            });
+            
+            // Comment button - set up after DOM is ready
+            setTimeout(() => {
+                document.querySelectorAll('.post-card').forEach(card => {
+                    const commentBtn = card.querySelector('.post-action-btn');
+                    if (commentBtn && commentBtn.querySelector('.fa-comment')) {
+                        commentBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const postId = parseInt(card.getAttribute('data-post-id'));
+                            openPostModal(postId);
+                        });
+                    }
+                });
+            }, 100);
+            
+            closeModal?.addEventListener('click', () => {
+                postModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+            
+            postModal?.addEventListener('click', (e) => {
+                if (e.target === postModal) {
+                    postModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        function openPostModal(postId) {
+            const postIdNum = typeof postId === 'string' ? parseInt(postId) : postId;
+            const post = forumData.posts.find(p => p.id === postIdNum);
+            if (!post) return;
+            
+            const modal = document.getElementById('postModal');
+            const content = document.getElementById('postModalContent');
+            
+            if (!modal || !content) return;
+            
+            content.innerHTML = generatePostModalHTML(post);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Setup comment voting and replies
+            setupCommentVoting();
+            setupCommentReplies();
+            setupCommentSubmission(postIdNum);
+        }
+
+        function generatePostModalHTML(post) {
+            const categoryIcons = {
+                excursions: 'fa-umbrella-beach',
+                dining: 'fa-utensils',
+                entertainment: 'fa-theater-masks',
+                loyalty: 'fa-crown',
+                ships: 'fa-ship',
+                destinations: 'fa-map-marker-alt'
+            };
+            
+            return `
+                <div class="modal-post-header">
+                    <div class="modal-post-voting">
+                        <button class="vote-btn upvote ${forumData.userVotes[post.id] === 1 ? 'active' : ''}" onclick="handleModalVote(${post.id}, 1)">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <div class="vote-score">${post.votes}</div>
+                        <button class="vote-btn downvote ${forumData.userVotes[post.id] === -1 ? 'active' : ''}" onclick="handleModalVote(${post.id}, -1)">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                    <div class="modal-post-content">
+                        <div class="modal-post-meta">
+                            <div class="post-category">
+                                <i class="fas ${categoryIcons[post.category]}"></i>
+                                <span>${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
+                            </div>
+                            <span class="post-time">${post.time}</span>
+                        </div>
+                        <h2 class="modal-post-title">${post.title}</h2>
+                        <div class="modal-post-body">
+                            <p>${post.content}</p>
+                        </div>
+                        <div class="ai-summary-card">
+                            <div class="ai-summary-header">
+                                <i class="fas fa-robot"></i>
+                                <span>Voyage Companion AI Summary</span>
+                            </div>
+                            <p class="ai-summary-text">${post.aiSummary}</p>
+                        </div>
+                        <div class="modal-post-author">
+                            <img src="${post.author.avatar}" alt="${post.author.name}">
+                            <div>
+                                <span class="author-name">${post.author.name}</span>
+                                <span class="author-tier ${post.author.tier}">${post.author.tier.charAt(0).toUpperCase() + post.author.tier.slice(1)} Member</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-comments-section">
+                    <h3 class="comments-title">Comments (${post.comments})</h3>
+                    <div class="comments-container" id="commentsContainer-${post.id}">
+                        ${generateCommentsHTML(post.commentsData || [])}
+                    </div>
+                    <div class="comment-form">
+                        <textarea id="commentText-${post.id}" placeholder="Write a comment..." rows="3"></textarea>
+                        <button class="comment-submit-btn" onclick="submitComment(${post.id})">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Post Comment</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateCommentsHTML(comments, level = 0) {
+            if (!comments || comments.length === 0) {
+                return '<p class="no-comments">No comments yet. Be the first to comment!</p>';
+            }
+            
+            return comments.map(comment => `
+                <div class="comment-item" data-comment-id="${comment.id}">
+                    <div class="comment-voting">
+                        <button class="vote-btn upvote" onclick="handleCommentVote(${comment.id}, 1)">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <div class="vote-score">${comment.votes || 0}</div>
+                        <button class="vote-btn downvote" onclick="handleCommentVote(${comment.id}, -1)">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-author">
+                            <img src="${comment.author.avatar}" alt="${comment.author.name}">
+                            <div>
+                                <span class="author-name">${comment.author.name}</span>
+                                <span class="author-tier ${comment.author.tier}">${comment.author.tier.charAt(0).toUpperCase() + comment.author.tier.slice(1)}</span>
+                                <span class="comment-time">${comment.time}</span>
+                            </div>
+                        </div>
+                        <p class="comment-text">${comment.content}</p>
+                        <button class="reply-btn" onclick="toggleReplyForm(${comment.id})">
+                            <i class="fas fa-reply"></i>
+                            <span>Reply</span>
+                        </button>
+                        <div class="reply-form-container" id="replyForm-${comment.id}" style="display: none;">
+                            <textarea id="replyText-${comment.id}" placeholder="Write a reply..." rows="2"></textarea>
+                            <button class="reply-submit-btn" onclick="submitReply(${comment.id})">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Post Reply</span>
+                            </button>
+                        </div>
+                        ${comment.replies && comment.replies.length > 0 ? `
+                            <div class="replies-container">
+                                ${generateCommentsHTML(comment.replies, level + 1)}
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function handleModalVote(postId, voteType) {
+            const post = forumData.posts.find(p => p.id == postId);
+            if (!post) return;
+            
+            const currentVote = forumData.userVotes[postId] || 0;
+            let newVote = 0;
+            
+            if (voteType === 1) {
+                newVote = currentVote === 1 ? 0 : 1;
+            } else {
+                newVote = currentVote === -1 ? 0 : -1;
+            }
+            
+            const voteDiff = newVote - currentVote;
+            post.votes += voteDiff;
+            forumData.userVotes[postId] = newVote;
+            
+            // Update modal display (refresh)
+            const modal = document.getElementById('postModal');
+            if (modal && modal.style.display === 'flex') {
+                openPostModal(postId);
+            }
+            
+            // Update post card
+            const postCard = document.querySelector(`.post-card[data-post-id="${postId}"]`);
+            if (postCard) {
+                const voteScore = postCard.querySelector('.vote-score');
+                if (voteScore) voteScore.textContent = post.votes;
+                const upvoteBtn = postCard.querySelector('.upvote');
+                const downvoteBtn = postCard.querySelector('.downvote');
+                if (upvoteBtn) upvoteBtn.classList.toggle('active', newVote === 1);
+                if (downvoteBtn) downvoteBtn.classList.toggle('active', newVote === -1);
+            }
+            
+            saveUserPreferences();
+        }
+
+        function handleCommentVote(commentId, voteType) {
+            // Find comment in all posts
+            for (let post of forumData.posts) {
+                const comment = findComment(post.commentsData || [], commentId);
+                if (comment) {
+                    comment.votes = (comment.votes || 0) + (voteType === 1 ? 1 : -1);
+                    openPostModal(post.id);
+                    break;
+                }
+            }
+        }
+
+        function findComment(comments, id) {
+            for (let comment of comments) {
+                if (comment.id === id) return comment;
+                if (comment.replies) {
+                    const found = findComment(comment.replies, id);
+                    if (found) return found;
+                }
+            }
+            return null;
+        }
+
+        function setupCommentVoting() {
+            // Handled by inline onclick handlers
+        }
+
+        function setupCommentReplies() {
+            // Handled by toggleReplyForm function
+        }
+
+        function toggleReplyForm(commentId) {
+            const form = document.getElementById(`replyForm-${commentId}`);
+            if (form) {
+                form.style.display = form.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        function setupCommentSubmission(postId) {
+            // Handled by submitComment function
+        }
+
+        function submitComment(postId) {
+            const textarea = document.getElementById(`commentText-${postId}`);
+            const content = textarea.value.trim();
+            
+            if (!content) {
+                alert('Please enter a comment');
+                    return;
+                }
+
+            const post = forumData.posts.find(p => p.id == postId);
+            if (!post) return;
+            
+            if (!post.commentsData) post.commentsData = [];
+            
+            const newComment = {
+                id: Date.now(),
+                author: {
+                    name: "You",
+                    avatar: "https://ui-avatars.com/api/?name=You&background=00AEEF&color=fff&size=40",
+                    tier: "platinum"
+                },
+                content: content,
+                time: "just now",
+                votes: 0,
+                replies: []
+            };
+            
+            post.commentsData.push(newComment);
+            post.comments = (post.comments || 0) + 1;
+            
+            // Update post card
+            const postCard = document.querySelector(`.post-card[data-post-id="${postId}"]`);
+            if (postCard) {
+                const commentBtn = postCard.querySelector('.post-action-btn');
+                const commentCount = commentBtn?.querySelector('.fa-comment')?.nextElementSibling;
+                if (commentCount && commentCount.tagName === 'SPAN') {
+                    commentCount.textContent = post.comments;
+                }
+            }
+            
+            textarea.value = '';
+            openPostModal(postId);
+        }
+
+        function submitReply(commentId) {
+            const textarea = document.getElementById(`replyText-${commentId}`);
+            const content = textarea.value.trim();
+            
+            if (!content) {
+                alert('Please enter a reply');
+                    return;
+                }
+
+            // Find comment and add reply
+            for (let post of forumData.posts) {
+                const comment = findComment(post.commentsData || [], commentId);
+                if (comment) {
+                    if (!comment.replies) comment.replies = [];
+                    comment.replies.push({
+                        id: Date.now(),
+                        author: {
+                            name: "You",
+                            avatar: "https://ui-avatars.com/api/?name=You&background=00AEEF&color=fff&size=40",
+                            tier: "platinum"
+                        },
+                        content: content,
+                        time: "just now",
+                        votes: 0
+                    });
+                    textarea.value = '';
+                    openPostModal(post.id);
+                    break;
+                }
+            }
+        }
+
+        // Create Post System
+        function setupCreatePost() {
+            const createPostBtn = document.getElementById('createPostBtn');
+            const createPostModal = document.getElementById('createPostModal');
+            const closeCreateModal = document.getElementById('closeCreateModal');
+            const cancelPost = document.getElementById('cancelPost');
+            const form = document.getElementById('createPostForm');
+            
+            createPostBtn?.addEventListener('click', () => {
+                createPostModal.style.display = 'flex';
+            });
+            
+            closeCreateModal?.addEventListener('click', () => {
+                createPostModal.style.display = 'none';
+                form.reset();
+            });
+            
+            cancelPost?.addEventListener('click', () => {
+                createPostModal.style.display = 'none';
+                form.reset();
+            });
+            
+            createPostModal?.addEventListener('click', (e) => {
+                if (e.target === createPostModal) {
+                    createPostModal.style.display = 'none';
+                    form.reset();
+                }
+            });
+            
+            form?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                createNewPost(form);
+            });
+        }
+
+        function createNewPost(form) {
+            const category = form.querySelector('select').value;
+            const title = form.querySelector('input[type="text"]').value;
+            const content = form.querySelector('textarea').value;
+            
+            const categoryIcons = {
+                excursions: 'fa-umbrella-beach',
+                dining: 'fa-utensils',
+                entertainment: 'fa-theater-masks',
+                loyalty: 'fa-crown',
+                ships: 'fa-ship',
+                destinations: 'fa-map-marker-alt'
+            };
+            
+            const newPost = {
+                id: Date.now(),
+                title: title,
+                content: content,
+                category: category,
+                author: {
+                    name: "You",
+                    avatar: "https://ui-avatars.com/api/?name=You&background=00AEEF&color=fff&size=40",
+                    tier: "platinum"
+                },
+                votes: 0,
+                comments: 0,
+                time: "just now",
+                aiSummary: generateAISummary(title, content, category),
+                commentsData: []
+            };
+            
+            forumData.posts.unshift(newPost);
+            
+            // Add post to DOM
+            const container = document.getElementById('postsContainer');
+            const postHTML = generatePostCardHTML(newPost);
+            container.insertAdjacentHTML('afterbegin', postHTML);
+            
+            // Setup event listeners for new post
+            const newPostCard = container.querySelector(`[data-post-id="${newPost.id}"]`);
+            setupPostCardListeners(newPostCard);
+            
+            // Close modal and reset form
+            document.getElementById('createPostModal').style.display = 'none';
+            form.reset();
+            
+            // Show success message
+            showNotification('Post created successfully!');
+        }
+
+        function generatePostCardHTML(post) {
+            const categoryIcons = {
+                excursions: 'fa-umbrella-beach',
+                dining: 'fa-utensils',
+                entertainment: 'fa-theater-masks',
+                loyalty: 'fa-crown',
+                ships: 'fa-ship',
+                destinations: 'fa-map-marker-alt'
+            };
+            
+            const userVote = forumData.userVotes[post.id] || 0;
+            const isBookmarked = forumData.userBookmarks.has(post.id);
+            
+            return `
+                <article class="post-card" data-post-id="${post.id}">
+                    <div class="post-voting">
+                        <button class="vote-btn upvote ${userVote === 1 ? 'active' : ''}" aria-label="Upvote">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <div class="vote-score">${post.votes}</div>
+                        <button class="vote-btn downvote ${userVote === -1 ? 'active' : ''}" aria-label="Downvote">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                                            </div>
+                    <div class="post-content-wrapper">
+                        <div class="post-header">
+                            <div class="post-category">
+                                <i class="fas ${categoryIcons[post.category]}"></i>
+                                <span>${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
+                                        </div>
+                            <span class="post-time">${post.time}</span>
+                                    </div>
+                        <h2 class="post-title">${post.title}</h2>
+                        <div class="post-body">
+                            <p>${post.content}</p>
+                                </div>
+                        <div class="ai-summary-card">
+                            <div class="ai-summary-header">
+                                    <i class="fas fa-robot"></i>
+                                <span>Voyage Companion AI Summary</span>
+                                </div>
+                            <p class="ai-summary-text">${post.aiSummary}</p>
+                                </div>
+                        <div class="post-footer">
+                            <div class="post-author">
+                                <img src="${post.author.avatar}" alt="${post.author.name}">
+                                <div class="author-info">
+                                    <span class="author-name">${post.author.name}</span>
+                                    <span class="author-tier ${post.author.tier}">${post.author.tier.charAt(0).toUpperCase() + post.author.tier.slice(1)} Member</span>
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button class="post-action-btn">
+                                    <i class="fas fa-comment"></i>
+                                    <span>${post.comments}</span>
+                                </button>
+                                <button class="post-action-btn">
+                                    <i class="fas fa-share"></i>
+                                    <span>Share</span>
+                                </button>
+                                <button class="post-action-btn bookmark-btn ${isBookmarked ? 'active' : ''}">
+                                    <i class="${isBookmarked ? 'fas' : 'far'} fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function setupPostCardListeners(card) {
+            if (!card) return;
+            
+            // Voting
+            card.querySelectorAll('.vote-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    handleVote(this);
+                });
+            });
+            
+            // Click to open modal (only if not clicking on buttons)
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.post-voting') || 
+                    e.target.closest('.post-actions') ||
+                    e.target.closest('button') ||
+                    e.target.tagName === 'BUTTON' ||
+                    e.target.closest('a')) {
+                    return;
+                }
+                const postId = parseInt(this.getAttribute('data-post-id'));
+                openPostModal(postId);
+            });
+            
+            // Comment button
+            const commentBtn = Array.from(card.querySelectorAll('.post-action-btn')).find(btn => 
+                btn.querySelector('.fa-comment')
+            );
+            if (commentBtn) {
+                commentBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const postId = parseInt(card.getAttribute('data-post-id'));
+                    openPostModal(postId);
+                });
+            }
+            
+            // Share button
+            const shareBtn = Array.from(card.querySelectorAll('.post-action-btn')).find(btn => 
+                btn.querySelector('.fa-share')
+            );
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const postId = parseInt(card.getAttribute('data-post-id'));
+                    const post = forumData.posts.find(p => p.id === postId);
+                    if (post) {
+                        if (navigator.share) {
+                            navigator.share({
+                                title: post.title,
+                                text: post.content.substring(0, 100) + '...',
+                                url: window.location.href + '#post-' + postId
+                            }).catch(() => {
+                                copyToClipboard(window.location.href + '#post-' + postId);
+                            });
+                        } else {
+                            copyToClipboard(window.location.href + '#post-' + postId);
+                        }
+                    }
+                });
+            }
+            
+            // Bookmark
+            const bookmarkBtn = card.querySelector('.bookmark-btn');
+            if (bookmarkBtn) {
+                bookmarkBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const postId = parseInt(card.getAttribute('data-post-id'));
+                    toggleBookmark(postId);
+                });
+            }
+        }
+        
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showNotification('Link copied to clipboard!');
+                }).catch(() => {
+                    showNotification('Unable to copy link');
+                });
+                } else {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showNotification('Link copied to clipboard!');
+                } catch (err) {
+                    showNotification('Unable to copy link');
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+
+        function generateAISummary(title, content, category) {
+            // Simple AI summary generation (in real app, this would call an API)
+            const summaries = {
+                excursions: "Based on your question, I recommend checking out popular shore excursions in this category. Consider activities that match your interests and fitness level.",
+                dining: "Specialty dining offers enhanced experiences. Consider your preferences and budget when choosing restaurants. Multi-restaurant packages often provide better value.",
+                entertainment: "Evening entertainment varies by ship. Check the daily schedule and reserve popular shows early. Most ships offer Broadway-style productions and comedy acts.",
+                loyalty: "Loyalty perks provide excellent value. Focus on benefits that matter most to you. Points can be maximized through strategic booking and credit card usage.",
+                ships: "Each ship offers unique features and amenities. Research ship size, activities, and dining options to find the best match for your preferences.",
+                destinations: "Destinations vary by season and itinerary. Research weather, local attractions, and recommended activities. Consider shore excursions for the best experience."
+            };
+            return summaries[category] || "This is an interesting question. The community can provide valuable insights based on their experiences.";
+        }
+
+        // Search System
+        function setupSearch() {
+            const searchInput = document.getElementById('forumSearch');
+            let searchTimeout;
+            
+            searchInput?.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    performSearch(this.value);
+                }, 300);
+            });
+            
+            document.querySelector('.ai-search-btn')?.addEventListener('click', function() {
+                const query = searchInput.value;
+                if (query) {
+                    performAISearch(query);
+                }
+            });
+        }
+
+        function performSearch(query) {
+            if (!query.trim()) {
+                // Reset to current filter
+                filterPosts();
+                return;
+            }
+            
+            const searchTerm = query.toLowerCase();
+            document.querySelectorAll('.post-card').forEach(card => {
+                const postId = parseInt(card.getAttribute('data-post-id'));
+                const post = forumData.posts.find(p => p.id === postId);
+                
+                if (post && (
+                    post.title.toLowerCase().includes(searchTerm) ||
+                    post.content.toLowerCase().includes(searchTerm) ||
+                    post.category.toLowerCase().includes(searchTerm) ||
+                    post.aiSummary.toLowerCase().includes(searchTerm)
+                )) {
+                    card.style.display = 'flex';
+                        } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function performAISearch(query) {
+            showNotification('AI Search: Finding the most relevant posts based on your query...');
+            performSearch(query);
+            // In a real app, this would use AI to rank and suggest posts
+        }
+
+        // Bookmark System
+        function setupBookmarks() {
+            document.querySelectorAll('.bookmark-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const postId = this.closest('.post-card').getAttribute('data-post-id');
+                    toggleBookmark(postId);
+                });
+            });
+        }
+
+        function toggleBookmark(postId) {
+            const postIdNum = typeof postId === 'string' ? parseInt(postId) : postId;
+            
+            if (forumData.userBookmarks.has(postIdNum)) {
+                forumData.userBookmarks.delete(postIdNum);
+            } else {
+                forumData.userBookmarks.add(postIdNum);
+            }
+            
+            const bookmarkBtn = document.querySelector(`.post-card[data-post-id="${postIdNum}"] .bookmark-btn`);
+            if (bookmarkBtn) {
+                const icon = bookmarkBtn.querySelector('i');
+                if (icon) {
+                    if (forumData.userBookmarks.has(postIdNum)) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        bookmarkBtn.classList.add('active');
+                        showNotification('Post bookmarked!');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        bookmarkBtn.classList.remove('active');
+                        showNotification('Bookmark removed');
+                    }
+                }
+            }
+            
+            saveUserPreferences();
+        }
+
+        // Load More System
+        function setupLoadMore() {
+            document.getElementById('loadMorePosts')?.addEventListener('click', function() {
+                loadMorePosts();
+            });
+        }
+
+        function loadMorePosts() {
+            // In a real app, this would load more posts from an API
+            showNotification('Loading more posts...');
+            // For demo, we'll just show a message
+            setTimeout(() => {
+                showNotification('All posts loaded!');
+            }, 1000);
+        }
+
+        // User Preferences
+        function saveUserPreferences() {
+            localStorage.setItem('forumVotes', JSON.stringify(forumData.userVotes));
+            localStorage.setItem('forumBookmarks', JSON.stringify(Array.from(forumData.userBookmarks)));
+            localStorage.setItem('forumSort', forumData.currentSort);
+            localStorage.setItem('forumCategory', forumData.currentCategory);
+        }
+
+        function loadUserPreferences() {
+            const savedVotes = localStorage.getItem('forumVotes');
+            const savedBookmarks = localStorage.getItem('forumBookmarks');
+            const savedSort = localStorage.getItem('forumSort');
+            const savedCategory = localStorage.getItem('forumCategory');
+            
+            if (savedVotes) {
+                forumData.userVotes = JSON.parse(savedVotes);
+            }
+            
+            if (savedBookmarks) {
+                forumData.userBookmarks = new Set(JSON.parse(savedBookmarks));
+            }
+            
+            if (savedSort) {
+                forumData.currentSort = savedSort;
+                document.querySelector(`.sort-btn[data-sort="${savedSort}"]`)?.classList.add('active');
+            }
+            
+            if (savedCategory) {
+                forumData.currentCategory = savedCategory;
+                document.querySelector(`.category-item[data-category="${savedCategory}"]`)?.classList.add('active');
+            }
+            
+            // Apply preferences
+            applyUserPreferences();
+        }
+
+        function applyUserPreferences() {
+            // Apply votes
+            Object.keys(forumData.userVotes).forEach(postId => {
+                const vote = forumData.userVotes[postId];
+                const postCard = document.querySelector(`.post-card[data-post-id="${postId}"]`);
+                if (postCard) {
+                    const upvoteBtn = postCard.querySelector('.upvote');
+                    const downvoteBtn = postCard.querySelector('.downvote');
+                    if (vote === 1) {
+                        upvoteBtn?.classList.add('active');
+                        downvoteBtn?.classList.remove('active');
+                    } else if (vote === -1) {
+                        downvoteBtn?.classList.add('active');
+                        upvoteBtn?.classList.remove('active');
+                    } else {
+                        upvoteBtn?.classList.remove('active');
+                        downvoteBtn?.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Apply bookmarks
+            forumData.userBookmarks.forEach(postId => {
+                const bookmarkBtn = document.querySelector(`.post-card[data-post-id="${postId}"] .bookmark-btn`);
+                if (bookmarkBtn) {
+                    const icon = bookmarkBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        bookmarkBtn.classList.add('active');
+                    }
+                }
+            });
+            
+            // Apply sort and filter
+            if (forumData.currentSort) {
+                const sortBtn = document.querySelector(`.sort-btn[data-sort="${forumData.currentSort}"]`);
+                if (sortBtn) {
+                    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                    sortBtn.classList.add('active');
+                }
+                sortPosts();
+            }
+            if (forumData.currentCategory && forumData.currentCategory !== 'all') {
+                const categoryBtn = document.querySelector(`.category-item[data-category="${forumData.currentCategory}"]`);
+                if (categoryBtn) {
+                    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+                    categoryBtn.classList.add('active');
+                }
+                filterPosts();
+            }
+        }
+
+        // Notification System
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'forum-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Make functions globally available
+        window.handleModalVote = handleModalVote;
+        window.handleCommentVote = handleCommentVote;
+        window.toggleReplyForm = toggleReplyForm;
+        window.submitComment = submitComment;
+        window.submitReply = submitReply;
     </script>
+    
+    <style>
+        /* Post Modal Styles */
+        .post-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .post-modal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .post-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gray-light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--navy);
+            transition: all 0.3s ease;
+        }
+
+        .post-modal-close:hover {
+            background: var(--aqua-light);
+        }
+
+        .modal-post-header {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .modal-post-voting {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-post-content {
+            flex: 1;
+        }
+
+        .modal-post-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .modal-post-body {
+            color: var(--gray-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-post-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .modal-post-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .modal-comments-section {
+            margin-top: 2rem;
+        }
+
+        .comments-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .comments-container {
+            margin-bottom: 2rem;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .comment-voting {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-author img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .comment-time {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-left: 0.5rem;
+        }
+
+        .comment-text {
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .reply-btn {
+            background: none;
+            border: none;
+            color: var(--aqua);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .reply-form-container {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+        }
+
+        .reply-form-container textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-family: inherit;
+        }
+
+        .reply-submit-btn {
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .replies-container {
+            margin-top: 1rem;
+            margin-left: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gray-light);
+        }
+
+        .comment-form {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            font-family: inherit;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+
+        .comment-submit-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .no-comments {
+            color: var(--gray-dark);
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+        }
+
+        .bookmark-btn.active {
+            color: var(--aqua);
+        }
+
+        /* Notification */
+        .forum-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--navy);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .forum-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .post-modal-overlay {
+                padding: 0;
+            }
+
+            .post-modal-container {
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+            .modal-post-header {
+                flex-direction: column;
+            }
+
+            .replies-container {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                border-top: 2px solid var(--gray-light);
+                padding-top: 1rem;
+            }
+        }
+    </style>
+
+    <style>
+        /* Forum Header */
+        .forum-header-modern {
+            background: linear-gradient(135deg, #001F54 0%, #00AEEF 100%);
+            padding: 3rem 0;
+            margin-top: 80px;
+        }
+
+        .forum-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .forum-main-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .forum-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .create-post-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #001F54;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .create-post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Forum Main Section */
+        .forum-main-section {
+            padding: 2rem 0;
+            background: var(--gray-light);
+            min-height: calc(100vh - 200px);
+        }
+
+        .forum-layout-modern {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .forum-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .sort-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sort-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .sort-btn:hover {
+            background: var(--aqua-light);
+        }
+
+        .sort-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            justify-content: space-between;
+        }
+
+        .category-item:hover {
+            background: var(--aqua-light);
+        }
+
+        .category-item.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .category-count {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .ai-suggestions-widget {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+        }
+
+        .ai-badge-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ai-suggestions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ai-suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Forum Content */
+        .forum-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .forum-search-bar {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .search-input-wrapper i {
+            color: var(--gray-dark);
+        }
+
+        .forum-search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+
+        .ai-search-btn {
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Post Cards */
+        .posts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px var(--shadow);
+            display: flex;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 5px 20px var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .post-voting {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .vote-btn {
+            background: none;
+            border: none;
+            color: var(--gray-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .vote-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .vote-btn.upvote.active {
+            color: #FF6B6B;
+        }
+
+        .vote-btn.downvote.active {
+            color: #0066FF;
+        }
+
+        .vote-score {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .post-content-wrapper {
+            flex: 1;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-category {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.75rem;
+            background: var(--gray-light);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .post-time {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .post-body {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .ai-summary-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667EEA;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-summary-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: #667EEA;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .ai-summary-text {
+            color: var(--navy);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .post-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .post-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--navy);
+            display: block;
+        }
+
+        .author-tier {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .post-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-light);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .post-action-btn:hover {
+            background: var(--aqua-light);
+        }
+
+        /* Create Post Modal */
+        .create-post-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .create-post-modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .create-post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .create-post-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .close-create-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .create-post-form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-select,
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-textarea {
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            background: var(--gray-light);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .load-more-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            border-color: var(--aqua);
+            background: var(--aqua-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .forum-layout-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .forum-sidebar {
+                order: 2;
+            }
+
+            .forum-content {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .forum-header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-card {
+                flex-direction: column;
+            }
+
+            .post-voting {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .post-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
 </body>
 </html>
-

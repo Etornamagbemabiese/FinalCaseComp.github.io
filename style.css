@@ -168,6 +168,13 @@ body {
     background: white;
 }
 
+/* Hide mobile menu header on desktop only */
+@media (min-width: 769px) {
+    .mobile-menu-header {
+        display: none !important;
+    }
+}
+
 .mobile-menu-toggle {
     display: none;
     background: transparent;
@@ -510,11 +517,13 @@ body {
     text-align: center;
 }
 
-/* Desktop: Two-column layout */
+/* Desktop: Single column layout (logo removed) - Centered */
 @media (min-width: 769px) {
     .hero-content {
-        grid-template-columns: 1fr 1fr;
-        text-align: left;
+        grid-template-columns: 1fr;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
     }
 }
 
@@ -522,7 +531,13 @@ body {
     animation: fadeInUp 0.8s ease;
     width: 100%;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
 
 /* Hero Tag - "Check Out Trending Discussions" - Responsive */
 .hero-tag {
@@ -578,7 +593,7 @@ body {
 
 @media (min-width: 769px) {
     .hero-title {
-        text-align: left;
+        text-align: center;
     }
 }
 
@@ -603,9 +618,9 @@ body {
 
 @media (min-width: 769px) {
     .hero-subtitle {
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -631,7 +646,7 @@ body {
 
 @media (min-width: 769px) {
     .hero-actions {
-        justify-content: flex-start;
+        justify-content: center;
     }
 }
 
@@ -3353,8 +3368,9 @@ body {
         width: 100%;
     }
 
+    /* Show hamburger menu on mobile */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
         order: 2;
         margin-left: auto;
         margin-right: 0;
@@ -3362,54 +3378,179 @@ body {
         position: relative;
     }
 
+    /* Hide desktop navigation links on mobile - show only hamburger */
     .nav-links {
+        /* Hide desktop navigation by default on mobile */
+        display: none !important;
+    }
+
+    /* Full-page mobile menu - Dark Theme - Only show when active */
+    .nav-links.active {
+        display: flex !important;
         position: fixed;
         top: 0;
-        left: -100%;
-        width: 280px;
-        max-width: 85vw;
+        left: 0;
+        right: 0;
+        width: 100%;
         height: 100vh;
-        height: 100dvh; /* Dynamic viewport height for mobile */
-        background: linear-gradient(to bottom, rgba(0, 0, 40, 0.95), rgba(0, 0, 40, 0.9));
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        height: 100dvh;
+        background: linear-gradient(180deg, #0A0E27 0%, #1A1F3A 100%);
         flex-direction: column;
         gap: 0;
-        padding: clamp(4rem, 10vw, 5rem) clamp(1.5rem, 4vw, 2rem) 2rem;
-        transition: left 0.3s ease, visibility 0.3s ease;
-        z-index: 1002 !important; /* Above overlay (1001) */
-        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+        padding: 0;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+        z-index: 1002 !important;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        visibility: hidden;
-        pointer-events: none;
-    }
-
-    .nav-links.active {
-        left: 0;
         visibility: visible;
         pointer-events: auto !important;
+        transform: translateX(0);
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
     }
 
+    /* When menu is not active, keep it hidden off-screen */
+    .nav-links:not(.active) {
+        display: none !important;
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+    /* Mobile menu header */
+    .mobile-menu-header {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 1.25rem;
+        position: sticky;
+        top: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 40, 0.95), rgba(0, 0, 40, 0.9));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        min-height: 60px;
+        flex-shrink: 0;
+    }
+
+    .nav-links.active .mobile-menu-header {
+        display: flex;
+    }
+
+    .mobile-menu-close {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .mobile-menu-close:hover,
+    .mobile-menu-close:active {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+    }
+
+    .mobile-menu-logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu-logo img {
+        height: 36px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    .mobile-menu-signin {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-signin:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Mobile menu items */
     .nav-links a {
         color: white;
-        padding: clamp(0.875rem, 3vw, 1rem);
+        padding: 1rem 1.25rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
-        display: block;
+        display: flex;
         align-items: center;
+        justify-content: space-between;
         text-decoration: none;
-        font-size: clamp(0.9rem, 2.5vw, 1rem);
-        min-height: 44px; /* Minimum tap target */
-        transition: background-color 0.2s ease;
+        font-size: 1rem;
+        font-weight: 500;
+        min-height: 56px;
+        transition: all 0.2s ease;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
         cursor: pointer;
         pointer-events: auto !important;
         position: relative;
-        z-index: 1005 !important; /* Well above overlay (1001) and menu (1002) */
+        z-index: 1005 !important;
         -webkit-user-select: none;
         user-select: none;
-        line-height: 44px;
+        background: transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a::after {
+        content: '›';
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-left: auto;
+        line-height: 1;
+    }
+
+    .nav-links a::before {
+        display: none;
+    }
+
+    .nav-links a.active {
+        background: rgba(0, 217, 255, 0.15);
+        color: #00D9FF;
+        font-weight: 600;
+        border-left: 3px solid #00D9FF;
+    }
+
+    .nav-links a.active::after {
+        color: #00D9FF;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Ensure links are always clickable when menu is active */
@@ -3417,22 +3558,6 @@ body {
         pointer-events: auto !important;
         z-index: 1005 !important;
         position: relative;
-    }
-
-    .nav-links a:active {
-        background-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .nav-links a::after {
-        display: none;
-    }
-
-    .nav-links a.active {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
     }
 
     .user-profile {
@@ -6937,42 +7062,7 @@ html {
         padding: 0 1rem;
     }
 
-    /* Mobile menu overlay - handled by JavaScript */
-    .mobile-menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh; /* Dynamic viewport height */
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1001; /* Behind menu (1002) */
-        opacity: 0;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        -webkit-tap-highlight-color: transparent;
-        pointer-events: none;
-        visibility: hidden;
-    }
-
-    .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-        /* Keep pointer-events: none so it doesn't block menu clicks */
-        pointer-events: none;
-    }
-    
-    /* Ensure menu is always above overlay and fully clickable */
-    .nav-links.active {
-        z-index: 1002 !important;
-        pointer-events: auto !important;
-    }
-    
-    .nav-links.active a {
-        pointer-events: auto !important;
-        position: relative;
-    }
+    /* Mobile menu overlay removed - using full-page menu */
 
     /* Profile dropdown mobile */
     .profile-dropdown {

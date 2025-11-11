@@ -144,52 +144,57 @@ function fixForumLink() {
 function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.getElementById('navLinks');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenuSignIn = document.getElementById('mobileMenuSignIn');
+    const signInBtn = document.getElementById('signInBtn');
 
     if (!mobileMenuToggle || !navLinks) return;
 
-    // Create overlay element if it doesn't exist
-    let overlay = document.querySelector('.mobile-menu-overlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'mobile-menu-overlay';
-        document.body.appendChild(overlay);
-    }
-
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-        if (overlay) {
-            overlay.classList.toggle('active');
-        }
-        
+    function openMenu() {
+        navLinks.classList.add('active');
         // Prevent body scroll when menu is open
-        if (navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        }
-        
-        // Toggle icon between hamburger and X
-        const icon = mobileMenuToggle.querySelector('i');
-        if (icon) {
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     }
 
-    // Toggle menu button
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        // Restore body scroll
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+    }
+
+    // Toggle menu button (hamburger)
     mobileMenuToggle.addEventListener('click', function(e) {
         e.stopPropagation();
-        toggleMenu();
+        if (navLinks.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
-    // Handle navigation link clicks - ensure they always work
+    // Close button in menu header
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    // Sign in button in menu header
+    if (mobileMenuSignIn && signInBtn) {
+        mobileMenuSignIn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeMenu();
+            // Trigger the sign in button click
+            setTimeout(function() {
+                signInBtn.click();
+            }, 300);
+        });
+    }
+
+    // Handle navigation link clicks - close menu when link is clicked
     navLinks.addEventListener('click', function(e) {
         const link = e.target.closest('a');
         if (!link) return;
@@ -200,51 +205,18 @@ function initMobileMenu() {
             return false;
         }
         
-        // On mobile, close menu when link is clicked
-        // Use a small delay to ensure navigation starts before menu closes
+        // Close menu when link is clicked (on mobile)
         if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-            // Allow navigation to start, then close menu
-            setTimeout(function() {
-                if (navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
-            }, 10);
+            closeMenu();
         }
         
-        // NEVER prevent default - always allow browser navigation
+        // Allow browser navigation
     }, false);
 
-    // Close menu when clicking outside menu
-    document.addEventListener('click', function(e) {
-        // Skip if menu is not active
-        if (!navLinks.classList.contains('active')) {
-            return;
-        }
-        
-        // Don't close if clicking on menu or toggle button
-        if (e.target.closest('.nav-links') || 
-            e.target.closest('#mobileMenuToggle')) {
-            return;
-        }
-        
-        // Close menu when clicking outside
-        if (window.innerWidth <= 768) {
-            // On mobile, check if clicking to the right of menu (overlay area)
-            const menuRect = navLinks.getBoundingClientRect();
-            const clickX = e.clientX || (e.touches && e.touches[0] && e.touches[0].clientX);
-            if (clickX && (clickX > menuRect.right || clickX < menuRect.left)) {
-                toggleMenu();
-            }
-        } else {
-            // Desktop: close if clicking outside
-            toggleMenu();
-        }
-    }, false);
-
-    // Close menu on window resize
+    // Close menu on window resize (when switching to desktop)
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-            toggleMenu();
+            closeMenu();
         }
     });
 }
@@ -891,6 +863,14 @@ function initNavActions() {
             showManageCruiseModal();
         });
     }
+    
+    // Need Help Button
+    const needHelpBtn = document.getElementById('needHelpBtn');
+    if (needHelpBtn) {
+        needHelpBtn.addEventListener('click', function() {
+            showHelpModal();
+        });
+    }
 }
 
 function showHelpModal() {
@@ -924,8 +904,8 @@ function showHelpModal() {
                     <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
                     <div class="help-links">
                         <a href="loyalty.html#faq" class="help-link">Loyalty Program FAQ</a>
-                        <a href="forum.html" class="help-link">Community Forum</a>
-                        <a href="boatey.html" class="help-link">Ask AI Agent</a>
+                        <a href="forum.html" class="help-link">The Deck</a>
+                        <a href="boatey.html" class="help-link">Voyage Companion</a>
                     </div>
                 </div>
                 <div class="help-section">

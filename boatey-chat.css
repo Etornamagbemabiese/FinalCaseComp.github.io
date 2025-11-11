@@ -445,6 +445,36 @@ body {
     border-bottom: 1px solid rgba(0, 123, 255, 0.1);
     background: linear-gradient(135deg, #F6F9FC 0%, #FFFFFF 100%);
     border-radius: 24px 24px 0 0;
+    position: relative;
+}
+
+.setup-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(107, 114, 128, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6B7280;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.setup-close-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    transform: scale(1.1);
+}
+
+.setup-close-btn:active {
+    transform: scale(0.95);
 }
 
 .setup-header h2 {
@@ -734,8 +764,17 @@ body {
         padding: 2rem 1.5rem 1rem;
     }
     
+    .setup-close-btn {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
     .setup-header h2 {
         font-size: 1.5rem;
+        padding-right: 2.5rem;
     }
     
     .setup-header p {

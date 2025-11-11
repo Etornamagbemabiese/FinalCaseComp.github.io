@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>My Memories | RCG Connect</title>
+    <title>SailBack | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="memories.css">
 </head>
-<body>
+<body class="sailback-body">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -24,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html">AI Agent</a>
-                <a href="forum.html">Forum</a>
-                <a href="memories.html" class="active">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html" class="active">SailBack</a>
                 <a href="loyalty.html">Loyalty</a>
                 <a href="find-cruise.html">Find a Cruise</a>
                 <a href="deals.html">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -83,300 +91,366 @@
         </div>
     </nav>
 
-    <!-- Memories Hero Section -->
-    <section class="memories-hero">
-        <div class="memories-hero-background"></div>
-        <div class="container">
-            <div class="memories-hero-content">
-                <div class="ai-badge">
-                    <i class="fas fa-sparkles"></i>
-                    <span>AI-Powered Memories</span>
+    <!-- Wrapped Hero Card -->
+    <section class="wrapped-hero-card">
+        <div class="wrapped-card-content">
+            <div class="wrapped-year-badge">2024</div>
+            <h1 class="wrapped-hero-title">Your SailBack</h1>
+            <p class="wrapped-hero-subtitle">Here's your year at sea</p>
+            <div class="wrapped-hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="12450">0</div>
+                    <div class="hero-stat-label">Miles Traveled</div>
                 </div>
-                <h1 class="memories-hero-title">Your Year at Sea</h1>
-                <p class="memories-hero-subtitle">Relive your incredible journey through AI-curated memories, achievements, and milestones</p>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="8">0</div>
+                    <div class="hero-stat-label">Cruises</div>
             </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="24">0</div>
+                    <div class="hero-stat-label">Destinations</div>
         </div>
+            </div>
+            <button class="wrapped-start-btn" id="startWrapped">
+                <span>Start Your SailBack</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="wrapped-gradient-bg"></div>
     </section>
 
-    <!-- Stats Overview -->
-    <section class="memories-stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card-memories">
-                    <div class="stat-icon-memories">
-                        <i class="fas fa-route"></i>
+    <!-- Card 1: Total Miles -->
+    <section class="wrapped-card card-1" data-card="1">
+        <div class="wrapped-card-inner">
+            <div class="card-number">1</div>
+            <h2 class="wrapped-card-title">You traveled</h2>
+            <div class="wrapped-big-number">
+                <span class="big-number" data-target="12450">0</span>
+                <span class="big-number-unit">miles</span>
                     </div>
-                    <div class="stat-content-memories">
-                        <div class="stat-value-memories" data-target="12450">0</div>
-                        <div class="stat-label-memories">Miles Traveled</div>
-                        <div class="stat-change-memories positive">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+2,340 this year</span>
+            <p class="wrapped-card-text">That's like sailing around the world <strong>half a time</strong>!</p>
+            <div class="wrapped-comparison">
+                <div class="comparison-item">
+                    <i class="fas fa-plane"></i>
+                    <span>That's <strong>50</strong> round trips to the Caribbean</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="stat-card-memories">
-                    <div class="stat-icon-memories">
-                        <i class="fas fa-ship"></i>
-                    </div>
-                    <div class="stat-content-memories">
-                        <div class="stat-value-memories" data-target="8">0</div>
-                        <div class="stat-label-memories">Cruises Completed</div>
-                        <div class="stat-change-memories positive">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+3 this year</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card-memories">
-                    <div class="stat-icon-memories">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <div class="stat-content-memories">
-                        <div class="stat-value-memories" data-target="24">0</div>
-                        <div class="stat-label-memories">Destinations Visited</div>
-                        <div class="stat-change-memories positive">
-                            <i class="fas fa-arrow-up"></i>
-                            <span>+7 this year</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card-memories">
-                    <div class="stat-icon-memories">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="stat-content-memories">
-                        <div class="stat-value-memories" data-target="15">0</div>
-                        <div class="stat-label-memories">Achievements Unlocked</div>
-                        <div class="stat-change-memories positive">
-                            <i class="fas fa-star"></i>
-                            <span>Top 5% of cruisers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="wrapped-card-gradient gradient-1"></div>
     </section>
 
-    <!-- Ranking Section -->
-    <section class="ranking-section">
-        <div class="container">
-            <div class="section-header-memories">
-                <div>
-                    <h2 class="section-title-memories">Your Ranking</h2>
-                    <p class="section-subtitle-memories">See how you stack up against fellow cruisers</p>
+    <!-- Card 2: Top Destination -->
+    <section class="wrapped-card card-2" data-card="2">
+        <div class="wrapped-card-inner">
+            <div class="card-number">2</div>
+            <h2 class="wrapped-card-title">Your top destination</h2>
+            <div class="top-destination-card">
+                <div class="destination-icon-large">
+                    <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                <div class="destination-name-large">Caribbean</div>
+                <div class="destination-stats">
+                    <span><strong>5</strong> visits</span>
+                    <span class="stat-divider">•</span>
+                    <span><strong>3,240</strong> miles</span>
+                        </div>
+                    </div>
+            <p class="wrapped-card-text">You sailed to the Caribbean more than any other region</p>
+            <div class="destination-list">
+                <div class="destination-item">
+                    <span class="dest-rank">#2</span>
+                    <span class="dest-name">Mediterranean</span>
+                    <span class="dest-visits">3 visits</span>
                 </div>
-                <div class="ranking-badge">
-                    <i class="fas fa-medal"></i>
-                    <span>#1,247</span>
-                    <small>Worldwide</small>
+                <div class="destination-item">
+                    <span class="dest-rank">#3</span>
+                    <span class="dest-name">Alaska</span>
+                    <span class="dest-visits">2 visits</span>
+                    </div>
+                        </div>
+                    </div>
+        <div class="wrapped-card-gradient gradient-2"></div>
+    </section>
+
+    <!-- Card 3: Favorite Ship -->
+    <section class="wrapped-card card-3" data-card="3">
+        <div class="wrapped-card-inner">
+            <div class="card-number">3</div>
+            <h2 class="wrapped-card-title">Your favorite ship</h2>
+            <div class="favorite-ship-card">
+                <div class="ship-icon-large">
+                    <i class="fas fa-ship"></i>
+                    </div>
+                <div class="ship-name-large">Wonder of the Seas</div>
+                <div class="ship-stats">
+                    <span><strong>3</strong> cruises</span>
+                    <span class="stat-divider">•</span>
+                    <span><strong>21</strong> nights</span>
+                        </div>
+                    </div>
+            <p class="wrapped-card-text">You spent the most time on Wonder of the Seas</p>
+            <div class="ship-features">
+                <span class="ship-feature-tag"><i class="fas fa-water"></i> Perfect Storm</span>
+                <span class="ship-feature-tag"><i class="fas fa-tree"></i> Central Park</span>
+                <span class="ship-feature-tag"><i class="fas fa-theater-masks"></i> Shows</span>
                 </div>
             </div>
+        <div class="wrapped-card-gradient gradient-3"></div>
+    </section>
 
-            <div class="ranking-container">
-                <div class="ranking-card">
-                    <div class="ranking-header">
-                        <h3>Global Leaderboard</h3>
-                        <select class="ranking-filter" id="rankingFilter">
-                            <option value="all">All Time</option>
-                            <option value="year" selected>This Year</option>
-                            <option value="month">This Month</option>
-                        </select>
+    <!-- Card 4: Days at Sea -->
+    <section class="wrapped-card card-4" data-card="4">
+        <div class="wrapped-card-inner">
+            <div class="card-number">4</div>
+            <h2 class="wrapped-card-title">You spent</h2>
+            <div class="wrapped-big-number">
+                <span class="big-number" data-target="56">0</span>
+                <span class="big-number-unit">days</span>
+                </div>
+            <p class="wrapped-card-text">at sea this year</p>
+            <div class="days-breakdown">
+                <div class="days-item">
+                    <div class="days-bar">
+                        <div class="days-bar-fill" style="width: 75%"></div>
+                </div>
+                    <div class="days-info">
+                        <span class="days-month">Summer</span>
+                        <span class="days-count">21 days</span>
+            </div>
                     </div>
-                    <div class="leaderboard">
-                        <div class="leaderboard-item you">
-                            <div class="rank-number">#1,247</div>
-                            <div class="rank-avatar">
-                                <img src="https://ui-avatars.com/api/?name=You&background=00AEEF&color=fff&size=64" alt="You">
-                                <div class="rank-badge-you">
-                                    <i class="fas fa-user"></i>
+                <div class="days-item">
+                    <div class="days-bar">
+                        <div class="days-bar-fill" style="width: 60%"></div>
                                 </div>
+                    <div class="days-info">
+                        <span class="days-month">Spring</span>
+                        <span class="days-count">14 days</span>
                             </div>
-                            <div class="rank-info">
-                                <div class="rank-name">You</div>
-                                <div class="rank-stats">12,450 miles • 8 cruises</div>
                             </div>
-                            <div class="rank-score">
-                                <div class="score-value">8,420</div>
-                                <div class="score-label">points</div>
+                <div class="days-item">
+                    <div class="days-bar">
+                        <div class="days-bar-fill" style="width: 55%"></div>
+                            </div>
+                    <div class="days-info">
+                        <span class="days-month">Fall</span>
+                        <span class="days-count">12 days</span>
+                        </div>
+                            </div>
+                <div class="days-item">
+                    <div class="days-bar">
+                        <div class="days-bar-fill" style="width: 40%"></div>
+                            </div>
+                    <div class="days-info">
+                        <span class="days-month">Winter</span>
+                        <span class="days-count">9 days</span>
                             </div>
                         </div>
+                            </div>
+                            </div>
+        <div class="wrapped-card-gradient gradient-4"></div>
+    </section>
 
-                        <div class="leaderboard-item">
-                            <div class="rank-number">#1,246</div>
-                            <div class="rank-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=667EEA&color=fff&size=64" alt="Sarah Johnson">
+    <!-- Card 5: Cruise Personality -->
+    <section class="wrapped-card card-5" data-card="5">
+        <div class="wrapped-card-inner">
+            <div class="card-number">5</div>
+            <h2 class="wrapped-card-title">Your cruise personality</h2>
+            <div class="personality-card">
+                <div class="personality-icon">
+                    <i class="fas fa-compass"></i>
                             </div>
-                            <div class="rank-info">
-                                <div class="rank-name">Sarah Johnson</div>
-                                <div class="rank-stats">12,680 miles • 9 cruises</div>
+                <div class="personality-name">The Explorer</div>
+                <div class="personality-desc">You love discovering new destinations and experiencing different cultures</div>
                             </div>
-                            <div class="rank-score">
-                                <div class="score-value">8,650</div>
-                                <div class="score-label">points</div>
+            <div class="personality-stats">
+                <div class="personality-stat">
+                    <div class="personality-stat-bar">
+                        <div class="personality-stat-fill" style="width: 85%"></div>
+                            </div>
+                    <div class="personality-stat-label">
+                        <span>Adventure</span>
+                        <span>85%</span>
+                        </div>
+                            </div>
+                <div class="personality-stat">
+                    <div class="personality-stat-bar">
+                        <div class="personality-stat-fill" style="width: 70%"></div>
+                            </div>
+                    <div class="personality-stat-label">
+                        <span>Relaxation</span>
+                        <span>70%</span>
                             </div>
                         </div>
-
-                        <div class="leaderboard-item">
-                            <div class="rank-number">#1,245</div>
-                            <div class="rank-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=FF6B6B&color=fff&size=64" alt="Michael Chen">
-                            </div>
-                            <div class="rank-info">
-                                <div class="rank-name">Michael Chen</div>
-                                <div class="rank-stats">13,200 miles • 7 cruises</div>
-                            </div>
-                            <div class="rank-score">
-                                <div class="score-value">8,920</div>
-                                <div class="score-label">points</div>
-                            </div>
-                        </div>
-
-                        <div class="leaderboard-item">
-                            <div class="rank-number">#1,244</div>
-                            <div class="rank-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=00D9FF&color=fff&size=64" alt="Emma Williams">
-                            </div>
-                            <div class="rank-info">
-                                <div class="rank-name">Emma Williams</div>
-                                <div class="rank-stats">11,900 miles • 10 cruises</div>
-                            </div>
-                            <div class="rank-score">
-                                <div class="score-value">9,150</div>
-                                <div class="score-label">points</div>
-                            </div>
-                        </div>
-
-                        <div class="leaderboard-item">
-                            <div class="rank-number">#1,243</div>
-                            <div class="rank-avatar">
-                                <img src="https://ui-avatars.com/api/?name=David+Brown&background=764BA2&color=fff&size=64" alt="David Brown">
-                            </div>
-                            <div class="rank-info">
-                                <div class="rank-name">David Brown</div>
-                                <div class="rank-stats">14,500 miles • 6 cruises</div>
-                            </div>
-                            <div class="rank-score">
-                                <div class="score-value">9,380</div>
-                                <div class="score-label">points</div>
-                            </div>
-                        </div>
+                <div class="personality-stat">
+                    <div class="personality-stat-bar">
+                        <div class="personality-stat-fill" style="width: 90%"></div>
                     </div>
+                    <div class="personality-stat-label">
+                        <span>Discovery</span>
+                        <span>90%</span>
                 </div>
-
-                <div class="achievements-card">
-                    <div class="achievements-header">
-                        <h3>Recent Achievements</h3>
-                        <span class="achievements-count">15 unlocked</span>
                     </div>
-                    <div class="achievements-grid">
-                        <div class="achievement-item unlocked">
-                            <div class="achievement-icon">
-                                <i class="fas fa-anchor"></i>
                             </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">First Voyage</div>
-                                <div class="achievement-desc">Completed your first cruise</div>
                             </div>
-                            <div class="achievement-date">Jan 2024</div>
-                        </div>
+        <div class="wrapped-card-gradient gradient-5"></div>
+    </section>
 
-                        <div class="achievement-item unlocked">
-                            <div class="achievement-icon">
-                                <i class="fas fa-globe"></i>
+    <!-- Card 6: Achievements -->
+    <section class="wrapped-card card-6" data-card="6">
+        <div class="wrapped-card-inner">
+            <div class="card-number">6</div>
+            <h2 class="wrapped-card-title">You unlocked</h2>
+            <div class="wrapped-big-number">
+                <span class="big-number" data-target="15">0</span>
+                <span class="big-number-unit">achievements</span>
                             </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">World Traveler</div>
-                                <div class="achievement-desc">Visited 20+ destinations</div>
+            <p class="wrapped-card-text">Here are your highlights</p>
+            <div class="achievements-grid-wrapped">
+                <div class="achievement-badge-wrapped">
+                    <i class="fas fa-trophy"></i>
+                    <span>Platinum Status</span>
                             </div>
-                            <div class="achievement-date">Mar 2024</div>
+                <div class="achievement-badge-wrapped">
+                    <i class="fas fa-globe"></i>
+                    <span>World Traveler</span>
                         </div>
-
-                        <div class="achievement-item unlocked">
-                            <div class="achievement-icon">
+                <div class="achievement-badge-wrapped">
                                 <i class="fas fa-route"></i>
+                    <span>Mile Master</span>
                             </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Mile Master</div>
-                                <div class="achievement-desc">Traveled 10,000+ miles</div>
+                <div class="achievement-badge-wrapped">
+                    <i class="fas fa-star"></i>
+                    <span>Top 5%</span>
                             </div>
-                            <div class="achievement-date">Jun 2024</div>
                         </div>
+        </div>
+        <div class="wrapped-card-gradient gradient-6"></div>
+    </section>
 
-                        <div class="achievement-item unlocked">
-                            <div class="achievement-icon">
-                                <i class="fas fa-crown"></i>
+    <!-- Card 7: Monthly Timeline -->
+    <section class="wrapped-card card-7" data-card="7">
+        <div class="wrapped-card-inner">
+            <div class="card-number">7</div>
+            <h2 class="wrapped-card-title">Your year at sea</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-month">Jan</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Eastern Caribbean</div>
+                        <div class="timeline-desc">7 nights • Wonder of the Seas</div>
                             </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Platinum Status</div>
-                                <div class="achievement-desc">Reached Platinum tier</div>
                             </div>
-                            <div class="achievement-date">Aug 2024</div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Mar</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Mediterranean</div>
+                        <div class="timeline-desc">10 nights • Celebrity Ascent</div>
                         </div>
+                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Jun</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Alaska</div>
+                        <div class="timeline-desc">7 nights • Symphony of the Seas</div>
+                            </div>
+                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Aug</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Western Caribbean</div>
+                        <div class="timeline-desc">5 nights • Wonder of the Seas</div>
+                            </div>
+                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Oct</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Greek Isles</div>
+                        <div class="timeline-desc">9 nights • Celebrity Edge</div>
+                        </div>
+                    </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">Dec</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Bahamas</div>
+                        <div class="timeline-desc">4 nights • Icon of the Seas</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="wrapped-card-gradient gradient-7"></div>
+    </section>
 
-                        <div class="achievement-item locked">
-                            <div class="achievement-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Diamond Elite</div>
-                                <div class="achievement-desc">Reach Diamond tier</div>
-                            </div>
-                            <div class="achievement-progress">65%</div>
-                        </div>
-
-                        <div class="achievement-item locked">
-                            <div class="achievement-icon">
-                                <i class="fas fa-infinity"></i>
-                            </div>
-                            <div class="achievement-info">
-                                <div class="achievement-name">Endless Explorer</div>
-                                <div class="achievement-desc">Complete 15 cruises</div>
-                            </div>
-                            <div class="achievement-progress">53%</div>
-                        </div>
+    <!-- Card 8: Ranking -->
+    <section class="wrapped-card card-8" data-card="8">
+        <div class="wrapped-card-inner">
+            <div class="card-number">8</div>
+            <h2 class="wrapped-card-title">You're in the</h2>
+            <div class="wrapped-big-number">
+                <span class="big-number" data-target="5">0</span>
+                <span class="big-number-unit">%</span>
+                </div>
+            <p class="wrapped-card-text">top of all cruisers worldwide</p>
+            <div class="ranking-card-wrapped">
+                <div class="ranking-badge-large">
+                    <i class="fas fa-medal"></i>
+                    <div class="ranking-info">
+                        <div class="ranking-number">#1,247</div>
+                        <div class="ranking-label">Global Rank</div>
+                </div>
+            </div>
+                <div class="ranking-stats">
+                    <div class="ranking-stat">
+                        <span class="stat-label">Points</span>
+                        <span class="stat-value">8,420</span>
+            </div>
+                    <div class="ranking-stat">
+                        <span class="stat-label">Cruises</span>
+                        <span class="stat-value">8</span>
+            </div>
+                    <div class="ranking-stat">
+                        <span class="stat-label">Destinations</span>
+                        <span class="stat-value">24</span>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="wrapped-card-gradient gradient-8"></div>
     </section>
 
-    <!-- AI Photo Feed Section -->
-    <section class="photo-feed-section">
-        <div class="container">
-            <div class="section-header-memories">
-                <div>
-                    <h2 class="section-title-memories">AI-Curated Photo Memories</h2>
-                    <p class="section-subtitle-memories">Your best moments from this year, intelligently organized</p>
-                </div>
-                <div class="ai-indicator">
-                    <i class="fas fa-brain"></i>
-                    <span>Powered by AI</span>
-                </div>
-            </div>
-
-            <div class="photo-feed-filters">
-                <button class="filter-btn active" data-filter="all">All Memories</button>
-                <button class="filter-btn" data-filter="ships">On Board</button>
-                <button class="filter-btn" data-filter="destinations">Destinations</button>
-                <button class="filter-btn" data-filter="activities">Activities</button>
-                <button class="filter-btn" data-filter="dining">Dining</button>
-            </div>
-
-            <div class="photo-feed-grid" id="photoFeedGrid">
-                <!-- Photo cards will be dynamically generated -->
-            </div>
-
-            <div class="load-more-container">
-                <button class="load-more-btn" id="loadMoreBtn">
-                    <i class="fas fa-sync-alt"></i>
-                    <span>Load More Memories</span>
+    <!-- Card 9: Share -->
+    <section class="wrapped-card card-9" data-card="9">
+        <div class="wrapped-card-inner">
+            <div class="card-number">9</div>
+            <h2 class="wrapped-card-title">Thanks for sailing with us</h2>
+            <p class="wrapped-card-text">Share your SailBack with friends</p>
+            <div class="share-buttons">
+                <button class="share-btn">
+                    <i class="fab fa-twitter"></i>
+                    <span>Share on Twitter</span>
+                </button>
+                <button class="share-btn">
+                    <i class="fab fa-facebook"></i>
+                    <span>Share on Facebook</span>
+                </button>
+                <button class="share-btn">
+                    <i class="fas fa-link"></i>
+                    <span>Copy Link</span>
                 </button>
             </div>
+            <button class="wrapped-restart-btn" id="restartWrapped">
+                <span>View Again</span>
+                <i class="fas fa-redo"></i>
+            </button>
         </div>
+        <div class="wrapped-card-gradient gradient-9"></div>
     </section>
 
     <!-- Footer -->
@@ -391,9 +465,9 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
-                        <li><a href="memories.html">Memories</a></li>
+                        <li><a href="memories.html">SailBack</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
                 </div>
@@ -420,7 +494,804 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="memories.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all cards except hero initially
+            const cards = document.querySelectorAll('.wrapped-card');
+            cards.forEach(card => {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+            });
+
+            let currentCard = 0;
+            const totalCards = cards.length;
+
+            // Start button
+            const startBtn = document.getElementById('startWrapped');
+            const restartBtn = document.getElementById('restartWrapped');
+
+            function showCard(index) {
+                if (index < totalCards) {
+                    const card = cards[index];
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
+                }
+            }
+
+            function startWrapped() {
+                document.querySelector('.wrapped-hero-card').style.display = 'none';
+                showCard(0);
+            }
+
+            function restartWrapped() {
+                document.querySelector('.wrapped-hero-card').style.display = 'flex';
+                cards.forEach(card => {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            startBtn?.addEventListener('click', startWrapped);
+            restartBtn?.addEventListener('click', restartWrapped);
+
+            // Intersection Observer for auto-scroll
+            const observerOptions = {
+                threshold: 0.6,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const cardIndex = parseInt(entry.target.getAttribute('data-card')) - 1;
+                        if (cardIndex < totalCards - 1) {
+                            setTimeout(() => {
+                                showCard(cardIndex + 1);
+                            }, 2000);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => observer.observe(card));
+
+            // Animate numbers
+            function animateNumber(element, target, duration = 2000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            }
+
+            // Observe number elements
+            const numberElements = document.querySelectorAll('.big-number, .hero-stat-number');
+            const numberObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateNumber(entry.target, target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            numberElements.forEach(el => numberObserver.observe(el));
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    if (currentCard < totalCards - 1) {
+                        currentCard++;
+                        showCard(currentCard);
+                    }
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    if (currentCard > 0) {
+                        currentCard--;
+                        showCard(currentCard);
+                    }
+                }
+            });
+
+            // Share functionality
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const platform = this.querySelector('span').textContent;
+                    // Share functionality would go here
+                    console.log(`Sharing to ${platform}`);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .sailback-body {
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Wrapped Hero Card */
+        .wrapped-hero-card {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        .wrapped-gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 50%, #F093FB 100%);
+            z-index: -1;
+        }
+
+        .wrapped-card-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .wrapped-year-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .wrapped-hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .wrapped-hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .wrapped-hero-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .hero-stat-divider {
+            width: 2px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .wrapped-start-btn {
+            padding: 1.25rem 3rem;
+            background: white;
+            color: #667EEA;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .wrapped-start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Wrapped Cards */
+        .wrapped-card {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 4rem 2rem;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .wrapped-card-inner {
+            max-width: 900px;
+            width: 100%;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-number {
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .wrapped-card-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .wrapped-big-number {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .big-number {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .big-number-unit {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            opacity: 0.9;
+        }
+
+        .wrapped-card-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .wrapped-card-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            transition: all 0.8s ease;
+        }
+
+        .gradient-1 {
+            background: linear-gradient(135deg, #00AEEF 0%, #0066FF 100%);
+        }
+
+        .gradient-2 {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD700 100%);
+        }
+
+        .gradient-3 {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+        }
+
+        .gradient-4 {
+            background: linear-gradient(135deg, #00D9FF 0%, #00AEEF 100%);
+        }
+
+        .gradient-5 {
+            background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+        }
+
+        .gradient-6 {
+            background: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+        }
+
+        .gradient-7 {
+            background: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%);
+        }
+
+        .gradient-8 {
+            background: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+        }
+
+        .gradient-9 {
+            background: linear-gradient(135deg, #30CFD0 0%, #330867 100%);
+        }
+
+        /* Top Destination Card */
+        .top-destination-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .destination-icon-large {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .destination-name-large {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .destination-stats {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+        }
+
+        .stat-divider {
+            margin: 0 1rem;
+        }
+
+        .destination-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .destination-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+        }
+
+        .dest-rank {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .dest-name {
+            flex: 1;
+            text-align: left;
+            margin-left: 2rem;
+            font-weight: 600;
+        }
+
+        .dest-visits {
+            font-weight: 700;
+        }
+
+        /* Favorite Ship Card */
+        .favorite-ship-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ship-icon-large {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ship-name-large {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .ship-stats {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+        }
+
+        .ship-features {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .ship-feature-tag {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Days Breakdown */
+        .days-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .days-item {
+            text-align: left;
+        }
+
+        .days-bar {
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .days-bar-fill {
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            transition: width 1s ease;
+        }
+
+        .days-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Personality Card */
+        .personality-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .personality-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .personality-name {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .personality-desc {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+        }
+
+        .personality-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .personality-stat-bar {
+            height: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .personality-stat-fill {
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            transition: width 1s ease;
+        }
+
+        .personality-stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid-wrapped {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-badge-wrapped {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .achievement-badge-wrapped i {
+            font-size: 3rem;
+        }
+
+        .achievement-badge-wrapped span {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .timeline-month {
+            font-size: 1.2rem;
+            font-weight: 700;
+            min-width: 60px;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Ranking Card */
+        .ranking-card-wrapped {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ranking-badge-large {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ranking-badge-large i {
+            font-size: 5rem;
+        }
+
+        .ranking-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .ranking-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .ranking-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ranking-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .share-btn {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .wrapped-restart-btn {
+            padding: 1rem 2rem;
+            background: white;
+            color: #330867;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .wrapped-restart-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .wrapped-comparison {
+            margin-top: 2rem;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        .comparison-item i {
+            font-size: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .wrapped-hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-stat-divider {
+                display: none;
+            }
+
+            .destination-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .dest-name {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </body>
 </html>
-

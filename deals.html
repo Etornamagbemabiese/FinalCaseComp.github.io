@@ -6,7 +6,7 @@
     <title>Deals & Offers | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html">AI Agent</a>
-                <a href="forum.html">Forum</a>
-                <a href="memories.html">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html">SailBack</a>
                 <a href="loyalty.html">Loyalty</a>
                 <a href="find-cruise.html">Find a Cruise</a>
                 <a href="deals.html" class="active">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -82,157 +91,561 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="page-hero">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
+    <!-- Hero Section with Video -->
+    <section class="deals-hero">
+        <video class="deals-hero-video" autoplay muted loop playsinline>
+            <source src="RCGV2.mp4" type="video/mp4">
+        </video>
+        <div class="deals-hero-overlay"></div>
         <div class="container">
-            <div class="page-hero-content">
-                <h1 class="page-title">Exclusive Deals & Offers</h1>
-                <p class="page-subtitle">Save on your next cruise adventure with our best promotions</p>
+            <div class="deals-hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-fire"></i>
+                    <span>Limited Time Offers</span>
+                </div>
+                <h1 class="deals-hero-title">Exclusive Deals & Offers</h1>
+                <p class="deals-hero-subtitle">Save big on your next cruise adventure with our best promotions and special offers</p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Deal -->
-    <section class="featured-deal-section">
+    <!-- Featured Mega Deal -->
+    <section class="mega-deal-section">
         <div class="container">
-            <div class="featured-deal-card">
-                <div class="deal-badge">Limited Time</div>
-                <div class="deal-content">
-                    <h2 class="deal-title">Up to 30% Off + Kids Sail Free</h2>
-                    <p class="deal-description">Book your 2025 cruise now and save big! Plus, kids 12 and under sail free on select sailings. Valid on new bookings only.</p>
-                    <div class="deal-details">
-                        <div class="deal-detail-item">
-                            <i class="fas fa-calendar"></i>
-                            <span>Valid through March 31, 2025</span>
+            <div class="mega-deal-card">
+                <div class="mega-deal-countdown">
+                    <div class="countdown-label">Ends in:</div>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">15</span>
+                            <span class="countdown-label-small">Days</span>
                         </div>
-                        <div class="deal-detail-item">
-                            <i class="fas fa-ship"></i>
-                            <span>All Royal Caribbean Ships</span>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">08</span>
+                            <span class="countdown-label-small">Hours</span>
                         </div>
-                        <div class="deal-detail-item">
-                            <i class="fas fa-tag"></i>
-                            <span>Up to 30% Savings</span>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">42</span>
+                            <span class="countdown-label-small">Minutes</span>
                         </div>
                     </div>
-                    <button class="cta-button primary">
-                        <span>View This Deal</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                </div>
+                <div class="mega-deal-content">
+                    <div class="mega-deal-badge">Mega Sale</div>
+                    <h2 class="mega-deal-title">Up to 30% Off + Kids Sail Free</h2>
+                    <p class="mega-deal-description">Book your 2025 cruise now and save big! Plus, kids 12 and under sail free on select sailings. Don't miss out on this incredible offer - valid on new bookings only.</p>
+                    <div class="mega-deal-features">
+                        <div class="mega-deal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Up to 30% savings on select cruises</span>
+                        </div>
+                        <div class="mega-deal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kids 12 and under sail free</span>
+                        </div>
+                        <div class="mega-deal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Valid on all Royal Caribbean ships</span>
+                        </div>
+                        <div class="mega-deal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Valid through March 31, 2025</span>
+                        </div>
+                    </div>
+                    <div class="mega-deal-actions">
+                        <button class="mega-deal-btn-primary">
+                            <span>Book Now & Save</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="mega-deal-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            <span>View Terms</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Filters -->
+    <section class="deal-filters-section">
+        <div class="container">
+            <div class="deal-filters">
+                <button class="deal-filter-chip active" data-filter="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>All Deals</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="savings">
+                    <i class="fas fa-percent"></i>
+                    <span>Big Savings</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="packages">
+                    <i class="fas fa-box"></i>
+                    <span>Packages</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="member">
+                    <i class="fas fa-crown"></i>
+                    <span>Member Exclusive</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="last-minute">
+                    <i class="fas fa-clock"></i>
+                    <span>Last Minute</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="dining">
+                    <i class="fas fa-utensils"></i>
+                    <span>Dining</span>
+                </button>
+                <button class="deal-filter-chip" data-filter="onboard">
+                    <i class="fas fa-coins"></i>
+                    <span>Onboard Credit</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Filters -->
+    <section class="deal-advanced-section">
+        <div class="container">
+            <div class="deal-advanced-toggle">
+                <button class="toggle-deal-filters" id="toggleDealFilters">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Filter Deals</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="deal-advanced-panel" id="dealAdvancedPanel" style="display: none;">
+                <div class="deal-advanced-grid">
+                    <div class="deal-filter-group">
+                        <label><i class="fas fa-ship"></i> Cruise Line</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Royal Caribbean International</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Celebrity Cruises</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Silversea</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="deal-filter-group">
+                        <label><i class="fas fa-percent"></i> Savings Amount</label>
+                        <select class="filter-select">
+                            <option>Any Savings</option>
+                            <option>Up to 20% Off</option>
+                            <option>21% - 30% Off</option>
+                            <option>31% - 40% Off</option>
+                            <option>40%+ Off</option>
+                        </select>
+                    </div>
+                    <div class="deal-filter-group">
+                        <label><i class="fas fa-calendar"></i> Valid Through</label>
+                        <select class="filter-select">
+                            <option>Any Date</option>
+                            <option>Next 30 Days</option>
+                            <option>Next 3 Months</option>
+                            <option>Next 6 Months</option>
+                            <option>2025</option>
+                        </select>
+                    </div>
+                    <div class="deal-filter-group">
+                        <label><i class="fas fa-tag"></i> Deal Type</label>
+                        <select class="filter-select">
+                            <option>All Types</option>
+                            <option>Percentage Off</option>
+                            <option>Fixed Amount Off</option>
+                            <option>Free Perks</option>
+                            <option>Onboard Credit</option>
+                            <option>Package Deals</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="deal-advanced-actions">
+                    <button class="btn-secondary" id="resetDealFilters">Reset Filters</button>
+                    <button class="btn-primary" id="applyDealFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Header -->
+    <section class="deal-results-header">
+        <div class="container">
+            <div class="deal-results-content">
+                <div class="deal-results-count">
+                    <h2>Available Deals</h2>
+                    <p><span id="dealCount">18</span> deals found</p>
+                </div>
+                <div class="deal-results-controls">
+                    <div class="deal-sort-options">
+                        <label>Sort by:</label>
+                        <select class="sort-select" id="dealSortSelect">
+                            <option value="featured">Featured</option>
+                            <option value="savings-high">Highest Savings</option>
+                            <option value="savings-low">Lowest Savings</option>
+                            <option value="newest">Newest First</option>
+                            <option value="ending-soon">Ending Soon</option>
+                        </select>
+                    </div>
+                    <div class="deal-view-options">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Deals Grid -->
-    <section class="deals-section">
+    <section class="deal-results-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">All Deals & Promotions</h2>
-                <p class="section-subtitle">Find the perfect offer for your next cruise</p>
+            <div class="deals-grid-modern" id="dealsGrid">
+                <!-- Deal Card 1 -->
+                <div class="deal-card-modern" data-category="savings">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Save 30%</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-new">New</div>
+                        <div class="deal-card-brand">Royal Caribbean International</div>
+                        <h3 class="deal-card-title">Second Guest 50% Off</h3>
+                        <p class="deal-card-description">Book a balcony or higher and get 50% off the second guest. Perfect for couples looking for an amazing vacation!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid through Mar 31, 2025</span>
+                            <span><i class="fas fa-ship"></i> All Ships</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Save up to $1,500</span>
+                            <span class="savings-percentage">50% Off</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">Terms & Conditions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 2 -->
+                <div class="deal-card-modern" data-category="dining">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Free</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #667EEA, #764BA2);">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-popular">Popular</div>
+                        <div class="deal-card-brand">All Brands</div>
+                        <h3 class="deal-card-title">Free Specialty Dining</h3>
+                        <p class="deal-card-description">Book a suite and receive complimentary specialty dining for two. Valid on 7+ night cruises. Indulge in gourmet experiences!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid through Dec 31, 2025</span>
+                            <span><i class="fas fa-bed"></i> Suite Bookings</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Save up to $200</span>
+                            <span class="savings-percentage">Complimentary</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">Terms & Conditions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 3 -->
+                <div class="deal-card-modern" data-category="member">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Exclusive</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #FFD700, #FFA500);">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-exclusive">Member Only</div>
+                        <div class="deal-card-brand">Crown & Anchor Society</div>
+                        <h3 class="deal-card-title">Member Exclusive Rates</h3>
+                        <p class="deal-card-description">Exclusive savings for loyalty members. The higher your tier, the more you save! Unlock special member pricing.</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Ongoing</span>
+                            <span><i class="fas fa-users"></i> All Tiers</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Up to 25% Off</span>
+                            <span class="savings-percentage">Member Pricing</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 4 -->
+                <div class="deal-card-modern" data-category="last-minute">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Save 40%</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFD700);">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-hot">Hot Deal</div>
+                        <div class="deal-card-brand">All Brands</div>
+                        <h3 class="deal-card-title">Last Minute Deals</h3>
+                        <p class="deal-card-description">Spontaneous traveler? Check out our last-minute deals for cruises departing in the next 90 days. Book now and save!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Next 90 Days</span>
+                            <span><i class="fas fa-clock"></i> Limited Availability</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Up to 40% Off</span>
+                            <span class="savings-percentage">Last Minute</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">View Cruises</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 5 -->
+                <div class="deal-card-modern" data-category="packages">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Save $500+</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #00D9FF, #00AEEF);">
+                            <i class="fas fa-box"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-bundle">Bundle</div>
+                        <div class="deal-card-brand">All Brands</div>
+                        <h3 class="deal-card-title">Ultimate Package Deal</h3>
+                        <p class="deal-card-description">Get the best value with our Ultimate Package: drinks, WiFi, specialty dining, and gratuities included. All-in-one convenience!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid through Dec 31, 2025</span>
+                            <span><i class="fas fa-check-circle"></i> All Included</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Save $500+</span>
+                            <span class="savings-percentage">Package Value</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">View Packages</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 6 -->
+                <div class="deal-card-modern" data-category="onboard">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">$500 OBC</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #00AEEF, #0066FF);">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-bonus">Bonus</div>
+                        <div class="deal-card-brand">All Brands</div>
+                        <h3 class="deal-card-title">Onboard Credit Bonus</h3>
+                        <p class="deal-card-description">Book now and receive up to $500 in onboard credit to spend on spa, dining, shopping, and more. Use it however you like!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid through Jun 30, 2025</span>
+                            <span><i class="fas fa-shopping-bag"></i> Any Onboard Purchase</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Up to $500 OBC</span>
+                            <span class="savings-percentage">Free Credit</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">Terms & Conditions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 7 -->
+                <div class="deal-card-modern" data-category="savings">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Kids Free</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #00D9FF, #667EEA);">
+                            <i class="fas fa-child"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-family">Family</div>
+                        <div class="deal-card-brand">Royal Caribbean International</div>
+                        <h3 class="deal-card-title">Kids Sail Free</h3>
+                        <p class="deal-card-description">Kids 12 and under sail free when sharing a stateroom with two full-fare guests. Perfect for family vacations!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid through Mar 31, 2025</span>
+                            <span><i class="fas fa-child"></i> Ages 12 & Under</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Free Cruise Fare</span>
+                            <span class="savings-percentage">Kids Free</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">Terms & Conditions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 8 -->
+                <div class="deal-card-modern" data-category="packages">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">Save 25%</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #764BA2, #667EEA);">
+                            <i class="fas fa-cocktail"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-package">Package</div>
+                        <div class="deal-card-brand">All Brands</div>
+                        <h3 class="deal-card-title">Deluxe Beverage Package</h3>
+                        <p class="deal-card-description">Enjoy unlimited premium beverages throughout your cruise. Save 25% when you book in advance. Cheers to savings!</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Pre-Book Only</span>
+                            <span><i class="fas fa-wine-glass"></i> All Beverages</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Save 25%</span>
+                            <span class="savings-percentage">Advance Booking</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">View Packages</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deal Card 9 -->
+                <div class="deal-card-modern" data-category="dining">
+                    <div class="deal-card-image">
+                        <div class="deal-savings-badge">3 Free</div>
+                        <div class="deal-card-favorite">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <div class="deal-image-placeholder" style="background: linear-gradient(135deg, #FF8E53, #FF6B6B);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="deal-card-body">
+                        <div class="deal-card-badge-dining">Dining</div>
+                        <div class="deal-card-brand">Celebrity Cruises</div>
+                        <h3 class="deal-card-title">3-Night Specialty Dining Package</h3>
+                        <p class="deal-card-description">Enjoy three nights of specialty dining at our finest restaurants. Experience world-class cuisine at a special price.</p>
+                        <div class="deal-card-details">
+                            <span><i class="fas fa-calendar"></i> Valid on 7+ Night Cruises</span>
+                            <span><i class="fas fa-utensils"></i> Specialty Restaurants</span>
+                        </div>
+                        <div class="deal-card-savings">
+                            <span class="savings-amount">Save $150</span>
+                            <span class="savings-percentage">Package Deal</span>
+                        </div>
+                        <div class="deal-card-footer">
+                            <button class="deal-card-btn">
+                                <span>View Deal</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <a href="#" class="deal-terms-link">View Restaurants</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="deals-grid">
-                <div class="deal-card">
-                    <div class="deal-card-badge">New</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="deal-card-title">Free Specialty Dining</h3>
-                    <p class="deal-card-description">Book a suite and receive complimentary specialty dining for two. Valid on 7+ night cruises.</p>
-                    <div class="deal-card-savings">Save up to $200</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
 
-                <div class="deal-card">
-                    <div class="deal-card-badge">Popular</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-percent"></i>
-                    </div>
-                    <h3 class="deal-card-title">Second Guest 50% Off</h3>
-                    <p class="deal-card-description">Book a balcony or higher and get 50% off the second guest. Perfect for couples!</p>
-                    <div class="deal-card-savings">Save up to $1,500</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="deal-card">
-                    <div class="deal-card-badge">Exclusive</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3 class="deal-card-title">Crown & Anchor Member Rates</h3>
-                    <p class="deal-card-description">Exclusive savings for loyalty members. The higher your tier, the more you save!</p>
-                    <div class="deal-card-savings">Member Exclusive</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="deal-card">
-                    <div class="deal-card-badge">Hot Deal</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3 class="deal-card-title">Last Minute Deals</h3>
-                    <p class="deal-card-description">Spontaneous traveler? Check out our last-minute deals for cruises departing in the next 90 days.</p>
-                    <div class="deal-card-savings">Up to 40% Off</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="deal-card">
-                    <div class="deal-card-badge">Bundle</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-box"></i>
-                    </div>
-                    <h3 class="deal-card-title">Ultimate Package Deal</h3>
-                    <p class="deal-card-description">Get the best value with our Ultimate Package: drinks, WiFi, specialty dining, and gratuities included.</p>
-                    <div class="deal-card-savings">Save $500+</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="deal-card">
-                    <div class="deal-card-badge">Bonus</div>
-                    <div class="deal-card-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="deal-card-title">Onboard Credit Bonus</h3>
-                    <p class="deal-card-description">Book now and receive up to $500 in onboard credit to spend on spa, dining, shopping, and more.</p>
-                    <div class="deal-card-savings">Up to $500 OBC</div>
-                    <button class="cta-button secondary">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreDeals">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Load More Deals</span>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
+    <section class="deal-newsletter-section">
         <div class="container">
-            <div class="newsletter-card">
-                <div class="newsletter-content">
+            <div class="deal-newsletter-card">
+                <div class="deal-newsletter-content">
+                    <div class="newsletter-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
                     <h2 class="newsletter-title">Never Miss a Deal</h2>
-                    <p class="newsletter-description">Subscribe to our newsletter and be the first to know about exclusive offers, flash sales, and special promotions.</p>
+                    <p class="newsletter-description">Subscribe to our newsletter and be the first to know about exclusive offers, flash sales, and special promotions. Get notified when new deals drop!</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
-                        <button type="submit" class="cta-button primary">
-                            <span>Subscribe</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-submit-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
                     </form>
                 </div>
             </div>
@@ -251,7 +664,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
@@ -270,6 +683,962 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set target date (15 days from now)
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 15);
+            targetDate.setHours(8, 42, 0, 0);
+
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        }
+
+        // Update countdown every minute
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // Advanced Filters Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleDealFilters');
+            const panel = document.getElementById('dealAdvancedPanel');
+            const icon = toggleBtn?.querySelector('.fa-chevron-down');
+            
+            if (toggleBtn && panel && icon) {
+                toggleBtn.addEventListener('click', function() {
+                    const isHidden = panel.style.display === 'none';
+                    panel.style.display = isHidden ? 'block' : 'none';
+                    icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            }
+
+            // Filter Chips
+            const filterChips = document.querySelectorAll('.deal-filter-chip');
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    filterChips.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    filterDeals(filter);
+                });
+            });
+
+            // View Toggle
+            const viewButtons = document.querySelectorAll('.deal-view-options .view-btn');
+            const dealsGrid = document.getElementById('dealsGrid');
+            
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const view = this.getAttribute('data-view');
+                    dealsGrid.className = view === 'list' ? 'deals-list' : 'deals-grid-modern';
+                });
+            });
+
+            // Favorite Toggle
+            const favoriteButtons = document.querySelectorAll('.deal-card-favorite');
+            favoriteButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.style.color = '#FF6B6B';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.style.color = '';
+                    }
+                });
+            });
+
+            // Sort Functionality
+            const sortSelect = document.getElementById('dealSortSelect');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    sortDeals(this.value);
+                });
+            }
+
+            function filterDeals(filter) {
+                const cards = document.querySelectorAll('.deal-card-modern');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                updateDealCount();
+            }
+
+            function sortDeals(sortBy) {
+                const grid = document.getElementById('dealsGrid');
+                const cards = Array.from(grid.querySelectorAll('.deal-card-modern'));
+                
+                // Simple sort - can be enhanced
+                cards.sort((a, b) => {
+                    // Add sorting logic based on sortBy value
+                    return 0;
+                });
+                
+                cards.forEach(card => grid.appendChild(card));
+            }
+
+            function updateDealCount() {
+                const visibleCards = document.querySelectorAll('.deal-card-modern[style*="block"], .deal-card-modern:not([style*="none"])');
+                const count = Array.from(visibleCards).filter(card => 
+                    card.style.display !== 'none' || !card.style.display
+                ).length;
+                const countElement = document.getElementById('dealCount');
+                if (countElement) {
+                    countElement.textContent = count;
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* Deals Hero Section */
+        .deals-hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .deals-hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .deals-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.7) 0%, rgba(10, 14, 39, 0.9) 100%);
+            z-index: 2;
+        }
+
+        .deals-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            border-radius: 30px;
+            color: #FF6B6B;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .deals-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .deals-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Mega Deal Section */
+        .mega-deal-section {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #001F54 0%, #00AEEF 100%);
+        }
+
+        .mega-deal-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mega-deal-countdown {
+            position: absolute;
+            top: -30px;
+            right: 2rem;
+            background: var(--coral);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .countdown-label-small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        .countdown-separator {
+            font-size: 1.5rem;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+
+        .mega-deal-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .mega-deal-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .mega-deal-description {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .mega-deal-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mega-deal-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .mega-deal-feature i {
+            color: var(--aqua);
+            font-size: 1.2rem;
+        }
+
+        .mega-deal-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mega-deal-btn-primary {
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .mega-deal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 174, 239, 0.4);
+        }
+
+        .mega-deal-btn-secondary {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .mega-deal-btn-secondary:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        /* Deal Filters */
+        .deal-filters-section {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .deal-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .deal-filter-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .deal-filter-chip:hover {
+            background: var(--aqua-light);
+            border-color: var(--aqua);
+        }
+
+        .deal-filter-chip.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .deal-filter-chip i {
+            font-size: 0.9rem;
+        }
+
+        /* Advanced Filters */
+        .deal-advanced-section {
+            padding: 2rem 0;
+            background: var(--gray-light);
+        }
+
+        .deal-advanced-toggle {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .toggle-deal-filters {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-deal-filters:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        .toggle-deal-filters .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .deal-advanced-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .deal-advanced-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .deal-filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .deal-filter-group label i {
+            color: var(--aqua);
+        }
+
+        .deal-advanced-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        /* Results Header */
+        .deal-results-header {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .deal-results-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .deal-results-count h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .deal-results-count p {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .deal-results-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .deal-sort-options {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .deal-sort-options label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .deal-view-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Modern Deal Cards */
+        .deal-results-section {
+            padding: 3rem 0;
+            background: var(--gray-light);
+        }
+
+        .deals-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .deals-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .deals-list .deal-card-modern {
+            display: flex;
+            flex-direction: row;
+            max-width: 100%;
+        }
+
+        .deals-list .deal-card-image {
+            width: 300px;
+            min-width: 300px;
+            height: auto;
+        }
+
+        .deal-card-modern {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .deal-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .deal-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .deal-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .deal-savings-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.75rem 1.25rem;
+            background: white;
+            color: var(--navy);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .deal-card-favorite {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .deal-card-favorite:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .deal-card-favorite i {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+        }
+
+        .deal-card-body {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .deal-card-badge-new,
+        .deal-card-badge-popular,
+        .deal-card-badge-exclusive,
+        .deal-card-badge-hot,
+        .deal-card-badge-bundle,
+        .deal-card-badge-bonus,
+        .deal-card-badge-family,
+        .deal-card-badge-package,
+        .deal-card-badge-dining {
+            position: absolute;
+            top: -12px;
+            right: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .deal-card-badge-new {
+            background: var(--aqua);
+        }
+
+        .deal-card-badge-popular {
+            background: var(--gradient-primary);
+        }
+
+        .deal-card-badge-exclusive {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .deal-card-badge-hot {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .deal-card-badge-bundle {
+            background: linear-gradient(135deg, #00D9FF, #00AEEF);
+        }
+
+        .deal-card-badge-bonus {
+            background: linear-gradient(135deg, #00AEEF, #0066FF);
+        }
+
+        .deal-card-badge-family {
+            background: linear-gradient(135deg, #00D9FF, #667EEA);
+        }
+
+        .deal-card-badge-package {
+            background: linear-gradient(135deg, #764BA2, #667EEA);
+        }
+
+        .deal-card-badge-dining {
+            background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+        }
+
+        .deal-card-brand {
+            font-size: 0.8rem;
+            color: var(--aqua);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .deal-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .deal-card-description {
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .deal-card-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .deal-card-details span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .deal-card-details i {
+            color: var(--aqua);
+        }
+
+        .deal-card-savings {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .savings-amount {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--coral);
+        }
+
+        .savings-percentage {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+            padding: 0.4rem 0.75rem;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .deal-card-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .deal-card-btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .deal-card-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        .deal-terms-link {
+            text-align: center;
+            color: var(--aqua);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .deal-terms-link:hover {
+            color: var(--navy);
+            text-decoration: underline;
+        }
+
+        /* Newsletter Section */
+        .deal-newsletter-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #001F54 0%, #00AEEF 100%);
+        }
+
+        .deal-newsletter-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .newsletter-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-description {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.1);
+        }
+
+        .newsletter-submit-btn {
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        .newsletter-privacy {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        /* Load More */
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-btn {
+            padding: 1rem 2.5rem;
+            background: white;
+            border: 2px solid var(--aqua);
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--aqua);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: var(--aqua);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .deals-hero {
+                height: 400px;
+            }
+
+            .mega-deal-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .mega-deal-countdown {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+
+            .mega-deal-features {
+                grid-template-columns: 1fr;
+            }
+
+            .mega-deal-actions {
+                flex-direction: column;
+            }
+
+            .mega-deal-btn-primary,
+            .mega-deal-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .deals-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .deal-results-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .deals-list .deal-card-modern {
+                flex-direction: column;
+            }
+
+            .deals-list .deal-card-image {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .newsletter-input-group {
+                flex-direction: column;
+            }
+
+            .newsletter-submit-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </body>
 </html>
-

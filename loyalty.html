@@ -6,7 +6,7 @@
     <title>Loyalty Program | RCG Connect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,20 +23,29 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="boatey.html">AI Agent</a>
-                <a href="forum.html">Forum</a>
-                <a href="memories.html">Memories</a>
+                <!-- Mobile Menu Header -->
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="mobile-menu-logo">
+                        <img src="RCGLOGO.png" alt="Royal Caribbean Group">
+                    </div>
+                    <button class="mobile-menu-signin" id="mobileMenuSignIn" aria-label="Sign In">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+                <!-- Menu Items -->
+                <a href="boatey.html">Voyage Companion</a>
+                <a href="forum.html">The Deck</a>
+                <a href="memories.html">SailBack</a>
                 <a href="loyalty.html" class="active">Loyalty</a>
                 <a href="find-cruise.html">Find a Cruise</a>
                 <a href="deals.html">Deals</a>
                 <a href="ships.html">Ships</a>
+                <a href="destinations.html">Destinations</a>
             </div>
             <div class="nav-actions">
-                <button class="nav-action-btn" id="manageCruiseBtn" title="Manage My Cruise">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Manage My Cruise</span>
-                </button>
                 <button class="nav-action-btn sign-in-btn" id="signInBtn">
                     <i class="fas fa-user"></i>
                     <span>Sign In</span>
@@ -82,384 +91,540 @@
         </div>
     </nav>
 
-    <!-- Loyalty Program Hero -->
-    <section class="loyalty-hero">
+    <!-- Hero Section with Video -->
+    <section class="loyalty-hero-modern">
+        <video class="loyalty-hero-video" autoplay muted loop playsinline>
+            <source src="RCGV2.mp4" type="video/mp4">
+        </video>
+        <div class="loyalty-hero-overlay"></div>
         <div class="container">
-            <div class="loyalty-hero-content">
-                <h1 class="loyalty-title">Crown & Anchor Society</h1>
-                <p class="loyalty-subtitle">Your journey to exclusive rewards and unforgettable experiences</p>
-                <div class="loyalty-stats-grid">
-                    <div class="loyalty-stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-value">32M+</div>
-                        <div class="stat-desc">Active Members</div>
+            <div class="loyalty-hero-content-modern">
+                <div class="hero-tier-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Crown & Anchor Society</span>
+                </div>
+                <h1 class="loyalty-hero-title">Your Journey to Exclusive Rewards</h1>
+                <p class="loyalty-hero-subtitle">Earn points with every cruise and unlock unforgettable experiences across all Royal Caribbean Group brands</p>
+                
+                <!-- Quick Stats -->
+                <div class="loyalty-hero-stats">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-value">32M+</div>
+                        <div class="hero-stat-label">Active Members</div>
                     </div>
-                    <div class="loyalty-stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-ship"></i>
-                        </div>
-                        <div class="stat-value">67</div>
-                        <div class="stat-desc">Ships Across 3 Brands</div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-value">67</div>
+                        <div class="hero-stat-label">Ships</div>
                     </div>
-                    <div class="loyalty-stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="stat-value">1,000+</div>
-                        <div class="stat-desc">Destinations</div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-value">1,000+</div>
+                        <div class="hero-stat-label">Destinations</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Loyalty Tiers Section -->
-    <section class="loyalty-tiers-section">
+    <!-- User Status Card -->
+    <section class="user-status-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Loyalty Tiers & Benefits</h2>
-                <p class="section-subtitle">Earn points with every cruise and unlock exclusive perks</p>
+            <div class="user-status-card">
+                <div class="user-status-header">
+                    <div class="user-status-info">
+                        <div class="user-status-avatar">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=E5E4E2&color=000&size=128" alt="User">
+                            <div class="user-tier-badge platinum">
+                                <i class="fas fa-star"></i>
+                                <span>Platinum</span>
+                            </div>
+                        </div>
+                        <div class="user-status-details">
+                            <h2>Your Loyalty Status</h2>
+                            <p class="user-tier-level">Platinum Member</p>
+                            <div class="user-points-display">
+                                <span class="current-points">42</span>
+                                <span class="points-label">Cruise Points</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="status-action-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>View Full Profile</span>
+                    </button>
+                </div>
+                
+                <div class="user-progress-section">
+                    <div class="progress-header">
+                        <span class="progress-label">Progress to Diamond Tier</span>
+                        <span class="progress-percentage">65%</span>
+                    </div>
+                    <div class="progress-bar-modern">
+                        <div class="progress-fill-modern" style="width: 65%"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>13 points earned</span>
+                        <span>13 points to Diamond</span>
+                    </div>
+                </div>
+
+                <div class="user-benefits-preview">
+                    <h3>Your Current Benefits</h3>
+                    <div class="benefits-preview-grid">
+                        <div class="benefit-preview-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Priority Boarding</span>
+                        </div>
+                        <div class="benefit-preview-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Specialty Dining (1 night)</span>
+                        </div>
+                        <div class="benefit-preview-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Platinum Lounge Access</span>
+                        </div>
+                        <div class="benefit-preview-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Internet (1 day)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Comparison Section -->
+    <section class="tier-comparison-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Loyalty Tiers & Benefits</h2>
+                <p class="section-subtitle-modern">Earn points with every cruise and unlock exclusive perks at each tier level</p>
             </div>
 
-            <div class="tiers-container">
+            <!-- Tier Navigation -->
+            <div class="tier-navigation">
+                <button class="tier-nav-btn active" data-tier="gold">
+                    <i class="fas fa-medal"></i>
+                    <span>Gold</span>
+                </button>
+                <button class="tier-nav-btn" data-tier="platinum">
+                    <i class="fas fa-star"></i>
+                    <span>Platinum</span>
+                </button>
+                <button class="tier-nav-btn" data-tier="diamond">
+                    <i class="fas fa-gem"></i>
+                    <span>Diamond</span>
+                </button>
+                <button class="tier-nav-btn" data-tier="diamond-plus">
+                    <i class="fas fa-crown"></i>
+                    <span>Diamond Plus</span>
+                </button>
+                <button class="tier-nav-btn" data-tier="pinnacle">
+                    <i class="fas fa-trophy"></i>
+                    <span>Pinnacle</span>
+                </button>
+            </div>
+
+            <!-- Tiers Grid -->
+            <div class="tiers-grid-modern">
                 <!-- Gold Tier -->
-                <div class="tier-card gold-tier">
-                    <div class="tier-header">
-                        <div class="tier-icon">
+                <div class="tier-card-modern gold-tier-card" data-tier="gold">
+                    <div class="tier-card-header">
+                        <div class="tier-icon-modern gold">
                             <i class="fas fa-medal"></i>
                         </div>
-                        <h3>Gold</h3>
-                        <p class="tier-requirement">3-29 Cruise Points</p>
+                        <div class="tier-info">
+                            <h3 class="tier-name">Gold</h3>
+                            <p class="tier-points">3-29 Cruise Points</p>
+                        </div>
                     </div>
-                    <div class="tier-benefits-list">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="tier-benefits-modern">
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority check-in</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Welcome back gift</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Exclusive member rates</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Members-only events</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary wine tasting</span>
                         </div>
                     </div>
+                    <button class="tier-card-btn">View All Benefits</button>
                 </div>
 
                 <!-- Platinum Tier -->
-                <div class="tier-card platinum-tier">
-                    <div class="tier-header">
-                        <div class="tier-icon">
+                <div class="tier-card-modern platinum-tier-card active" data-tier="platinum">
+                    <div class="tier-current-badge">Your Tier</div>
+                    <div class="tier-card-header">
+                        <div class="tier-icon-modern platinum">
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3>Platinum</h3>
-                        <p class="tier-requirement">30-54 Cruise Points</p>
+                        <div class="tier-info">
+                            <h3 class="tier-name">Platinum</h3>
+                            <p class="tier-points">30-54 Cruise Points</p>
+                        </div>
                     </div>
-                    <div class="tier-benefits-list">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="tier-benefits-modern">
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>All Gold benefits</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority boarding</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary specialty dining (1 night)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Platinum member exclusive lounge</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary internet (1 day)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority tender tickets</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>10% spa discount</span>
                         </div>
                     </div>
+                    <button class="tier-card-btn">View All Benefits</button>
                 </div>
 
                 <!-- Diamond Tier -->
-                <div class="tier-card diamond-tier">
-                    <div class="tier-header">
-                        <div class="tier-icon">
+                <div class="tier-card-modern diamond-tier-card" data-tier="diamond">
+                    <div class="tier-card-header">
+                        <div class="tier-icon-modern diamond">
                             <i class="fas fa-gem"></i>
                         </div>
-                        <h3>Diamond</h3>
-                        <p class="tier-requirement">55-79 Cruise Points</p>
+                        <div class="tier-info">
+                            <h3 class="tier-name">Diamond</h3>
+                            <p class="tier-points">55-79 Cruise Points</p>
+                        </div>
                     </div>
-                    <div class="tier-benefits-list">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="tier-benefits-modern">
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>All Platinum benefits</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Diamond Lounge access</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary specialty dining (2 nights)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary internet (2 days)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary photo</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority seating at shows</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>20% spa discount</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Diamond Plus exclusive events</span>
                         </div>
                     </div>
+                    <button class="tier-card-btn">View All Benefits</button>
                 </div>
 
                 <!-- Diamond Plus Tier -->
-                <div class="tier-card diamond-plus-tier">
-                    <div class="tier-header">
-                        <div class="tier-icon">
+                <div class="tier-card-modern diamond-plus-tier-card" data-tier="diamond-plus">
+                    <div class="tier-card-header">
+                        <div class="tier-icon-modern diamond-plus">
                             <i class="fas fa-crown"></i>
                         </div>
-                        <h3>Diamond Plus</h3>
-                        <p class="tier-requirement">80-174 Cruise Points</p>
+                        <div class="tier-info">
+                            <h3 class="tier-name">Diamond Plus</h3>
+                            <p class="tier-points">80-174 Cruise Points</p>
+                        </div>
                     </div>
-                    <div class="tier-benefits-list">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="tier-benefits-modern">
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>All Diamond benefits</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Diamond Plus Lounge access</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary specialty dining (3 nights)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary internet (3 days)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary laundry service</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority restaurant reservations</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>30% spa discount</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Exclusive shore excursion discounts</span>
                         </div>
                     </div>
+                    <button class="tier-card-btn">View All Benefits</button>
                 </div>
 
                 <!-- Pinnacle Tier -->
-                <div class="tier-card pinnacle-tier">
-                    <div class="tier-header">
-                        <div class="tier-icon">
+                <div class="tier-card-modern pinnacle-tier-card" data-tier="pinnacle">
+                    <div class="tier-card-header">
+                        <div class="tier-icon-modern pinnacle">
                             <i class="fas fa-trophy"></i>
                         </div>
-                        <h3>Pinnacle Club</h3>
-                        <p class="tier-requirement">175+ Cruise Points</p>
+                        <div class="tier-info">
+                            <h3 class="tier-name">Pinnacle Club</h3>
+                            <p class="tier-points">175+ Cruise Points</p>
+                        </div>
                     </div>
-                    <div class="tier-benefits-list">
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="tier-benefits-modern">
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>All Diamond Plus benefits</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Pinnacle Club exclusive lounge</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Unlimited specialty dining</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary internet (entire cruise)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary laundry (entire cruise)</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>50% spa discount</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Complimentary gratuities</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Priority access to all venues</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                        <div class="benefit-item-modern">
+                            <i class="fas fa-check"></i>
                             <span>Personalized concierge service</span>
                         </div>
                     </div>
+                    <button class="tier-card-btn">View All Benefits</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How to Earn Points -->
-    <section class="earn-points-section">
+    <section class="earn-points-section-modern">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How to Earn Cruise Points</h2>
-                <p class="section-subtitle">Every cruise brings you closer to the next tier</p>
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">How to Earn Cruise Points</h2>
+                <p class="section-subtitle-modern">Every cruise brings you closer to the next tier. Discover all the ways to maximize your points.</p>
             </div>
 
-            <div class="earn-points-grid">
-                <div class="earn-card">
-                    <div class="earn-icon">
+            <div class="earn-points-grid-modern">
+                <div class="earn-card-modern">
+                    <div class="earn-icon-modern">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3>Cruise Nights</h3>
-                    <p class="earn-amount">1 point per night</p>
-                    <p class="earn-description">Earn one point for each night you spend on a cruise, regardless of ship or destination.</p>
+                    <h3 class="earn-title">Cruise Nights</h3>
+                    <div class="earn-amount-modern">1 point per night</div>
+                    <p class="earn-description-modern">Earn one point for each night you spend on a cruise, regardless of ship or destination. The longer you cruise, the more points you earn!</p>
+                    <div class="earn-example">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Example: 7-night cruise = 7 points</span>
+                    </div>
                 </div>
 
-                <div class="earn-card">
-                    <div class="earn-icon">
+                <div class="earn-card-modern featured">
+                    <div class="earn-badge">Best Value</div>
+                    <div class="earn-icon-modern">
                         <i class="fas fa-bed"></i>
                     </div>
-                    <h3>Suite Stays</h3>
-                    <p class="earn-amount">Double Points</p>
-                    <p class="earn-description">Stay in a suite and earn double points for your entire cruise, accelerating your journey to the next tier.</p>
+                    <h3 class="earn-title">Suite Stays</h3>
+                    <div class="earn-amount-modern">Double Points</div>
+                    <p class="earn-description-modern">Stay in a suite and earn double points for your entire cruise, accelerating your journey to the next tier. Perfect for luxury travelers!</p>
+                    <div class="earn-example">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Example: 7-night suite = 14 points</span>
+                    </div>
                 </div>
 
-                <div class="earn-card">
-                    <div class="earn-icon">
+                <div class="earn-card-modern">
+                    <div class="earn-icon-modern">
                         <i class="fas fa-credit-card"></i>
                     </div>
-                    <h3>RCG Credit Card</h3>
-                    <p class="earn-amount">Bonus Points</p>
-                    <p class="earn-description">Use the Royal Caribbean Group credit card for purchases and earn bonus points on every transaction.</p>
+                    <h3 class="earn-title">RCG Credit Card</h3>
+                    <div class="earn-amount-modern">Bonus Points</div>
+                    <p class="earn-description-modern">Use the Royal Caribbean Group credit card for purchases and earn bonus points on every transaction. Points can be redeemed for cruises!</p>
+                    <div class="earn-example">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Earn points on everyday purchases</span>
+                    </div>
                 </div>
 
-                <div class="earn-card">
-                    <div class="earn-icon">
+                <div class="earn-card-modern">
+                    <div class="earn-icon-modern">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3>Promotional Offers</h3>
-                    <p class="earn-amount">Double Point Events</p>
-                    <p class="earn-description">Take advantage of special promotions that offer double or triple points on select sailings.</p>
+                    <h3 class="earn-title">Promotional Offers</h3>
+                    <div class="earn-amount-modern">Double Point Events</div>
+                    <p class="earn-description-modern">Take advantage of special promotions that offer double or triple points on select sailings. Watch for limited-time offers throughout the year!</p>
+                    <div class="earn-example">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Limited-time promotions available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Showcase -->
+    <section class="benefits-showcase-section">
+        <div class="container">
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Exclusive Member Benefits</h2>
+                <p class="section-subtitle-modern">Enjoy premium perks and privileges at every tier level</p>
+            </div>
+
+            <div class="benefits-showcase-grid">
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Priority Boarding</h3>
+                    <p>Skip the lines and board faster with priority embarkation. Start your vacation stress-free!</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Specialty Dining</h3>
+                    <p>Enjoy complimentary meals at our world-class specialty restaurants. Indulge in gourmet experiences!</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Internet Access</h3>
+                    <p>Stay connected with complimentary internet packages. Share your cruise moments in real-time!</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Exclusive Lounges</h3>
+                    <p>Relax in members-only lounges with complimentary drinks, snacks, and personalized service.</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Spa Discounts</h3>
+                    <p>Pamper yourself with exclusive spa discounts. The higher your tier, the more you save!</p>
+                </div>
+                <div class="benefit-showcase-card">
+                    <div class="benefit-icon-large">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>Priority Seating</h3>
+                    <p>Get the best seats at shows and entertainment venues. Premium viewing experiences await!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- RCG Brands Section -->
-    <section class="rcg-brands-section">
+    <section class="rcg-brands-section-modern">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Royal Caribbean Group Brands</h2>
-                <p class="section-subtitle">Three distinct brands, one loyalty program</p>
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Royal Caribbean Group Brands</h2>
+                <p class="section-subtitle-modern">Three distinct brands, one loyalty program. Your points work across all brands!</p>
             </div>
 
-            <div class="brands-grid">
-                <div class="brand-card">
-                    <div class="brand-logo-placeholder">
+            <div class="brands-grid-modern">
+                <div class="brand-card-modern">
+                    <div class="brand-icon-modern">
                         <i class="fas fa-ship"></i>
                     </div>
                     <h3>Royal Caribbean International</h3>
-                    <p class="brand-description">Innovation meets adventure on the world's most innovative cruise ships. From record-breaking attractions to world-class entertainment, create memories that last a lifetime.</p>
-                    <div class="brand-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>Innovative Ships</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-theater-masks"></i>
-                            <span>World-Class Entertainment</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-utensils"></i>
-                            <span>Diverse Dining</span>
-                        </div>
+                    <p class="brand-description-modern">Innovation meets adventure on the world's most innovative cruise ships. From record-breaking attractions to world-class entertainment.</p>
+                    <div class="brand-features">
+                        <span class="brand-feature-tag"><i class="fas fa-rocket"></i> Innovative Ships</span>
+                        <span class="brand-feature-tag"><i class="fas fa-theater-masks"></i> Entertainment</span>
+                        <span class="brand-feature-tag"><i class="fas fa-utensils"></i> Diverse Dining</span>
                     </div>
                 </div>
 
-                <div class="brand-card">
-                    <div class="brand-logo-placeholder">
+                <div class="brand-card-modern">
+                    <div class="brand-icon-modern">
                         <i class="fas fa-star"></i>
                     </div>
                     <h3>Celebrity Cruises</h3>
-                    <p class="brand-description">Luxury redefined. Experience sophisticated design, culinary excellence, and personalized service on modern, elegant ships designed for discerning travelers.</p>
-                    <div class="brand-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-spa"></i>
-                            <span>Luxury Spa</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-wine-glass"></i>
-                            <span>Culinary Excellence</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-concierge-bell"></i>
-                            <span>Personalized Service</span>
-                        </div>
+                    <p class="brand-description-modern">Luxury redefined. Experience sophisticated design, culinary excellence, and personalized service on modern, elegant ships.</p>
+                    <div class="brand-features">
+                        <span class="brand-feature-tag"><i class="fas fa-spa"></i> Luxury Spa</span>
+                        <span class="brand-feature-tag"><i class="fas fa-wine-glass"></i> Culinary Excellence</span>
+                        <span class="brand-feature-tag"><i class="fas fa-concierge-bell"></i> Personalized Service</span>
                     </div>
                 </div>
 
-                <div class="brand-card">
-                    <div class="brand-logo-placeholder">
+                <div class="brand-card-modern">
+                    <div class="brand-icon-modern">
                         <i class="fas fa-gem"></i>
                     </div>
                     <h3>Silversea Cruises</h3>
-                    <p class="brand-description">Ultra-luxury expedition cruising. Intimate ships, all-inclusive elegance, and immersive experiences in the world's most remote destinations.</p>
-                    <div class="brand-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-compass"></i>
-                            <span>Expedition Cruises</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-infinity"></i>
-                            <span>All-Inclusive</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-users"></i>
-                            <span>Intimate Ships</span>
-                        </div>
+                    <p class="brand-description-modern">Ultra-luxury expedition cruising. Intimate ships, all-inclusive elegance, and immersive experiences in remote destinations.</p>
+                    <div class="brand-features">
+                        <span class="brand-feature-tag"><i class="fas fa-compass"></i> Expedition Cruises</span>
+                        <span class="brand-feature-tag"><i class="fas fa-infinity"></i> All-Inclusive</span>
+                        <span class="brand-feature-tag"><i class="fas fa-users"></i> Intimate Ships</span>
                     </div>
                 </div>
             </div>
@@ -467,60 +632,93 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="loyalty-faq-section">
+    <section class="loyalty-faq-section-modern">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="section-header-modern">
+                <h2 class="section-title-modern">Frequently Asked Questions</h2>
+                <p class="section-subtitle-modern">Everything you need to know about the Crown & Anchor Society</p>
             </div>
 
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
+            <div class="faq-container-modern">
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
                         <h3>How do I join the Crown & Anchor Society?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-modern">
                         <p>You're automatically enrolled in the Crown & Anchor Society after completing your first cruise with any Royal Caribbean Group brand. No registration required - your membership starts with your first sailing!</p>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
                         <h3>Do points expire?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-modern">
                         <p>No, your cruise points never expire. Once earned, they remain in your account permanently, allowing you to progress through tiers at your own pace.</p>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
                         <h3>Can I combine points from different brands?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-modern">
                         <p>Yes! Points earned on Royal Caribbean International, Celebrity Cruises, and Silversea all count toward your Crown & Anchor Society status. One loyalty program, three amazing brands.</p>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
                         <h3>How do I check my current tier status?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-modern">
                         <p>Log in to your account on RCG Connect to view your current tier, points balance, and progress toward the next level. You can also check your status through the mobile app or by contacting guest services.</p>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
                         <h3>What happens when I reach a new tier?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer-modern">
                         <p>Your new tier status is effective immediately on your next cruise. You'll receive a welcome email with details about your new benefits, and your membership card will reflect your updated tier level.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item-modern">
+                    <div class="faq-question-modern">
+                        <h3>How do I earn double points?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer-modern">
+                        <p>You can earn double points by booking a suite or taking advantage of special promotional offers. Suite stays automatically earn double points for the entire cruise duration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="loyalty-cta-section">
+        <div class="container">
+            <div class="loyalty-cta-card">
+                <div class="cta-content">
+                    <h2>Ready to Start Earning Points?</h2>
+                    <p>Book your next cruise and begin your journey to exclusive rewards and unforgettable experiences.</p>
+                    <div class="cta-buttons">
+                        <a href="find-cruise.html" class="cta-btn-primary">
+                            <span>Find Your Next Cruise</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="deals.html" class="cta-btn-secondary">
+                            <span>View Special Offers</span>
+                            <i class="fas fa-tag"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -539,7 +737,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="forum.html">The Deck</a></li>
                         <li><a href="loyalty.html">Loyalty</a></li>
                         <li><a href="find-cruise.html">Find a Cruise</a></li>
                     </ul>
@@ -568,24 +766,979 @@
 
     <script src="script.js"></script>
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const faqItem = this.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+        // Tier Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tierNavButtons = document.querySelectorAll('.tier-nav-btn');
+            const tierCards = document.querySelectorAll('.tier-card-modern');
+
+            tierNavButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTier = this.getAttribute('data-tier');
+                    
+                    // Update active button
+                    tierNavButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter tier cards
+                    tierCards.forEach(card => {
+                        if (card.getAttribute('data-tier') === targetTier) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            card.style.transform = 'scale(1.05)';
+                            setTimeout(() => {
+                                card.style.transform = '';
+                            }, 300);
+                        }
+                    });
                 });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
             });
+
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question-modern');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item-modern').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // Animate progress bar
+            const progressFill = document.querySelector('.progress-fill-modern');
+            if (progressFill) {
+                setTimeout(() => {
+                    progressFill.style.transition = 'width 1s ease-out';
+                }, 100);
+            }
         });
     </script>
+
+    <style>
+        /* Loyalty Hero Modern */
+        .loyalty-hero-modern {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .loyalty-hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .loyalty-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.6) 0%, rgba(10, 14, 39, 0.85) 100%);
+            z-index: 2;
+        }
+
+        .loyalty-hero-content-modern {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 30px;
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .loyalty-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .loyalty-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .loyalty-hero-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-stat-item {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-stat-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* User Status Card */
+        .user-status-section {
+            padding: 3rem 0;
+            background: var(--gray-light);
+            margin-top: -50px;
+            position: relative;
+            z-index: 4;
+        }
+
+        .user-status-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px var(--shadow);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .user-status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .user-status-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .user-status-avatar {
+            position: relative;
+        }
+
+        .user-status-avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid var(--gray-light);
+        }
+
+        .user-tier-badge {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-tier-badge.platinum {
+            background: linear-gradient(135deg, #E5E4E2, #B8B8B8);
+            color: var(--navy);
+        }
+
+        .user-status-details h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .user-tier-level {
+            font-size: 1rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .user-points-display {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .current-points {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--aqua);
+        }
+
+        .points-label {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        .status-action-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .status-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        .user-progress-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--gray-light);
+            border-radius: 16px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .progress-percentage {
+            font-weight: 800;
+            color: var(--aqua);
+            font-size: 1.25rem;
+        }
+
+        .progress-bar-modern {
+            height: 12px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill-modern {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        .progress-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .user-benefits-preview h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .benefits-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-preview-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .benefit-preview-item i {
+            color: var(--aqua);
+        }
+
+        /* Tier Comparison Section */
+        .tier-comparison-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-header-modern {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title-modern {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle-modern {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tier-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tier-nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--gray-light);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .tier-nav-btn:hover {
+            background: var(--aqua-light);
+            border-color: var(--aqua);
+        }
+
+        .tier-nav-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .tier-nav-btn i {
+            font-size: 1.5rem;
+        }
+
+        .tiers-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tier-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 2px solid var(--gray);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tier-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+            border-color: var(--aqua);
+        }
+
+        .tier-card-modern.active {
+            border-color: var(--aqua);
+            border-width: 3px;
+        }
+
+        .tier-current-badge {
+            position: absolute;
+            top: -12px;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .tier-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .tier-icon-modern {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .tier-icon-modern.gold {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .tier-icon-modern.platinum {
+            background: linear-gradient(135deg, #E5E4E2, #B8B8B8);
+        }
+
+        .tier-icon-modern.diamond {
+            background: linear-gradient(135deg, #B9F2FF, #00AEEF);
+        }
+
+        .tier-icon-modern.diamond-plus {
+            background: linear-gradient(135deg, #00AEEF, #0066FF);
+        }
+
+        .tier-icon-modern.pinnacle {
+            background: linear-gradient(135deg, #FFD700, #FF6B6B);
+        }
+
+        .tier-info {
+            flex: 1;
+        }
+
+        .tier-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .tier-points {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+
+        .tier-benefits-modern {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            min-height: 200px;
+        }
+
+        .benefit-item-modern {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+            font-weight: 500;
+            color: var(--navy);
+            transition: all 0.2s ease;
+        }
+
+        .benefit-item-modern:hover {
+            background: var(--aqua-light);
+            transform: translateX(5px);
+        }
+
+        .benefit-item-modern i {
+            color: var(--aqua);
+            font-size: 0.9rem;
+        }
+
+        .tier-card-btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tier-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Earn Points Section Modern */
+        .earn-points-section-modern {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+
+        .earn-points-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .earn-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .earn-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+            border-color: var(--aqua);
+        }
+
+        .earn-card-modern.featured {
+            border-color: var(--aqua);
+            border-width: 3px;
+        }
+
+        .earn-badge {
+            position: absolute;
+            top: -12px;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        .earn-icon-modern {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .earn-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .earn-amount-modern {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--aqua);
+            margin-bottom: 1rem;
+        }
+
+        .earn-description-modern {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .earn-example {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: var(--gray-light);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+
+        .earn-example i {
+            color: var(--aqua);
+        }
+
+        /* Benefits Showcase */
+        .benefits-showcase-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .benefits-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-showcase-card {
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-showcase-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .benefit-icon-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .benefit-showcase-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-showcase-card p {
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        /* RCG Brands Modern */
+        .rcg-brands-section-modern {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+
+        .brands-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .brand-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .brand-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px var(--shadow-lg);
+        }
+
+        .brand-icon-modern {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .brand-card-modern h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .brand-description-modern {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .brand-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .brand-feature-tag {
+            padding: 0.5rem 1rem;
+            background: var(--gray-light);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-feature-tag i {
+            color: var(--aqua);
+        }
+
+        /* FAQ Modern */
+        .loyalty-faq-section-modern {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .faq-container-modern {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item-modern {
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item-modern:hover {
+            border-color: var(--aqua);
+        }
+
+        .faq-item-modern.active {
+            border-color: var(--aqua);
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.2);
+        }
+
+        .faq-question-modern {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question-modern h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .faq-question-modern i {
+            color: var(--aqua);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item-modern.active .faq-question-modern i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer-modern {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item-modern.active .faq-answer-modern {
+            max-height: 500px;
+        }
+
+        .faq-answer-modern p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .loyalty-cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #001F54 0%, #00AEEF 100%);
+        }
+
+        .loyalty-cta-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary,
+        .cta-btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 174, 239, 0.4);
+        }
+
+        .cta-btn-secondary {
+            background: white;
+            color: var(--navy);
+            border: 2px solid var(--gray);
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: var(--aqua);
+            background: var(--gray-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .loyalty-hero-modern {
+                height: 500px;
+            }
+
+            .user-status-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .user-status-info {
+                width: 100%;
+            }
+
+            .status-action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tier-navigation {
+                gap: 0.5rem;
+            }
+
+            .tier-nav-btn {
+                min-width: 100px;
+                padding: 0.75rem 1rem;
+            }
+
+            .tiers-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .earn-points-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brands-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn-primary,
+            .cta-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </body>
 </html>
-

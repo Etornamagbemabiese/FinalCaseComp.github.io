@@ -341,10 +341,18 @@ function initAgentSetup() {
     const setupOverlay = document.getElementById('agentSetupOverlay');
     const agentNameInput = document.getElementById('agentName');
     const startChatBtn = document.getElementById('startChatBtn');
+    const setupCloseBtn = document.getElementById('setupCloseBtn');
     const personalityOptions = document.querySelectorAll('.personality-option');
     const chatMainContainer = document.getElementById('chatMainContainer');
     
     if (!setupOverlay || !agentNameInput || !startChatBtn) return;
+    
+    // Handle close button - navigate back to boatey.html
+    if (setupCloseBtn) {
+        setupCloseBtn.addEventListener('click', function() {
+            window.location.href = 'boatey.html';
+        });
+    }
     
     let selectedPersonality = null;
     let selectedAvatar = null;
